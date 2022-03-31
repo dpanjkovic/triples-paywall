@@ -1,6 +1,6 @@
 {
   "files": {
-    "main.css": "/triples-paywall/static/css/main.bb9c4ded.css",
+    "main.css": "/triples-paywall/static/css/main.a5f3deda.css",
     "main.js": "/triples-paywall/static/js/main.2042a3eb.js",
     "static/js/787.1c2992ca.chunk.js": "/triples-paywall/static/js/787.1c2992ca.chunk.js",
     "static/media/tools.png": "/triples-paywall/static/media/tools.d76edbb919fac4ecb53a.png",
@@ -10,12 +10,12 @@
     "static/media/eInvoice1.png": "/triples-paywall/static/media/eInvoice1.200de667fb95cfecea3d.png",
     "static/media/investors.png": "/triples-paywall/static/media/investors.7d9172f9d00e66d0a3f2.png",
     "index.html": "/triples-paywall/index.html",
-    "main.bb9c4ded.css.map": "/triples-paywall/static/css/main.bb9c4ded.css.map",
+    "main.a5f3deda.css.map": "/triples-paywall/static/css/main.a5f3deda.css.map",
     "main.2042a3eb.js.map": "/triples-paywall/static/js/main.2042a3eb.js.map",
     "787.1c2992ca.chunk.js.map": "/triples-paywall/static/js/787.1c2992ca.chunk.js.map"
   },
   "entrypoints": [
-    "static/css/main.bb9c4ded.css",
+    "static/css/main.a5f3deda.css",
     "static/js/main.2042a3eb.js"
   ]
 }
