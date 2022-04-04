@@ -1,18 +1,14 @@
 {
   "files": {
-    "main.css": "/triples-paywall/static/css/main.e7a7fb6b.css",
-    "main.js": "/triples-paywall/static/js/main.0cfb5eef.js",
+    "main.css": "/triples-paywall/static/css/main.ebe41f90.css",
+    "main.js": "/triples-paywall/static/js/main.bda04061.js",
     "static/js/787.1c2992ca.chunk.js": "/triples-paywall/static/js/787.1c2992ca.chunk.js",
-    "static/media/tools.mp4": "/triples-paywall/static/media/tools.134cd5c77b38ab6b3c3e.mp4",
-    "static/media/einvoice.mp4": "/triples-paywall/static/media/einvoice.7f2c2d1c60278ff2b408.mp4",
-    "static/media/tools.png": "/triples-paywall/static/media/tools.d76edbb919fac4ecb53a.png",
-    "static/media/eInvoice.png": "/triples-paywall/static/media/eInvoice.6ae6e7d2184edc127318.png",
+    "static/media/tools.mp4": "/triples-paywall/static/media/tools.6402390feffb9949a36e.mp4",
+    "static/media/einvoice.mp4": "/triples-paywall/static/media/einvoice.95f6dc8406eba5a5f480.mp4",
     "static/media/top.png": "/triples-paywall/static/media/top.4c8442d4ea403142fd9f.png",
-    "static/media/keyfeatures.png": "/triples-paywall/static/media/keyfeatures.ee9d32bf630316d22f90.png",
-    "static/media/eInvoice1.png": "/triples-paywall/static/media/eInvoice1.200de667fb95cfecea3d.png",
-    "static/media/investors.png": "/triples-paywall/static/media/investors.7d9172f9d00e66d0a3f2.png",
     "static/media/howisworkingbg.png": "/triples-paywall/static/media/howisworkingbg.b6590a7b3fa9c9fd9bd4.png",
     "static/media/opportunity.png": "/triples-paywall/static/media/opportunity.bdff6a649d3c9170444e.png",
+    "static/media/top-mobile.png": "/triples-paywall/static/media/top-mobile.f0244020f607de36eac9.png",
     "static/media/automatic-reminder.png": "/triples-paywall/static/media/automatic-reminder.e3bcd19ed069d40006c8.png",
     "static/media/track-and-manage.png": "/triples-paywall/static/media/track-and-manage.c2617424e227499f64b2.png",
     "static/media/footer-saudi.png": "/triples-paywall/static/media/footer-saudi.b73b2205f9fb392a1712.png",
@@ -20,13 +16,14 @@
     "static/media/logotype.png": "/triples-paywall/static/media/logotype.62c0819c4ca85e3c5a49.png",
     "static/media/application.png": "/triples-paywall/static/media/application.801530416eba95f86344.png",
     "static/media/colors.png": "/triples-paywall/static/media/colors.0d2a5e6af032fbda0756.png",
+    "static/media/waves.png": "/triples-paywall/static/media/waves.d6b8c1478637b7a27cbb.png",
     "index.html": "/triples-paywall/index.html",
-    "main.e7a7fb6b.css.map": "/triples-paywall/static/css/main.e7a7fb6b.css.map",
-    "main.0cfb5eef.js.map": "/triples-paywall/static/js/main.0cfb5eef.js.map",
+    "main.ebe41f90.css.map": "/triples-paywall/static/css/main.ebe41f90.css.map",
+    "main.bda04061.js.map": "/triples-paywall/static/js/main.bda04061.js.map",
     "787.1c2992ca.chunk.js.map": "/triples-paywall/static/js/787.1c2992ca.chunk.js.map"
   },
   "entrypoints": [
-    "static/css/main.e7a7fb6b.css",
-    "static/js/main.0cfb5eef.js"
+    "static/css/main.ebe41f90.css",
+    "static/js/main.bda04061.js"
   ]
 }
