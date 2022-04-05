@@ -1,0 +1,51 @@
+.privacy {
+  padding: 158px 110px 122px;
+  position: relative;
+}
+
+.container {
+  margin-top: 65px;
+}
+
+.links {
+  width: 282px;
+  text-align: start;
+}
+
+.links h5 {
+  margin-bottom: 30px;
+}
+
+.spacer {
+  margin-right: 40px;
+}
+
+.content {
+  width: 899px;
+  text-align: start;
+}
+
+.content p {
+  margin-bottom: 10px;
+}
+
+.content h3 {
+  margin: 40px 0 30px;
+}
+
+.heading {
+  position: absolute;
+  top: 102px;
+  width: 100%;
+}
+
+@media only screen and (max-width: 1024px) {
+  .privacy {
+    padding: 30px 20px 30px;
+    position: relative;
+  }
+
+  .links, .spacer {
+    display: none;
+  }
+}
