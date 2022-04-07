@@ -1,7 +1,7 @@
 {
   "files": {
-    "main.css": "/triples-paywall/static/css/main.7655a393.css",
-    "main.js": "/triples-paywall/static/js/main.370c9f9e.js",
+    "main.css": "/triples-paywall/static/css/main.d21ca24c.css",
+    "main.js": "/triples-paywall/static/js/main.114ebe5d.js",
     "static/js/787.1c2992ca.chunk.js": "/triples-paywall/static/js/787.1c2992ca.chunk.js",
     "static/media/tools.mp4": "/triples-paywall/static/media/tools.6402390feffb9949a36e.mp4",
     "static/media/einvoice.mp4": "/triples-paywall/static/media/einvoice.95f6dc8406eba5a5f480.mp4",
@@ -33,12 +33,12 @@
     "static/media/waves.png": "/triples-paywall/static/media/waves.d6b8c1478637b7a27cbb.png",
     "static/media/tree.png": "/triples-paywall/static/media/tree.6043f48c6b3539466bac.png",
     "index.html": "/triples-paywall/index.html",
-    "main.7655a393.css.map": "/triples-paywall/static/css/main.7655a393.css.map",
-    "main.370c9f9e.js.map": "/triples-paywall/static/js/main.370c9f9e.js.map",
+    "main.d21ca24c.css.map": "/triples-paywall/static/css/main.d21ca24c.css.map",
+    "main.114ebe5d.js.map": "/triples-paywall/static/js/main.114ebe5d.js.map",
     "787.1c2992ca.chunk.js.map": "/triples-paywall/static/js/787.1c2992ca.chunk.js.map"
   },
   "entrypoints": [
-    "static/css/main.7655a393.css",
-    "static/js/main.370c9f9e.js"
+    "static/css/main.d21ca24c.css",
+    "static/js/main.114ebe5d.js"
   ]
 }
