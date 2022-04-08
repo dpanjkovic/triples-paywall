@@ -1,17 +1,23 @@
 import React from "react";
-import { useMediaQuery } from 'react-responsive';
 import topImage from "../../assets/images/privacy/top.png";
 import topImageMobile from "../../assets/images/privacy/top-mobile.png";
+import { useSelector } from "react-redux";
+import Loader from "../../components/loader";
+
 import './style.css';
 
 function PrivacyPolicy() {
-  const isDesktopOrLaptop = useMediaQuery({ query: '(min-width: 1224px)' });
-  const isPortrait = useMediaQuery({ query: '(orientation: portrait)' })
+  const vars = useSelector((state) => state.vars.value);
+  const display = useSelector((state) => state.display.value);
 
   return (
     <div className="privacy">
+    { !vars.imgsLoaded ?
+      <Loader />
+      :
+      <>
       <div className="relative">
-        <img src={isPortrait ? topImageMobile : topImage} className="topimage w-full" />
+        <img src={display.isPortrait ? topImageMobile : topImage} className="topimage w-full" alt="" />
         <div className="heading">
           <h1>Privacy Policy</h1>
         </div>
@@ -26,7 +32,7 @@ function PrivacyPolicy() {
           <a href="#youngpeople"><h5>Young people</h5></a>
           <a href="#rights"><h5>Your Rights</h5></a>
         </div>
-        <div className="spacer"><img src={require("../../assets/images/privacy/separator.png")} /></div>
+        <div className="spacer"><img src={require("../../assets/images/privacy/separator.png")} alt="" /></div>
         <div className="content body">
           <p>Paywall is committed to protecting your privacy online. This Privacy Policy endeavours to describe to you our practices regarding the personal information we collect from users on our website, located at lipsum.com (the “Site”), and the services offered through the Site. If you have any questions about our Privacy Policy, our collection practices, the processing of user information, or if you would like to report a security violation to us directly, please contact us at help@banzen.io</p>
           <h3 id="data">What data we collect</h3>
@@ -81,6 +87,8 @@ function PrivacyPolicy() {
           </ul>
         </div>
       </div>
+      </>
+    }
     </div>
   );
 }

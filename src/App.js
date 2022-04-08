@@ -1,24 +1,135 @@
+import React, { useEffect } from "react";
 import './App.css';
 import Header from './components/header';
 import Footer from './components/footer';
 import Homepage from './pages/homepage';
-import { Routes, Route, BrowserRouter } from "react-router-dom";
+import { Routes, Route, useLocation } from "react-router-dom";
 import PrivacyPolicy from './pages/privacy';
-import ScrollToTop from './components/scrolltotop';
+import AboutUs from './pages/aboutus';
+import Payroll from './pages/payroll';
+import { useDispatch } from "react-redux";
+import { useMediaQuery } from "react-responsive";
+import { setVars } from "./store/varsSlice";
+import { setDisplay } from './store/displaySlice';
+import WhitePapers from "./pages/whitepapers";
+
+const IMAGES = {
+  "/" : [
+    require("./assets/images/homepage/top.png"), 
+    require("./assets/images/homepage/play.png"),
+    require("./assets/images/homepage/appstore.png"),
+    require("./assets/images/homepage/avatars.png"),
+    require("./assets/images/homepage/opportunity.png"),
+    require("./assets/images/homepage/automatic-reminder.png"),
+  ],
+  "/aboutus" : [
+    require("./assets/images/aboutus/top.png"), 
+    require("./assets/images/aboutus/top-mobile.png"),
+    require("./assets/images/aboutus/background.png"),
+    require("./assets/images/aboutus/background-mobile.png"),
+    require("./assets/images/aboutus/ash-kalra.png"),
+    require("./assets/images/aboutus/rayan-fouad-mustafa-azab.png"),
+    require("./assets/images/aboutus/cards.png"),
+    require("./assets/images/homepage/intersect.png"),
+    require("./assets/images/einvoice.png"),
+    require("./assets/images/homepage/einvoice-saves.png"),
+    require("./assets/images/homepage/einvoice-quick.png"),
+    require("./assets/images/aboutus/advisors-left.png"),
+    require("./assets/images/aboutus/advisors-right.png"),
+  ],
+  "/payroll" : [
+    require("./assets/images/payroll/top.png"), 
+    require("./assets/images/payroll/top-mobile.png"), 
+    require("./assets/images/payroll/background.png"),
+    require("./assets/images/payroll/background-mobile.png"),
+    require("./assets/images/payroll/earlyaccess.png"),
+    require("./assets/images/payroll/earlyaccess-mobile.png"),
+    require("./assets/images/homepage/intersect.png"),
+    require("./assets/images/einvoice.png"),
+    require("./assets/images/payroll/screenshot.png"),
+    require("./assets/images/payroll/tree.png"),
+    require("./assets/images/payroll/worker-mobile.png"),
+    require("./assets/images/payroll/worker1-mobile.png"),
+    require("./assets/images/payroll/worker2-mobile.png"),
+    require("./assets/images/payroll/worker.png"),
+    require("./assets/images/payroll/worker1.png"),
+    require("./assets/images/payroll/worker2.png"),
+    require("./assets/images/payroll/biometrics.png"),
+    require("./assets/images/payroll/bank.png"),
+    require("./assets/images/payroll/crypto.png"),
+    require("./assets/images/payroll/encryption.png"),
+    require("./assets/images/payroll/commodo1.png"),
+    require("./assets/images/payroll/commodo2.png"),
+    require("./assets/images/payroll/commodo3.png"),
+    require("./assets/images/payroll/commodo4.png"),
+  ],
+  "/privacy" : [
+    require("./assets/images/privacy/top.png"), 
+    require("./assets/images/privacy/top-mobile.png"),
+  ],
+  "/whitepapers" : [
+    require("./assets/images/privacy/top.png"), 
+    require("./assets/images/privacy/top-mobile.png"),
+    require("./assets/images/whitepapers/whitepaper1.png"), 
+    require("./assets/images/whitepapers/whitepaper2.png"),
+  ],
+  }
+
+const loadImage = image => {
+  return new Promise((resolve, reject) => {
+    const loadImg = new Image()
+    loadImg.src = image
+    loadImg.onload = () =>
+      setTimeout(() => {
+        resolve(image)
+      }, 500)
+
+    loadImg.onerror = err => reject(err)
+  })
+}
 
 function App() {
+  const dispatch = useDispatch();
+
+  const { pathname, hash } = useLocation();
+  const isDesktopOrLaptop = useMediaQuery({ query: '(min-width: 1224px)' });
+  const isPortrait = useMediaQuery({ query: '(orientation: portrait)' });
+
+  dispatch(setDisplay({ isDesktopOrLaptop, isPortrait }));
+
+  useEffect(() => {
+    window.scrollTo(0, 0);
+    
+    dispatch(setVars({ imgsLoaded: false, changePage: false }));
+
+    const imgs = IMAGES[pathname];
+
+    if (imgs) {
+      Promise.all(imgs.map(image => loadImage(image)))
+      .then(() => {
+        dispatch(setVars({ imgsLoaded: true, changePage: true }));
+        console.log(hash)
+        if (hash) setTimeout(window.location.href = hash, 500);
+      })
+      .catch(err => console.log("Failed to load images", err))
+    } else {
+      dispatch(setVars({ imgsLoaded: true, changePage: true }));
+    }
+
+  }, [dispatch, pathname, hash]);
+
   return (
-    <BrowserRouter basename='triples-paywall'>
-      <ScrollToTop />
-      <div className="App">
-        <Header />
-        <Routes>
-          <Route path="/privacy" element={<PrivacyPolicy />} />
-          <Route path="*" element={<Homepage />} />
-        </Routes>
-        <Footer />
-      </div>
-    </BrowserRouter>
+    <div className="App">
+      <Header />
+      <Routes>
+        <Route path="/privacy" element={<PrivacyPolicy />} />
+        <Route path="/aboutus" element={<AboutUs />} />
+        <Route path="/payroll" element={<Payroll />} />
+        <Route path="/whitepapers" element={<WhitePapers />} />
+        <Route path="*" element={<Homepage />} />
+      </Routes>
+      <Footer />
+    </div>
   );
 }
 

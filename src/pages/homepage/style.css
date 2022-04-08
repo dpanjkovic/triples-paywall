@@ -240,7 +240,7 @@
 
 .homepage .einvoice .benefits {
   position: absolute;
-  width: 505px;
+  width: 530px;
   height: 369px;
   left: 698px;
   top: 530px;
@@ -253,7 +253,7 @@
   width: fit-content;
   padding: 0px 20px;
   height: 66px;
-  line-height: 66px;
+  line-height: 20px;
   font-weight: 600;
   margin-bottom: 35px;
   opacity: 0;
@@ -273,7 +273,7 @@
 
 .homepage .einvoice .benefits .button img {
   float: left;
-  margin: 10px 10px 0px 0px;
+  margin: -10px 10px 0px 0px;
 }
 
 .homepage .tools .wanttotalk {
@@ -314,7 +314,7 @@
     margin-bottom: 20px;
   }
 
-  .homepage .buttons img {
+  .homepage .buttons .apps img {
     margin-right: 0px;
     height: 44px;
   }

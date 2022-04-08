@@ -1,0 +1,459 @@
+.payroll {
+  position: relative;
+}
+
+.payroll .heading {
+  text-align: center;
+  top: 158px;
+}
+
+.payroll .solution {
+  margin: 100px 213px;
+  text-align: start;
+}
+
+.payroll .solution h2 {
+  width: 600px;
+}
+
+.payroll .solution .block {
+  display: flex;
+  align-items: center;
+  text-align: start;
+  width: 1014px;
+  justify-content: space-between;
+}
+
+.payroll .solution .block .item {
+  width: 394px;
+}
+
+.payroll .slider {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin: 100px 125px 100px 213px;
+}
+
+.payroll .slider .links {
+  text-align: start;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  height: 517px;
+  padding: 40px 0px;
+}
+
+.payroll .slider .links div {
+  cursor: pointer;
+}
+
+.payroll .slider .links div .dot {
+  width: 16px;
+  height: 16px;
+  border-radius: 10px;
+  display: none;
+  background: #EEEEF2;
+  transition: all 0.5s ease;
+}
+
+.payroll .slider .links div:hover, .payroll .slider .links div.active {
+  color: #B166EB;
+  background: linear-gradient(90deg, #F1A4DE 0%, #B166EB 50.52%, #7D39F5 100%), #FFFFFF;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  transition: all 0.5s ease;
+}
+
+.payroll .slider .keen-slider {
+  width: 843px;
+  height: 517px;
+  background: #F4F7FC;
+  border-radius: 30px;
+}
+
+.payroll .slider .keen-slider .keen-slider__slide {
+  padding: 20px 50px;
+  width: 600px;
+  text-align: start;
+}
+
+.payroll .transfer {
+  margin: 100px 20px;
+  height: 1347px;
+  color: white;
+  position: relative;
+}
+
+.payroll .transfer .background {
+  position: absolute;
+}
+
+.payroll .transfer h2 {
+  position: relative;
+  width: 600px;
+  padding-top: 60px;
+  margin: 0px auto;
+}
+
+.payroll .transfer .tree, .payroll .transfer .safety {
+  position: relative;
+  display: flex;
+  margin: 50px 85px;
+  align-items: center;
+}
+
+.payroll .transfer .tree .cards {
+  height: 458px;
+  display: flex;
+  align-items: center;
+}
+
+.payroll .transfer .tree .workers {
+  margin-left: 30px;
+  height: 320px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.payroll .transfer .tree .workers .worker {
+  background-color: #21232B;
+  border-radius: 10px;
+  padding: 10px 20px 10px 10px;
+}
+
+.payroll .transfer .safety {
+  margin-top: 100px;
+  width: 488px;
+  text-align: start;
+}
+
+.payroll .transfer .safety h3 {
+  margin: 30px 0px;
+}
+
+.payroll .transfer .safety h2 {
+  padding-top: 0px;
+}
+
+.payroll .transfer .safety h2 span {
+  color: #B166EB;
+  background: linear-gradient(90deg, #F1A4DE 0%, #B166EB 50.52%, #7D39F5 100%), #FFFFFF;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+.payroll .transfer .safety .body {
+  color: #A5A9BB
+}
+
+.payroll .transfer .safety .boxes {
+  display: flex;
+}
+
+.payroll .transfer .safety .boxes .row .box {
+  width: 290px;
+  height: 218px;
+  
+  background: rgba(15, 7, 31, 0.5);
+  box-shadow: 20px 4px 84px rgba(9, 3, 40, 0.7);
+  backdrop-filter: blur(44px);
+  border-radius: 15px;
+  margin: 20px;
+  display: flex;
+  align-items: flex-start;
+  flex-direction: column;
+  justify-content: center;
+  padding: 25px;
+}
+
+.payroll .transfer .safety .boxes .row .box h5 {
+  color: #A5A9BB;
+  margin-top: 30px;
+}
+
+.payroll .commodo {
+  display: flex;
+  align-items: flex-start;
+  width: 100%;
+  justify-content: space-between;
+  height: 515px;
+}
+
+.payroll .commodo .commodo-left, .payroll .commodo .commodo-right {
+  display: flex;
+  height: 100%;
+}
+
+.payroll .commodo .commodo1 {
+  align-self: baseline;
+  margin-right: 20px;
+}
+
+.payroll .commodo .commodo2 {
+  align-self: flex-end;
+}
+
+.payroll .commodo .commodo3 {
+  align-self: center;
+  margin-right: 20px;
+}
+
+.payroll .commodo .text {
+  width: 600px;
+  padding: 0 44px;
+}
+
+.payroll .earlyaccess {
+  width: 1014px;
+  height: 312px;
+  margin: 100px 213px;
+  position: relative;
+  display: flex;
+  align-items: center;
+  text-align: start;
+  justify-content: space-between;
+}
+
+.payroll .earlyaccess .background {
+  position: absolute;
+  top: 0px;
+  left: 0;
+}
+
+.payroll .earlyaccess h1 {
+  position: relative;
+  margin: 50px;
+  width: 490px;
+}
+
+.payroll .earlyaccess .item {
+  position: relative;
+  margin-right: 50px;
+}
+
+@media only screen and (max-width: 1024px) {
+
+  .payroll .topimage {
+    width: 100%;
+  }
+
+  .payroll .heading h1 {
+    margin: 0px 30px;
+  }
+
+  .payroll .solution {
+    margin: 50px 20px;
+  }
+
+  .payroll .solution h2 {
+    width: 100%;
+  }
+
+  .payroll .solution .block {
+    flex-direction: column;
+    width: 100%;
+  }
+
+  .payroll .solution .block .item {
+    width: 100%;
+  }
+
+  .payroll .slider {
+    flex-direction: column-reverse;
+    margin: 50px 20px;
+  }
+
+  .payroll .slider .keen-slider, .payroll .slider .keen-slider .keen-slider__slide {
+    width: 100%;
+    height: 370px;
+  }
+
+  .payroll .slider .keen-slider .keen-slider__slide h2 {
+    margin-top: 0;
+  }
+
+  .payroll .slider .links {
+    height: auto;
+    flex-direction: row;
+  }
+
+  .payroll .slider .links div h4 {
+    display: none;
+  }
+
+  .payroll .slider .links div .dot {
+    display: block;
+    transition: all 0.5s ease;
+    margin: 0px auto;
+  }
+
+  .payroll .slider .links div:hover .dot {
+    background: #EEEEF2;
+  }
+
+  .payroll .slider .links div.active {
+    width: 50px;
+    height: 16px;
+  }
+
+  .payroll .slider .links div {
+    width: 50px;
+    height: 16px;
+  }
+
+  .payroll .slider .links div.active .dot {
+    width: 50px;
+    height: 16px;
+    background: linear-gradient(88.49deg, #F8F1E9 -10.61%, #D19CBE 38.77%, #8F8DE2 82.14%, #B5DEF9 118.29%, #B5DEF9 162.86%);
+    transition: all 0.5s ease;
+  }
+
+
+  .payroll .transfer {
+    width: calc(100% - 40px);
+    height: 2230px;
+    position: relative;
+    margin: 50px 20px;
+  }
+
+  .payroll .transfer .background {
+    width: 100%;
+    height: 2230px;
+  }
+
+  .payroll .transfer .tree {
+    flex-direction: column;
+  }
+
+  .payroll .transfer .safety {
+    width: 100%;
+    flex-direction: column-reverse;
+    margin: 50px 0;
+  }
+
+  .payroll .transfer .tree .cards {
+    height: 188px;
+    width: 188px;
+    transform: rotate(90deg);
+  }
+
+  .payroll .transfer .tree .cards img {
+    width: 188px;
+  }
+
+  .payroll .transfer .tree .workers {
+    margin: 30px 0 0 0;
+    flex-direction: row;
+    height: auto;
+    width: 250px;
+  }
+
+  .payroll .transfer .tree .workers .worker {
+    background-color: transparent;
+  }
+
+  .payroll .transfer h2 {
+    width: 100%;
+  }
+
+  .payroll .transfer .safety .boxes {
+    flex-direction: column;
+    width: 100%;
+  }
+
+  .payroll .transfer .safety .boxes .row {
+    margin: 0 20px;
+  }
+
+  .payroll .transfer .safety .boxes .row .box {
+    margin: 20px 0px 0;
+    width: 100%;
+  }
+
+  .payroll .transfer .safety h2 {
+    margin: 60px 20px 0;
+  }
+
+  .payroll .transfer .safety h3, .payroll .transfer .safety .body {
+    margin-left: 20px;
+    margin-right: 20px;
+    display: block;
+  }
+
+  .payroll .commodo {
+    flex-direction: column;
+    width: calc(100% - 40px);
+    margin: 50px 20px;
+    height: fit-content;
+  }
+
+
+  .payroll .commodo .text {
+    width: 100%;
+    padding: 0;
+  }
+
+  .payroll .commodo .commodo-left {
+    width: 100%;
+    justify-content: space-between;
+    height: 253px;
+    align-items: center;
+  }
+
+  .payroll .commodo .commodo1, .payroll .commodo .commodo2, .payroll .commodo .commodo3 {
+    margin: 0px;
+  }
+
+  .payroll .commodo .commodo1, .payroll .commodo .commodo4 {
+    width: 83px;
+  }
+
+  .payroll .commodo .commodo2, .payroll .commodo .commodo3 {
+    width: 80px;
+  }
+
+  .payroll .commodo .commodo1 {
+    align-self: center;
+  }
+
+  .payroll .commodo .commodo2 {
+    align-self: baseline;
+  }
+
+  .payroll .commodo .commodo3 {
+    align-self: flex-end;
+  }
+
+  .payroll .commodo .commodo4 {
+    align-self: flex-end;
+  }
+
+  .payroll .earlyaccess {
+    flex-direction: column;
+    width: calc(100% - 40px);
+    margin: 50px 20px;
+    height: auto;
+  }
+
+  .payroll .earlyaccess .background {
+    width: 100%;
+  }
+
+  .payroll .earlyaccess h1 {
+    margin: 60px 40px;
+    width: auto;
+    text-align: center;
+  }
+
+  .payroll .earlyaccess .item {
+    margin: 0;
+  }
+
+
+  
+
+}

@@ -1,16 +1,22 @@
 import React from "react";
-import { useMediaQuery } from 'react-responsive';
 import { Controller, Scene } from 'react-scrollmagic';
 import { Tween, Timeline } from 'react-gsap';
 import { FaArrowRight } from "react-icons/fa";
+import { useDispatch, useSelector } from "react-redux";
+import { setVars } from "../../store/varsSlice";
 
 function Tools() {
-  const isDesktopOrLaptop = useMediaQuery({ query: '(min-width: 1224px)' });
-  const isPortrait = useMediaQuery({ query: '(orientation: portrait)' })
+  const dispatch = useDispatch();
+  const display = useSelector((state) => state.display.value);
+
+  const showContact = () => {
+    window.scrollTo(0, 0);
+    dispatch(setVars({imgsLoaded:true, changePage:true, showContact: true}));
+  };
 
   return (
     <>
-      { !isPortrait ? 
+      { !display.isPortrait ? 
         <Controller>
           <Scene
               triggerHook="onLeave"
@@ -33,10 +39,12 @@ function Tools() {
                         target={
                           <>
                             <span className="subtitle pb-10 pt-5">digitize management and administration of corporate payrolls</span>
-                            <div className="button inverse discover mt-4">
-                              <span>Discover Payroll</span>
-                              <FaArrowRight />
-                            </div>
+                            <a href="/payroll">
+                              <div className="button inverse discover mt-4">
+                                <span>Discover Payroll</span>
+                                <FaArrowRight />
+                              </div>
+                            </a>
                           </>
                         }
                         >
@@ -50,7 +58,7 @@ function Tools() {
                       target={
                         <div className="wanttotalk">
                           <h1>Want to talk?</h1>
-                          <div className="button inverse discover">
+                          <div className="button inverse discover" onClick={showContact}>
                             <span>Book a call</span>
                             <FaArrowRight />
                           </div>
@@ -77,14 +85,16 @@ function Tools() {
             <div className="introducing">
               <h1>More tools for your business</h1>
               <span className="subtitle pb-3 pt-3">digitize management and administration of corporate payrolls</span>
-              <div className="button inverse discover mt-4">
-                <span>Discover Payroll</span>
-                <FaArrowRight />
-              </div>
+              <a href="/payroll">
+                <div className="button inverse discover mt-4">
+                  <span>Discover Payroll</span>
+                  <FaArrowRight />
+                </div>
+              </a>
             </div>
             <div className="wanttotalk">
               <h1>Want to talk?</h1>
-              <div className="button inverse discover">
+              <div className="button inverse discover" onClick={showContact}>
                 <span>Book a call</span>
                 <FaArrowRight />
               </div>

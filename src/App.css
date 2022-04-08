@@ -3,8 +3,15 @@
   background-color: #FFFFFF;
 }
 
-.App-logo {
+.logo {
   height: 30px;
+}
+
+.loader {
+  height: 400px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 
 ul li {
@@ -158,6 +165,14 @@ nav .button, .button {
   display: flex;
   align-items: center;
   justify-content: space-around;
+  font-weight: 600;
+  font-size: 18px;
+  font-family: 'Epilogue';
+}
+
+nav .button.disabled, .button.disabled {
+  background: #7c7a7a !important;
+  pointer-events: none;
 }
 
 .button.inverse {
@@ -214,6 +229,7 @@ nav .button:active span, .button:active span {
   flex-direction: column;
   align-items: flex-start;
   text-align: start;
+  z-index: 11;
 }
 
 .contact.submenu {
@@ -313,6 +329,10 @@ nav .button:active span, .button:active span {
 @media only screen and (max-width: 1024px) {
   body {
     width: 100%;
+  }
+
+  header .logo {
+    height: 23px;
   }
 
   header .footermenu {
@@ -447,6 +467,7 @@ nav .button:active span, .button:active span {
     flex-direction: column;
     align-items: center;
     top: 45px;
+    box-shadow: none;
   }
 
   .contact .blockcontainer {

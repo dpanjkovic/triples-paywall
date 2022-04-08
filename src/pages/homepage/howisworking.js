@@ -1,11 +1,11 @@
 import React, { useState } from "react";
-import { useMediaQuery } from 'react-responsive';
 import background from "../../assets/images/homepage/howisworkingbg.png";
 import backgroundMobile from "../../assets/images/homepage/howisworkingbg-mobile.png";
+import { useSelector } from "react-redux";
 
 function HowIsWorking() {
-  const isDesktopOrLaptop = useMediaQuery({ query: '(min-width: 1224px)' });
-  const isPortrait = useMediaQuery({ query: '(orientation: portrait)' })
+  const display = useSelector((state) => state.display.value);
+
   const [activeTab, setActiveTab] = useState("templates");
 
   const tab = (title, tab) => {
@@ -14,7 +14,7 @@ function HowIsWorking() {
 
     return (
       <div className={tabClass} onClick={() => setActiveTab(tab)}>
-        <img src={require(`../../assets/images/homepage/${icon}.png`)} />
+        <img src={require(`../../assets/images/homepage/${icon}.png`)} alt="" />
         <h5>{title}</h5>
       </div>
     )
@@ -22,7 +22,7 @@ function HowIsWorking() {
 
   return (
     <>
-      { !isPortrait ? 
+      { !display.isPortrait ? 
         <div className="howisworking">
           <h2>How eInvoice is working.</h2>
           <span className="body">The government of Saudi Arabia is committed to launching entrepreneurial ecosystems, as they believe investing in a digital future will.</span>
@@ -31,18 +31,18 @@ function HowIsWorking() {
             {tab("Send via SMS, Whatsapp or custom link", "sendsms")}
             {tab("Get paid", "getpaid")}
           </div>
-          <div className="content" style={{backgroundImage:isPortrait ? `url(${backgroundMobile})` : `url(${background})`}}>
-            <img src={require("../../assets/images/homepage/application.png")} className="application" />
-            <img src={require("../../assets/images/homepage/logotype.png")} className="logotype" />
-            <img src={require("../../assets/images/homepage/colors.png")} className="colors" />
+          <div className="content" style={{backgroundImage:display.isPortrait ? `url(${backgroundMobile})` : `url(${background})`}}>
+            <img src={require("../../assets/images/homepage/application.png")} className="application" alt="" />
+            <img src={require("../../assets/images/homepage/logotype.png")} className="logotype" alt="" />
+            <img src={require("../../assets/images/homepage/colors.png")} className="colors" alt="" />
             <div className="appfeatures">
               <div className="appfeaturescontent">
-                <img src={require("../../assets/images/homepage/intersect.png")} />
+                <img src={require("../../assets/images/homepage/intersect.png")} alt="" />
                 <h4>Customize your invoice with your logo</h4>
                 <span className="body">The government of Saudi Arabia is committed to launching entrepreneurial ecosystems, as they believe investing in a digital future will.</span>
               </div>
               <div className="appfeaturescontent">
-                <img src={require("../../assets/images/einvoice.png")} />
+                <img src={require("../../assets/images/einvoice.png")} alt="" />
                 <h4>Customize your invoice with your logo</h4>
                 <span className="body">The government of Saudi Arabia is committed to launching entrepreneurial ecosystems, as they believe investing in a digital future will.</span>
               </div>
@@ -56,18 +56,18 @@ function HowIsWorking() {
           <div className="tabs">
             {tab("500+ customizeable templates", "templates")}
           </div>
-          <div className="content" style={{backgroundImage:isPortrait ? `url(${backgroundMobile})` : `url(${background})`, display: activeTab === "templates" ? "" : "none"}}>
-            <img src={require("../../assets/images/homepage/application.png")} className="application" />
-            <img src={require("../../assets/images/homepage/logotype.png")} className="logotype" />
-            <img src={require("../../assets/images/homepage/colors.png")} className="colors" />
+          <div className="content" style={{backgroundImage:display.isPortrait ? `url(${backgroundMobile})` : `url(${background})`, display: activeTab === "templates" ? "" : "none"}}>
+            <img src={require("../../assets/images/homepage/application.png")} className="application" alt="" />
+            <img src={require("../../assets/images/homepage/logotype.png")} className="logotype" alt="" />
+            <img src={require("../../assets/images/homepage/colors.png")} className="colors" alt="" />
             <div className="appfeatures">
               <div className="appfeaturescontent">
-                <img src={require("../../assets/images/homepage/intersect.png")} />
+                <img src={require("../../assets/images/homepage/intersect.png")} alt="" />
                 <h4>Customize your invoice with your logo</h4>
                 <span className="body">The government of Saudi Arabia is committed to launching entrepreneurial ecosystems, as they believe investing in a digital future will.</span>
               </div>
               <div className="appfeaturescontent">
-                <img src={require("../../assets/images/einvoice.png")} />
+                <img src={require("../../assets/images/einvoice.png")} alt="" />
                 <h4>Customize your invoice with your logo</h4>
                 <span className="body">The government of Saudi Arabia is committed to launching entrepreneurial ecosystems, as they believe investing in a digital future will.</span>
               </div>
@@ -76,18 +76,18 @@ function HowIsWorking() {
           <div className="tabs">
             {tab("Send via SMS, Whatsapp or custom link", "sendsms")}
           </div>
-          <div className="content" style={{backgroundImage:isPortrait ? `url(${backgroundMobile})` : `url(${background})`, display: activeTab === "sendsms" ? "" : "none"}}>
-            <img src={require("../../assets/images/homepage/application.png")} className="application" />
-            <img src={require("../../assets/images/homepage/logotype.png")} className="logotype" />
-            <img src={require("../../assets/images/homepage/colors.png")} className="colors" />
+          <div className="content" style={{backgroundImage:display.isPortrait ? `url(${backgroundMobile})` : `url(${background})`, display: activeTab === "sendsms" ? "" : "none"}}>
+            <img src={require("../../assets/images/homepage/application.png")} className="application" alt="" />
+            <img src={require("../../assets/images/homepage/logotype.png")} className="logotype" alt="" />
+            <img src={require("../../assets/images/homepage/colors.png")} className="colors" alt="" />
             <div className="appfeatures">
               <div className="appfeaturescontent">
-                <img src={require("../../assets/images/homepage/intersect.png")} />
+                <img src={require("../../assets/images/homepage/intersect.png")} alt="" />
                 <h4>Customize your invoice with your logo</h4>
                 <span className="body">The government of Saudi Arabia is committed to launching entrepreneurial ecosystems, as they believe investing in a digital future will.</span>
               </div>
               <div className="appfeaturescontent">
-                <img src={require("../../assets/images/einvoice.png")} />
+                <img src={require("../../assets/images/einvoice.png")} alt="" />
                 <h4>Customize your invoice with your logo</h4>
                 <span className="body">The government of Saudi Arabia is committed to launching entrepreneurial ecosystems, as they believe investing in a digital future will.</span>
               </div>
@@ -96,18 +96,18 @@ function HowIsWorking() {
           <div className="tabs">
             {tab("Get paid", "getpaid")}
           </div>
-          <div className="content" style={{backgroundImage:isPortrait ? `url(${backgroundMobile})` : `url(${background})`, display: activeTab === "getpaid" ? "" : "none"}}>
-            <img src={require("../../assets/images/homepage/application.png")} className="application" />
-            <img src={require("../../assets/images/homepage/logotype.png")} className="logotype" />
-            <img src={require("../../assets/images/homepage/colors.png")} className="colors" />
+          <div className="content" style={{backgroundImage:display.isPortrait ? `url(${backgroundMobile})` : `url(${background})`, display: activeTab === "getpaid" ? "" : "none"}}>
+            <img src={require("../../assets/images/homepage/application.png")} className="application" alt="" />
+            <img src={require("../../assets/images/homepage/logotype.png")} className="logotype" alt="" />
+            <img src={require("../../assets/images/homepage/colors.png")} className="colors" alt="" />
             <div className="appfeatures">
               <div className="appfeaturescontent">
-                <img src={require("../../assets/images/homepage/intersect.png")} />
+                <img src={require("../../assets/images/homepage/intersect.png")} alt="" />
                 <h4>Customize your invoice with your logo</h4>
                 <span className="body">The government of Saudi Arabia is committed to launching entrepreneurial ecosystems, as they believe investing in a digital future will.</span>
               </div>
               <div className="appfeaturescontent">
-                <img src={require("../../assets/images/einvoice.png")} />
+                <img src={require("../../assets/images/einvoice.png")} alt="" />
                 <h4>Customize your invoice with your logo</h4>
                 <span className="body">The government of Saudi Arabia is committed to launching entrepreneurial ecosystems, as they believe investing in a digital future will.</span>
               </div>

@@ -1,15 +1,14 @@
 import React from "react";
-import { useMediaQuery } from 'react-responsive';
 import { Controller, Scene } from 'react-scrollmagic';
 import { Tween, Timeline } from 'react-gsap';
+import { useSelector } from "react-redux";
 
 function Einvoice() {
-  const isDesktopOrLaptop = useMediaQuery({ query: '(min-width: 1224px)' });
-  const isPortrait = useMediaQuery({ query: '(orientation: portrait)' })
+  const display = useSelector((state) => state.display.value);
 
   return (
     <>
-    { !isPortrait ?
+    { !display.isPortrait ?
       <Controller>
         <Scene
             triggerHook="onLeave"
@@ -17,7 +16,7 @@ function Einvoice() {
             pin
           >
             {(progress) => (
-              <div className="einvoice sticky">
+              <div className="einvoice sticky" id="einvoice">
                 <Timeline totalProgress={progress} paused>
                   <video loop autoPlay muted>
                     <source
@@ -56,7 +55,7 @@ function Einvoice() {
                   </Timeline>
                    <Timeline
                       target={
-                        <div className="waves"><img src={require("../../assets/images/homepage/waves.png")} /></div>
+                        <div className="waves"><img src={require("../../assets/images/homepage/waves.png")} alt="" /></div>
                       }
                     >
                       <Tween
@@ -68,7 +67,7 @@ function Einvoice() {
                     <Timeline
                       target={
                         <div className="button quick">
-                          <img src={require("../../assets/images/homepage/einvoice-quick.png")} />
+                          <img src={require("../../assets/images/homepage/einvoice-quick.png")} alt="" />
                           Quick and convenient to use
                         </div>
                         }
@@ -81,7 +80,7 @@ function Einvoice() {
                     <Timeline
                       target={
                         <div className="button saves">
-                          <img src={require("../../assets/images/homepage/einvoice-saves.png")} />
+                          <img src={require("../../assets/images/homepage/einvoice-saves.png")} alt="" />
                           Saves operational time and costs
                         </div>
                         }
@@ -94,7 +93,7 @@ function Einvoice() {
                     <Timeline
                       target={
                         <div className="button">
-                          <img src={require("../../assets/images/homepage/einvoice-faster.png")} />
+                          <img src={require("../../assets/images/homepage/einvoice-faster.png")} alt="" />
                           Get paid faster for better cashflow
                         </div>
                         }
@@ -107,7 +106,7 @@ function Einvoice() {
                     <Timeline
                       target={
                         <div className="button flexibility">
-                          <img src={require("../../assets/images/homepage/einvoice-flexibility.png")} />
+                          <img src={require("../../assets/images/homepage/einvoice-flexibility.png")} alt="" />
                           Flexibility for customers
                         </div>
                         }
@@ -130,25 +129,25 @@ function Einvoice() {
             <source src={require("../../assets/videos/homepage/einvoice.mp4")} type="video/mp4" />Your browser does not support the video tag.
           </video>
           <div className="gradient"></div>
-          <div className="waves"><img src={require("../../assets/images/homepage/waves-mobile.png")} /></div>
-          <div className="introducing">
+          <div className="waves"><img src={require("../../assets/images/homepage/waves-mobile.png")} alt="" /></div>
+          <div className="introducing" id="einvoice">
             <h1>Introducing eInvoice</h1>
             <span className="subtitle">instant invoices through SMS, mail & Whatsapp</span>
             <div className="benefits">
               <div className="button quick">
-                <img src={require("../../assets/images/homepage/einvoice-quick.png")} />
+                <img src={require("../../assets/images/homepage/einvoice-quick.png")} alt="" />
                 Quick and convenient to use
               </div>
               <div className="button saves">
-                <img src={require("../../assets/images/homepage/einvoice-saves.png")} />
+                <img src={require("../../assets/images/homepage/einvoice-saves.png")} alt="" />
                 Saves operational time and costs
               </div>
               <div className="button">
-                <img src={require("../../assets/images/homepage/einvoice-faster.png")} />
+                <img src={require("../../assets/images/homepage/einvoice-faster.png")} alt="" />
                 Get paid faster for better cashflow
               </div>
               <div className="button flexibility">
-                <img src={require("../../assets/images/homepage/einvoice-flexibility.png")} />
+                <img src={require("../../assets/images/homepage/einvoice-flexibility.png")} alt="" />
                 Flexibility for customers
               </div>
             </div>

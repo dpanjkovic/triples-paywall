@@ -1,66 +1,65 @@
 import React from "react";
-import { useMediaQuery } from 'react-responsive';
 import { FaArrowRight } from "react-icons/fa";
-import { Link } from "react-router-dom";
+import { useSelector, useDispatch } from "react-redux";
+import { setVars } from "../../store/varsSlice";
 
 function Footer() {
-  const isDesktopOrLaptop = useMediaQuery({ query: '(min-width: 1224px)' });
-  const isPortrait = useMediaQuery({ query: '(orientation: portrait)' })
+  const dispatch = useDispatch();
 
-  const showSubmenu = () => {
-    document.getElementsByClassName("submenu")[0].style.display = "flex";
+  const display = useSelector((state) => state.display.value);
+
+  const showContact = () => {
+    window.scrollTo(0, 0);
+    dispatch(setVars({imgsLoaded:true, changePage:true, showContact: true}));
   };
-  
-  const hideSubmenu = () => {
-    document.getElementsByClassName("submenu")[0].style.display = "none";
-  };
-  
+
   return (
     <>
       <footer className="App-header">
-        <div className={isPortrait ? "logo" : "logo flex flex-row items-center"}>
-          <img src={process.env.PUBLIC_URL + '/images/logo.png'} className="mr-4" />
-          { !isPortrait && <img src={require("../../assets/images/footer-saudi.png")} /> }
+        <div className={display.isPortrait ? "logo" : "logo flex flex-row items-center"}>
+          <a href="/"><img src={process.env.PUBLIC_URL + '/images/logo.svg'} className="mr-4 logo" alt="" /></a>
+          { !display.isPortrait && <img src={require("../../assets/images/footer-saudi.png")} alt="" /> }
         </div>
-        { !isPortrait ?
+        { !display.isPortrait ?
           <nav>
-            <div className="item">For Investors</div>
-            <div className="item">eInvoice</div>
-            <div className="item">Payroll</div>
-            <div className="item">About us</div>
-            <div className="item">Contact us</div>
+            <div className="item"><a href="/#investors">For Investors</a></div>
+            <div className="item"><a href="/#einvoice">eInvoice</a></div>
+            <div className="item"><a href="payroll">Payroll</a></div>
+            <div className="item"><a href="aboutus">About us</a></div>
+            <div className="item" onClick={showContact}>Contact us</div>
           </nav>
           :
           <nav className="mt-5 mb-5">
             <div className="flex items-center justify-between w-full">
-              <div className="item w-1/2">For Investors</div>
-              <div className="item w-1/2">eInvoice</div>
+              <div className="item w-1/2"><a href="/#investors">For Investors</a></div>
+              <div className="item w-1/2"><a href="/#einvoice">eInvoice</a></div>
             </div>
             <div className="flex items-center justify-between w-full">
-              <div className="item w-1/2">Payroll</div>
-              <div className="item w-1/2">About us</div>
+              <div className="item w-1/2"><a href="payroll">Payroll</a></div>
+              <div className="item w-1/2"><a href="aboutus">About us</a></div>
             </div>
             <div className="flex items-center justify-between w-full">
-            <div className="item button">
+            <div className="item button" onClick={showContact}>
               Contact us
-              { isPortrait && <FaArrowRight /> }
+              { display.isPortrait && <FaArrowRight /> }
             </div>
             </div>
           </nav>
         }
-        { isPortrait && <img src={require("../../assets/images/footer-saudi.png")} className="saudi" /> }
+        { display.isPortrait && <img src={require("../../assets/images/footer-saudi.png")} className="saudi" alt="" /> }
       </footer>
-      { !isPortrait && <img src={require("../../assets/images/footer-divider.png")} className="footer-divider" /> }
+      { !display.isPortrait && <img src={require("../../assets/images/footer-divider.png")} className="footer-divider" alt="" /> }
       <div className="footer-privacy">
         <div>
-          <Link to="terms">Terms & Conditions</Link>
-          <Link to="privacy">Privacy Policy</Link>
-          <Link to="cookies">Cookies</Link>
+          <a href="terms">Terms & Conditions</a>
+          <a href="privacy">Privacy Policy</a>
+          <a href="whitepapers">White Papers</a>
+          <a href="cookies">Cookies</a>
         </div>
         <div className="social">
-          <img src={require("../../assets/images/twitter.png")} />
-          <img src={require("../../assets/images/fb.png")} />
-          <img src={require("../../assets/images/linkedin.png")} />
+          <img src={require("../../assets/images/twitter.png")} alt="" />
+          <img src={require("../../assets/images/fb.png")} alt="" />
+          <img src={require("../../assets/images/linkedin.png")} alt="" />
         </div>
       </div>
       <div className="copyright">© 2021 Paywall (Limited liability company)<br />All product and company names are trademarks or registered trademarks of their respective holders. Use of them does not imply any affiliation with or endorsement by them.

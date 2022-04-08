@@ -1,0 +1,229 @@
+.aboutus {
+  position: relative;
+}
+
+.aboutus .heading {
+  text-align: center;
+  top: 158px;
+}
+
+.aboutus .whoweare {
+  margin: 120px 110px 120px 213px;
+  display: flex;
+}
+
+.aboutus .whoweare .text {
+  text-align: start;
+  width: 500px;
+  margin-right: 50px;
+}
+
+.aboutus .whoweare .text h2 {
+  margin-top: 0px;
+}
+
+.aboutus .whoweare .pictures {
+  width: 570px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.aboutus .whoweare .pictures .ash {
+  align-self: flex-end;
+}
+
+.aboutus .whoweare .pictures .rayan {
+  align-self: baseline;
+}
+
+.aboutus .approach {
+  width: 1390px;
+  height: 910px;
+  margin: 0px 25px;
+  color: #ffffff;
+  position: relative;
+}
+
+.aboutus .approach .background {
+  position: absolute;
+  top: 0;
+  left: 0;
+}
+
+.aboutus .approach h2 {
+  padding-top: 60px;
+  position: relative;
+}
+
+.aboutus .approach .content {
+  margin-top: 50px;
+  margin-left: 125px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: fit-content;
+  position: relative;
+}
+
+.aboutus .approach .content .mission {
+  width: 497px;
+  height: 489px;
+  background: rgba(15, 7, 31, 0.5);
+  backdrop-filter: blur(44px);
+  /* Note: backdrop-filter has minimal browser support */
+  border-radius: 15px;
+  margin-left: 100px;
+}
+
+.aboutus .approach .content .mission .ourmission, .aboutus .approach .content .mission .oursolution {
+  margin: 25px;
+}
+
+.aboutus .approach .content .mission .body {
+  color: #A5A9BB
+}
+
+.aboutus .whysaudi {
+  margin: 100px 213px;
+}
+
+.aboutus .whysaudi .benefits {
+  display: flex;
+  align-items: center;
+  text-align: start;
+  width: 1014px;
+  justify-content: space-between;
+}
+
+.aboutus .whysaudi .benefits .benefit {
+  width: 290px;
+}
+
+.aboutus .teams {
+  margin: 100px 172px 100px 213px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.aboutus .teams .text {
+  width: 500px;
+  margin-right: 120px;
+  text-align: start;
+}
+
+.aboutus .teams .text p {
+  margin-bottom: 10px;
+}
+
+.aboutus .teams .advisors {
+  width: 436px;
+  height: 486px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.aboutus .teams .advisors .left {
+  align-self: baseline;
+}
+
+.aboutus .teams .advisors .right {
+  align-self: flex-end;
+}
+
+@media only screen and (max-width: 1024px) {
+  .aboutus .topimage {
+    width: 100%;
+  }
+
+  .aboutus .heading {
+    margin: 20px;
+    top: 100px;
+    width: fit-content;
+  }
+
+  .aboutus .approach {
+    width: calc(100% - 40px);
+    height: auto;
+    min-height: 1189px;
+    margin: 20px;
+  }
+
+  .aboutus .whoweare {
+    margin: 20px;
+    flex-direction: column-reverse;
+  }
+
+  .aboutus .whoweare .text {
+    width: 100%;
+  }
+
+  .aboutus .whoweare .pictures {
+    width: 100%;
+    height: 290px;
+    margin-top: 50px;
+    margin-bottom: 30px;
+  }
+
+  .aboutus .whoweare .pictures img {
+    width: 158px;
+  }
+
+  .aboutus .approach .background {
+    width: 100%;
+  }
+
+  .aboutus .approach .content {
+    margin: 0px;
+    flex-direction: column;
+  }
+
+  .aboutus .approach .content .cards {
+    width: 80%;
+  }
+
+  .aboutus .approach .content .mission {
+    width: auto;
+    height: auto;
+    margin: 20px;
+  }
+
+  .aboutus .whysaudi {
+    margin: 100px 0px;
+    flex-direction: column;
+  }
+
+  .aboutus .whysaudi .benefits {
+    flex-direction: column;
+    width: 100%;
+    text-align: center;
+  }
+
+  .aboutus .whysaudi .benefits img {
+    display: initial;
+  }
+
+  .aboutus .teams {
+    margin: 100px 20px;
+    flex-direction: column-reverse;
+  }
+
+  .aboutus .teams .text {
+    margin: 0;
+    width: 100%;
+  }
+
+  .aboutus .teams .advisors {
+    margin: 0;
+    width: 100%;
+    height: 367px;
+  }
+
+  .aboutus .teams .advisors img {
+    width: 154px;
+  }
+
+
+}
