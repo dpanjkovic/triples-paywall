@@ -26,7 +26,7 @@ function AboutUs() {
       <Loader />
       :
       <>
-      <img src={display.isPortrait ? topImageMobile : topImage} className="topimage" alt="" />
+      <div className="topimage" style={{backgroundImage : display.isPortrait ? `url(${topImage})` : `url(${topImage})`}} />
       <div className="heading">
         <h1>Processing your</h1>
         <h1>business needs</h1>
@@ -45,8 +45,7 @@ function AboutUs() {
           <img src={require("../../assets/images/aboutus/rayan-fouad-mustafa-azab.png")} className="rayan" alt="" />
         </div>
       </div>
-      <div className="approach">
-        <img src={ display.isPortrait ? backgroundMobile : background } className="background" alt="" />
+      <div className="approach" style={{backgroundImage:display.isPortrait ? `url(${background})` : `url(${background})`}}>
         <h2>This is the new approach.</h2>
         <div className="content">
           <img src={require("../../assets/images/aboutus/cards.png")} className="cards" alt="" />

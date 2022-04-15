@@ -7,11 +7,12 @@ import { Routes, Route, useLocation } from "react-router-dom";
 import PrivacyPolicy from './pages/privacy';
 import AboutUs from './pages/aboutus';
 import Payroll from './pages/payroll';
-import { useDispatch } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import { useMediaQuery } from "react-responsive";
 import { setVars } from "./store/varsSlice";
 import { setDisplay } from './store/displaySlice';
 import WhitePapers from "./pages/whitepapers";
+import { setLang } from "./store/langSlice";
 
 const IMAGES = {
   "/" : [
@@ -90,12 +91,30 @@ const loadImage = image => {
 
 function App() {
   const dispatch = useDispatch();
+  const lang = useSelector((state) => state.lang.value);
+
+  useEffect(() => {
+    const cookielang = getCookie("lang") || "EN";
+    dispatch(setLang(cookielang));
+  }, []);
+
+  function getCookie(name) {
+    const nameEQ = `${name}=`;
+    const ca = document.cookie.split(";");
+    for (let i = 0; i < ca.length; i += 1) {
+      let c = ca[i];
+      while (c.charAt(0) === " ") c = c.substring(1, c.length);
+      if (c.indexOf(nameEQ) === 0) return c.substring(nameEQ.length, c.length);
+    }
+    return null;
+  }
 
   const { pathname, hash } = useLocation();
   const isDesktopOrLaptop = useMediaQuery({ query: '(min-width: 1224px)' });
+  const isMax1440 = useMediaQuery({ query: '(max-width: 1440px)' });
   const isPortrait = useMediaQuery({ query: '(orientation: portrait)' });
 
-  dispatch(setDisplay({ isDesktopOrLaptop, isPortrait }));
+  dispatch(setDisplay({ isDesktopOrLaptop, isPortrait, isMax1440 }));
 
   useEffect(() => {
     window.scrollTo(0, 0);
@@ -108,18 +127,17 @@ function App() {
       Promise.all(imgs.map(image => loadImage(image)))
       .then(() => {
         dispatch(setVars({ imgsLoaded: true, changePage: true }));
-        console.log(hash)
-        if (hash) setTimeout(window.location.href = hash, 500);
+        if (hash) setTimeout(window.location.href = hash, 1);
       })
       .catch(err => console.log("Failed to load images", err))
     } else {
       dispatch(setVars({ imgsLoaded: true, changePage: true }));
     }
 
-  }, [dispatch, pathname, hash]);
+  }, [dispatch, pathname]);
 
   return (
-    <div className="App">
+    <div className={`App ${lang}`}>
       <Header />
       <Routes>
         <Route path="/privacy" element={<PrivacyPolicy />} />

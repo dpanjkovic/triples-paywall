@@ -8,18 +8,19 @@ import { FaArrowRight } from "react-icons/fa";
 import './style.css';
 import Loader from "../../components/loader";
 import { useSelector } from "react-redux";
+import { Grid } from "@mui/material";
 
 function Homepage() {
   const vars = useSelector((state) => state.vars.value);
   const display = useSelector((state) => state.display.value);
 
   return (
-    <div className="homepage">
+    <div className="homepage" id="homepage">
     { !vars.imgsLoaded ?
       <Loader />
       :
       <>
-      <img src={display.isPortrait ? topImageMobile : topImage} className="topimage" alt="" />
+      <div className="topimage" style={{backgroundImage:`url(${topImage})`}} />
       <div className="buttons">
         <div className="flex items-center justify-center apps">
           <img src={require("../../assets/images/homepage/play.png")} alt="" />
@@ -31,29 +32,47 @@ function Homepage() {
         </div>
       </div>
       <div className="heading">
-        <h1>Your transactions</h1>
-        <h1>made easy</h1>
+        {
+          display.isPortrait ? 
+          <>
+            <h1>Your</h1>
+            <h1>transactions</h1>
+          </>
+          :
+          <h1>Your transactions</h1>
+        }
+        <h1>- made easy</h1>
       </div>
-      <div className="investors" id="investors">
-        <img src={require("../../assets/images/homepage/opportunity.png")} alt="" />
-        <div className="opportunity">
-          <h2>Opportunity for Fintech Entrepreneurs.</h2>
-          <span className="body">The government of Saudi Arabia is committed to launching entrepreneurial ecosystems, as they believe investing in a digital future will not only create 200,000 new jobs by 2025 but also drive the development of more sustainable, intelligent cities and a digital economy.</span>
-          <a href="aboutus"><div className="item button mt-5"><span>About us</span><FaArrowRight /></div></a>
+      <div className="contentcontainer">
+        <div className="investors" id="investors">
+          <img src={require("../../assets/images/homepage/opportunity.png")} alt="" />
+          <div className="opportunity">
+            <h2>Opportunity for Fintech Entrepreneurs.</h2>
+            <span className="body">The government of Saudi Arabia is committed to launching entrepreneurial ecosystems, as they believe investing in a digital future will not only create 200,000 new jobs by 2025 but also drive the development of more sustainable, intelligent cities and a digital economy.</span>
+            <a href="aboutus"><div className="item button mt-5"><span>About us</span><FaArrowRight /></div></a>
+          </div>
         </div>
-      </div>
-      <Einvoice />
-      <HowIsWorking />
-      <div className="getmoredone">
-        <h2>Get more done with our eInvoice app.</h2>
-        <span className="body">In massa aliquam pellentesque consequat, purus amet quis sodales aliquam. Mattis interdum consequat sed pellentesque metus nam sagittis neque. </span>
-        <div className="content">
-          <img src={require("../../assets/images/homepage/automatic-reminder.png")} alt="" />
-          <img src={require("../../assets/images/homepage/multiple-ways-to-pay.png")} alt="" />
-          <img src={require("../../assets/images/homepage/track-and-manage.png")} alt="" />
+        <Einvoice />
+        <HowIsWorking />
+        <div className="getmoredone">
+          <h2>Get more done with our eInvoice app.</h2>
+          <span className="body">In massa aliquam pellentesque consequat, purus amet quis sodales aliquam. Mattis interdum consequat sed pellentesque metus nam sagittis neque. </span>
+          <div className="content">
+            <Grid container spacing={2}>
+              <Grid item xs={4}>
+                <img src={require("../../assets/images/homepage/automatic-reminder.png")} alt="" />
+              </Grid>
+              <Grid item xs={4}>
+                <img src={require("../../assets/images/homepage/multiple-ways-to-pay.png")} alt="" />
+              </Grid>
+              <Grid item xs={4}>
+                <img src={require("../../assets/images/homepage/track-and-manage.png")} alt="" />
+              </Grid>
+            </Grid>
+          </div>
         </div>
+        <Tools />
       </div>
-      <Tools />
       </>
       }
     </div>

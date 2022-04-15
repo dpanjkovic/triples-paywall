@@ -4,7 +4,7 @@
 }
 
 .logo {
-  height: 30px;
+  height: 50px;
 }
 
 .loader {
@@ -75,25 +75,26 @@ h5 {
   align-items: center;
   justify-content: space-between;
   font-size: calc(10px + 2vmin);
-  margin: 42px 110px;
+  margin: 42px auto;
   height: 50px;
   line-height: 56px;
   font-weight: 600;
   font-size: 18px;
   width: 1220px;
-  position: absolute;
   z-index: 100;
   background-color: white;
+  position: relative;
 }
 
 footer.App-header {
   position: relative;
-  margin: 122px 110px 0 110px;
+  margin: 122px auto 0 auto;
 }
 
 .footer-privacy {
   font-size: 14px;
-  margin: 0 110px;
+  margin: 0 auto;
+  width: 1220px;
   display: flex;
   justify-content: space-between;
   line-height: 30px;
@@ -118,6 +119,8 @@ footer.App-header {
   color: #A5A9BB;
   text-align: start;
   padding: 30px 110px 50px 110px;
+  margin: 0 auto;
+  width: 1440px;
  }
 
 .App-link {
@@ -141,7 +144,34 @@ nav .item {
   width: fit-content;
 }
 
-nav .item:hover {
+nav .item.language {
+  flex-direction: column;
+  position: relative;
+}
+
+nav .item.language:hover {
+  color: #000000;
+  background: none;
+  -webkit-text-fill-color: #000000;
+}
+
+nav .item.language .main {
+  display: flex;
+  align-items: center;
+}
+
+nav .item.language .other {
+  position: absolute;
+  top: 30px;
+  left: 38px;
+  display: none;
+}
+
+nav .item.language:hover .other {
+  display: block;
+}
+
+nav .item:hover, nav .item.language .main:hover, nav .item.language .other:hover {
   color: #B166EB;
   background: linear-gradient(90deg, #F1A4DE 0%, #B166EB 50.52%, #7D39F5 100%), #FFFFFF;
   -webkit-background-clip: text;
@@ -158,7 +188,7 @@ nav .button, .button {
   border-radius: 10px;
   color: #FFFFFF;
   padding: 0px 30px;
-  line-height: 46px;
+  line-height: 1.5rem;
   height: 56px;
   cursor: pointer;
   width: fit-content;
@@ -242,6 +272,12 @@ nav .button:active span, .button:active span {
   box-shadow: 0px 4px 74px -10px rgba(37, 35, 130, 0.1);
   border-radius: 20px;
   z-index: 10;
+  height: 700px;
+}
+
+.contact.submenu .contactimage {
+  width: 40%;
+  height: 100%;
 }
 
 .contact .container {
@@ -284,7 +320,7 @@ nav .button:active span, .button:active span {
   border-radius: 10px;
 }
 
-.contact .full .MuiFormControl-root {
+.contact .MuiFormControl-root {
   width: 100%;
 }
 
@@ -323,16 +359,58 @@ nav .button:active span, .button:active span {
 }
 
 .footer-divider {
-  margin: 25px 0;
+  margin: 25px auto;
 }
 
-@media only screen and (max-width: 1024px) {
+footer .logo {
+  margin-right: 30px;
+}
+
+@media only screen and (max-width: 1440px) {
   body {
     width: 100%;
   }
 
+  .App-header, .footer-privacy {
+    width: calc(100% - 120px);
+  }
+
+  .copyright {
+    width: 100%;
+    padding: 30px 50px 50px 50px;
+  }
+
+  nav .item {
+    margin-right: 30px;
+  }
+
+  footer .saudi {
+    width: 200px;
+  }
+  
+  footer.App-header {
+    height: 12px;
+  }
+
+  .App-header, nav .button, .button {
+    font-size: 16px;
+  }
+
+  .App-header, .footer-privacy {
+      width: calc(100% - 120px);
+  }
+}
+
+@media only screen and (max-width: 1200px) {
+  .contact.submenu .contactimage {
+      width: 30%;
+  }
+}
+
+@media (orientation: portrait) {
   header .logo {
-    height: 23px;
+    height: 40px;
+    margin-top: 10px;
   }
 
   header .footermenu {
@@ -367,6 +445,13 @@ nav .button:active span, .button:active span {
 
   header .footermenu .social img {
     margin-left: 20px;
+  }
+
+  header .footermenu .active {
+    background: linear-gradient(90deg, #F1A4DE 0%, #B166EB 50.52%, #7D39F5 100%), #FFFFFF;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
   }
 
   .App-header {
@@ -420,12 +505,14 @@ nav .button:active span, .button:active span {
 
   footer img {
     max-width: none;
+    margin: 0 auto;
   }
 
   footer .logo {
     display: flex;
     justify-content: center;
     align-items: center;
+    margin: 0;
   }
 
   footer nav .item.button {
@@ -439,7 +526,7 @@ nav .button:active span, .button:active span {
   footer nav .item {
     margin-right: auto;
     text-align: center;
-    width: 50%;
+    width: 100%;
     display: initial;
   }
 
@@ -466,8 +553,13 @@ nav .button:active span, .button:active span {
   .contact.submenu {
     flex-direction: column;
     align-items: center;
-    top: 45px;
+    top: 65px;
+    height: auto;
     box-shadow: none;
+  }
+
+  .contact.submenu .contactimage {
+    width: auto;
   }
 
   .contact .blockcontainer {
@@ -488,8 +580,70 @@ nav .button:active span, .button:active span {
     width: 100%;
   }
 
+  contact .block textarea {
+    width: 100%;
+  }
+
   .contact .button {
     width: 100%;
     justify-content: center;
+  }
+}
+
+
+
+.App.AR .App-header, 
+.App.AR .App-header nav, 
+.App.AR .logo, 
+.App.AR .footer-privacy, 
+.App.AR nav .button, 
+.App.AR .button,
+.App.AR .footer-privacy div,
+.App.AR .contact.submenu
+ {
+  flex-direction: row-reverse;
+}
+
+.App.AR footer .logo {
+  margin-right: 0;
+  margin-left: 30px;
+}
+
+.App.AR .contact.submenu img {
+  -moz-transform: scaleX(-1);
+  -o-transform: scaleX(-1);
+  -webkit-transform: scaleX(-1);
+  transform: scaleX(-1);
+  filter: FlipH;
+  -ms-filter: "FlipH";
+}
+
+.App.AR nav .button svg, 
+.App.AR .button svg {
+  transform: rotate(180deg);
+}
+
+.App.AR .copyright {
+  text-align: end;
+}
+
+.App.AR .contact.submenu .blockcontainer form {
+  display: flex;
+  width: 100%;
+  flex-direction: column;
+}
+
+.App.AR .contact.submenu .blockcontainer .button {
+  align-self: flex-end;
+}
+
+
+@media (orientation: portrait) {
+  .App.AR .App-header nav, .App.AR .contact.submenu  {
+    flex-direction: column;
+  }
+
+  .App.AR footer .logo {
+    margin-left: 0;
   }
 }

@@ -56,7 +56,7 @@ function WhitePapers() {
             <div>
               <p>Third Parties Designated by You: When you use the Services, the personal information you provide will be shared with the third parties that you authorize to receive such information.</p>
               <p>Log Files: As is true of most websites, we gather certain information automatically and store it in log files. This information includes IP addresses, browser type, Internet service provider (ISP), referring/exit pages, operating system, date/time stamp, and</p>
-              <div className="item button">Download White Paper first <FaArrowRight /></div>
+              <div className="item button">Download White Paper third <FaArrowRight /></div>
             </div>
             <img src={require("../../assets/images/whitepapers/whitepaper1.png")} alt="" />
           </div>
@@ -65,7 +65,7 @@ function WhitePapers() {
           <div className="whitepaper left">
             <div>
               <p>Our Site may contain links to third party websites. When you click on a link to any other website or location, you will leave our Site or Services and go to another site, and another entity may collect personal information or anonymous data from you. We have no control over, do not review, and are not responsible for, these outside websites or their content. Please be aware that the terms of this Privacy Policy do not apply to these outside websites or content, or to any collection of your personal information after you click on links to such outside websites. We encourage you to read the privacy policies of every website you visit. The links to third party websites or locations are for your convenience and do not signify our endorsement of such third parties or their products, content or websites.</p>
-              <div className="item button">Download White Paper first <FaArrowRight /></div>
+              <div className="item button">Download White Paper fourth <FaArrowRight /></div>
             </div>
             <img src={require("../../assets/images/whitepapers/whitepaper1.png")} alt="" />
           </div>

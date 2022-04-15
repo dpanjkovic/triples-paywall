@@ -17,12 +17,11 @@ function Footer() {
     <>
       <footer className="App-header">
         <div className={display.isPortrait ? "logo" : "logo flex flex-row items-center"}>
-          <a href="/"><img src={process.env.PUBLIC_URL + '/images/logo.svg'} className="mr-4 logo" alt="" /></a>
-          { !display.isPortrait && <img src={require("../../assets/images/footer-saudi.png")} alt="" /> }
+          <a href="/"><img src={process.env.PUBLIC_URL + '/images/logo.svg'} className="logo" alt="" /></a>
+          { !display.isPortrait && <img src={require("../../assets/images/footer-saudi.png")} className="saudi" alt="" /> }
         </div>
         { !display.isPortrait ?
           <nav>
-            <div className="item"><a href="/#investors">For Investors</a></div>
             <div className="item"><a href="/#einvoice">eInvoice</a></div>
             <div className="item"><a href="payroll">Payroll</a></div>
             <div className="item"><a href="aboutus">About us</a></div>
@@ -31,12 +30,13 @@ function Footer() {
           :
           <nav className="mt-5 mb-5">
             <div className="flex items-center justify-between w-full">
-              <div className="item w-1/2"><a href="/#investors">For Investors</a></div>
-              <div className="item w-1/2"><a href="/#einvoice">eInvoice</a></div>
+              <div className="item"><a href="/#einvoice">eInvoice</a></div>
             </div>
             <div className="flex items-center justify-between w-full">
-              <div className="item w-1/2"><a href="payroll">Payroll</a></div>
-              <div className="item w-1/2"><a href="aboutus">About us</a></div>
+              <div className="item"><a href="payroll">Payroll</a></div>
+            </div>
+            <div className="flex items-center justify-between w-full">
+              <div className="item"><a href="aboutus">About us</a></div>
             </div>
             <div className="flex items-center justify-between w-full">
             <div className="item button" onClick={showContact}>
@@ -54,7 +54,7 @@ function Footer() {
           <a href="terms">Terms & Conditions</a>
           <a href="privacy">Privacy Policy</a>
           <a href="whitepapers">White Papers</a>
-          <a href="cookies">Cookies</a>
+          <a href="privacy#data">Cookies</a>
         </div>
         <div className="social">
           <img src={require("../../assets/images/twitter.png")} alt="" />

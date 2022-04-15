@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import topImage from "../../assets/images/payroll/top.png";
 import topImageMobile from "../../assets/images/payroll/top-mobile.png";
 import background from "../../assets/images/payroll/background.png";
@@ -40,6 +40,7 @@ function Payroll() {
 
   const vars = useSelector((state) => state.vars.value);
   const display = useSelector((state) => state.display.value);
+  const lang = useSelector((state) => state.lang.value);
 
   const showContact = () => {
     window.scrollTo(0, 0);
@@ -50,17 +51,37 @@ function Payroll() {
 
   const [refCallback, slider] = useKeenSlider(
     {
+      loop: true,
+      rtl: (display.isPortrait && lang === "AR") ? true : false,
       slideChanged(slider) {
         setSlide(slider.track.details.rel)
       },
       slides: {
         origin: "center",
       },
-      vertical: true,
+      vertical: display.isPortrait ? false : true,
+      horizontal: display.isPortrait ? true : false,
     },
     [
     ]
   );
+
+  useEffect(() => {
+    slider.current?.update(
+      {
+        loop: true,
+        rtl: (display.isPortrait && lang === "AR") ? true : false,
+        slideChanged(slider) {
+          setSlide(slider.track.details.rel)
+        },
+        slides: {
+          origin: "center",
+        },
+        vertical: display.isPortrait ? false : true,
+        horizontal: display.isPortrait ? true : false,
+      }
+    );
+  }, [display, lang]);
 
   const changeSlide = (i) => {
     setSlide(i);
@@ -73,7 +94,7 @@ function Payroll() {
       <Loader />
       :
       <>
-      <img src={display.isPortrait ? topImageMobile : topImage} className="topimage" alt="" />
+      <div className="topimage" style={{backgroundImage:`url(${topImage})`}} />
       <div className="heading">
         <h1>Transform your</h1>
         <h1>business the smart way</h1>
@@ -119,37 +140,37 @@ function Payroll() {
             })
           }
         </div>
-        <div>
-        <div ref={refCallback} className="keen-slider">
-          <div className="keen-slider__slide number-slide1">
-            <h2>Keep your data in one place.</h2>
-            <span className="body">Dignissim amet sed adipiscing egestas bibendum purus neque et eget. Leo risus, ut consequat in ipsum. Nam nunc, eget sit a aliquam urna adipiscing proin. Dui quam augue convallis justo nullam semper maecenas egestas. Iaculis leo.</span>
+        <div className="sliderwrapper">
+          <div ref={refCallback} className="keen-slider">
+            <div className="keen-slider__slide number-slide1">
+              <h2>Keep your data in one place. 1.</h2>
+              <span className="body">Dignissim amet sed adipiscing egestas bibendum purus neque et eget. Leo risus, ut consequat in ipsum. Nam nunc, eget sit a aliquam urna adipiscing proin. Dui quam augue convallis justo nullam semper maecenas egestas. Iaculis leo.</span>
+            </div>
+            <div className="keen-slider__slide number-slide2">
+              <h2>Keep your data in one place. 2.</h2>
+              <span className="body">Dignissim amet sed adipiscing egestas bibendum purus neque et eget. Leo risus, ut consequat in ipsum. Nam nunc, eget sit a aliquam urna adipiscing proin. Dui quam augue convallis justo nullam semper maecenas egestas. Iaculis leo.</span>            
+            </div>
+            <div className="keen-slider__slide number-slide3">
+              <h2>Keep your data in one place. 3.</h2>
+              <span className="body">Dignissim amet sed adipiscing egestas bibendum purus neque et eget. Leo risus, ut consequat in ipsum. Nam nunc, eget sit a aliquam urna adipiscing proin. Dui quam augue convallis justo nullam semper maecenas egestas. Iaculis leo.</span>
+            </div>
+            <div className="keen-slider__slide number-slide4">
+              <h2>Keep your data in one place. 4.</h2>
+              <span className="body">Dignissim amet sed adipiscing egestas bibendum purus neque et eget. Leo risus, ut consequat in ipsum. Nam nunc, eget sit a aliquam urna adipiscing proin. Dui quam augue convallis justo nullam semper maecenas egestas. Iaculis leo.</span>
+            </div>
+            <div className="keen-slider__slide number-slide5">
+              <h2>Keep your data in one place. 5.</h2>
+              <span className="body">Dignissim amet sed adipiscing egestas bibendum purus neque et eget. Leo risus, ut consequat in ipsum. Nam nunc, eget sit a aliquam urna adipiscing proin. Dui quam augue convallis justo nullam semper maecenas egestas. Iaculis leo.</span>
+            </div>
           </div>
-          <div className="keen-slider__slide number-slide2">
-            <h2>Keep your data in one place.</h2>
-            <span className="body">Dignissim amet sed adipiscing egestas bibendum purus neque et eget. Leo risus, ut consequat in ipsum. Nam nunc, eget sit a aliquam urna adipiscing proin. Dui quam augue convallis justo nullam semper maecenas egestas. Iaculis leo.</span>            
-          </div>
-          <div className="keen-slider__slide number-slide3">
-            <h2>Keep your data in one place.</h2>
-            <span className="body">Dignissim amet sed adipiscing egestas bibendum purus neque et eget. Leo risus, ut consequat in ipsum. Nam nunc, eget sit a aliquam urna adipiscing proin. Dui quam augue convallis justo nullam semper maecenas egestas. Iaculis leo.</span>
-          </div>
-          <div className="keen-slider__slide number-slide4">
-            <h2>Keep your data in one place.</h2>
-            <span className="body">Dignissim amet sed adipiscing egestas bibendum purus neque et eget. Leo risus, ut consequat in ipsum. Nam nunc, eget sit a aliquam urna adipiscing proin. Dui quam augue convallis justo nullam semper maecenas egestas. Iaculis leo.</span>
-          </div>
-          <div className="keen-slider__slide number-slide5">
-            <h2>Keep your data in one place.</h2>
-            <span className="body">Dignissim amet sed adipiscing egestas bibendum purus neque et eget. Leo risus, ut consequat in ipsum. Nam nunc, eget sit a aliquam urna adipiscing proin. Dui quam augue convallis justo nullam semper maecenas egestas. Iaculis leo.</span>
-          </div>
-        </div>
         </div>
       </div>
 
       <div className="transfer">
-        <img src={ display.isPortrait ? backgroundMobile : background } className="background" alt="" />
+        <img src={ background } className="background" alt="" />
         <h2>Transfer salary digitally.</h2>
         <div className="tree">
-          <img src={require("../../assets/images/payroll/screenshot.png")} alt="" />
+          <img src={require("../../assets/images/payroll/screenshot.png")} alt="" className="screenshot" />
           <div className="cards"><img src={require("../../assets/images/payroll/tree.png")} alt="" /></div>
           <div className="workers">
             <div className="worker">
@@ -162,9 +183,26 @@ function Payroll() {
               <img src={display.isPortrait ? require("../../assets/images/payroll/worker2-mobile.png") : require("../../assets/images/payroll/worker2.png")} alt="" />
             </div>
           </div>
+          {
+            display.isPortrait &&
+          <div className="workers">
+            <div className="worker">
+              <img src={display.isPortrait ? require("../../assets/images/payroll/worker2-mobile.png") : require("../../assets/images/payroll/worker2.png")} alt="" />
+            </div>
+            <div className="worker">
+              <img src={display.isPortrait ? require("../../assets/images/payroll/worker-mobile.png") : require("../../assets/images/payroll/worker.png")} alt="" />
+            </div>
+            <div className="worker">
+              <img src={display.isPortrait ? require("../../assets/images/payroll/worker1-mobile.png") : require("../../assets/images/payroll/worker1.png")} alt="" />
+            </div>
+            <div className="worker">
+              <img src={display.isPortrait ? require("../../assets/images/payroll/worker2-mobile.png") : require("../../assets/images/payroll/worker2.png")} alt="" />
+            </div>
+          </div>
+        }
         </div>
         <div className="safety">
-          <div>
+          <div className="text">
             <h2><span>Safety</span> to the Max.</h2>
             <h3>Say hello to our security and data protection</h3>
             <span className="body">Vulputate duis nunc, sit enim odio proin. Aliquet augue egestas nisi, condimentum nibh. Porta sem sit ipsum cursus lacus sed. A est quis dui in ipsum risus id mauris, eleifend. Nisi tortor id volutpat amet pulvinar id elementum sit. Orci elit morbi erat massa vel eget luctus sollicitudin egestas. Dignissim enim, in aliquam sed molestie massa. Amet, et, cursus gravida libero viverra. Urna urna ac amet a eu montes, at nunc. </span>

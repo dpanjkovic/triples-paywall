@@ -4,6 +4,7 @@ const initialState = {
   value: {
     isDesktopOrLaptop: false,
     isPortrait: false,
+    isMax1440: false,
   },
 };
 

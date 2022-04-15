@@ -1,3 +1,58 @@
+.fixedvideo {
+  position: fixed;
+  height: auto;
+  z-index: 10000;
+  display: none;
+  color: #FFFFFF;
+}
+
+.fixedvideo.tools .introducing {
+  position: absolute;
+    left: 0px;
+    top: 180px;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.fixedvideo.tools .introducing .title {
+  opacity: 0.3;
+  text-align: center;
+}
+
+.fixedvideo.tools .introducing .subtitle {
+  font-family: 'Epilogue', sans-serif;
+  font-size: 21px;
+  color: #A5A9BB;
+  opacity: 0;
+}
+
+.fixedvideo.tools .introducing .button {
+  opacity: 0;
+}
+
+.fixedvideo.tools .wanttotalk {
+  position: absolute;
+  width: 100%;
+  margin-top: -100px;
+  opacity: 0.3;
+}
+
+.fixedvideo.tools .wanttotalk .inner {
+  width: 80%;
+  height: 208px;
+  margin: 0px auto;
+  bottom: 10px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 60px;
+  background: linear-gradient(90deg, #F1A4DE 0%, #B166EB 50.52%, #7D39F5 100%);
+  box-shadow: 0px 14px 44px rgba(177, 103, 233, 0.4);
+  border-radius: 30px;
+}
+
 .homepage {
   position: relative;
   display: flex;
@@ -9,9 +64,22 @@
   height: fit-content !important;
 }
 
+.homepage .topimage {
+  height: 650px;
+  width: 100%;
+  background-position: center;
+  background-repeat: no-repeat;
+}
+
+.homepage .contentcontainer {
+  width: 1440px;
+  padding: 0 25px;
+  display: block;
+}
+
 .homepage .investors {
   width: 1014px;
-  margin: 100px 213px;
+  margin: 100px auto;
   text-align: start;
   display: flex;
   align-items: center;
@@ -20,14 +88,15 @@
 }
 
 .homepage .investors .opportunity {
-  width: 400px;
+  width: 40%;
 }
 
 .homepage .howisworking {
-  margin: 100px 0 0 0;
+  margin: 100px auto 0 auto;
   display: flex;
   flex-direction: column;
   align-items: center;
+  width: 1014px;
 }
 
 .homepage .howisworking h2, .homepage .howisworking span {
@@ -35,7 +104,6 @@
 }
 
 .homepage .howisworking .tabs {
-  width: 1014px;
   display: flex;
   margin-top: 40px;
   justify-content: space-between;
@@ -51,6 +119,7 @@
   background: linear-gradient(0deg, #F2F2F2, #F2F2F2), #FFFFFF;
   border-radius: 10px;
   cursor: pointer;
+  margin: 0 10px;
 }
 
 .homepage .howisworking .tabs .tab.active {
@@ -77,7 +146,7 @@
   background: #F4F7FC;
   border-radius: 30px;
   height: 622px;
-  width: 1014px;
+  width: 100%;
   margin-top: 25px;
   position: relative;
   display: flex;
@@ -117,7 +186,7 @@
 
 
 .homepage .getmoredone {
-  margin: 120px 0 120px 0;
+  margin: 100px auto;
   display: flex;
   flex-direction: column;
   align-items: flex-start;
@@ -138,6 +207,13 @@
 
 .homepage .einvoice {
   margin: 0;
+  width: 100%;
+  position: relative;
+  display: block;
+  margin: 0px auto;
+  padding: 0px;
+  height: 1002px;
+  color: #ffffff;
 }
 
 .homepage .einvoice1 {
@@ -146,7 +222,7 @@
 
 .homepage .buttons {
   position: absolute;
-  top: 355px;
+  top: 235px;
   display: flex;
   align-items: center;
   width: 100%;
@@ -165,16 +241,15 @@
 
 .homepage .heading {
   position: absolute;
-  top: 126px;
+  top: 0;
   width: 100%;
 }
 
-.homepage .einvoice {
+.homepage .einvoice .videoholder {
+  border-radius: 30px;
+  overflow: hidden;
+  height: 400px;
   position: relative;
-  width: 1390px;
-  padding: 10px 0px;
-  height: 1002px;
-  color: #ffffff;
 }
 
 .homepage .einvoice .gradient {
@@ -182,12 +257,13 @@
   height: 100%;
   width: 100%;
   left: 0;
-  background-image: linear-gradient(to top, #252382, 90%, rgba(255,0,0,0));
+  top: 0;
+  background-image: linear-gradient(to top, #252382, 93%, rgba(255,0,0,0));
   border-radius: 30px;
 }
 
 .homepage .einvoice video {
-  width: 100%;
+  width: 1440px;
   border-radius: 30px;
   position: absolute;
   left: 0;
@@ -195,8 +271,10 @@
 
 .homepage .einvoice .waves {
   position: absolute;
-  top: 459px;
-  left: 662px;
+  top: 359px;
+  right: 20px;
+  width: 50%;
+  overflow: hidden;
 }
 
 .homepage .einvoice .waves img {
@@ -213,10 +291,23 @@
   align-items: center;
 }
 
+.homepage .tools .introducing {
+  top: 100px;
+}
+
+.homepage .tools .introducing .button {
+  opacity: 0;
+}
+
+.homepage .tools .introducing .title {
+  opacity: 0.3;
+}
+
 .homepage .einvoice .introducing .subtitle {
   font-family: 'Epilogue', sans-serif;
   font-size: 21px;
   color:#A5A9BB;
+  opacity: 0;
 }
 
 .homepage .einvoice .body {
@@ -225,12 +316,16 @@
 
 .homepage .einvoice .get_paid {
   position: absolute;
-  width: 456px;
+  width: 50%;
   height: 357px;
-  left: 85px;
-  top: 545px;
+  top: 445px;
   text-align: start;
   opacity: 0;
+}
+
+.homepage .einvoice .get_paid div {
+  width: 60%;
+  margin: 0 auto;
 }
 
 .homepage .einvoice .get_paid .subtitle {
@@ -240,10 +335,14 @@
 
 .homepage .einvoice .benefits {
   position: absolute;
-  width: 530px;
+  width: 50%;
   height: 369px;
-  left: 698px;
-  top: 530px;
+  right: 0px;
+  top: 430px;
+}
+
+.homepage .einvoice .benefits div {
+  width: 80%;
 }
 
 .homepage .einvoice .benefits .button {
@@ -276,12 +375,32 @@
   margin: -10px 10px 0px 0px;
 }
 
+.homepage .tools {
+  height: fit-content;
+  margin: 100px 0 200px;
+}
+
+.homepage .tools.einvoice .videoholder {
+  height: fit-content;
+  position: relative;
+}
+
+.homepage .tools.einvoice video {
+  position: relative;
+}
+
 .homepage .tools .wanttotalk {
   position: absolute;
-  width: 1012px;
+  width: 100%;
+  margin-top: -100px;
+  opacity: 0;
+}
+
+.homepage .tools .wanttotalk .inner {
+  width: 80%;
   height: 208px;
-  left: 189px;
-  top: 679px;
+  margin: 0px auto;
+  bottom: 10px;
   display: flex;
   align-items: center;
   justify-content: space-between;
@@ -291,18 +410,72 @@
   border-radius: 30px;
 }
 
+@media only screen and (max-width: 1440px) {
+  .homepage .contentcontainer {
+    width: 100%;
+    padding: 0px;
+  }
+
+  .homepage .einvoice, .homepage .howisworking {
+    width: 100%;
+    padding: 0 20px;
+  }
+
+  .homepage .einvoice .gradient {
+    width: calc(100% - 40px);
+    margin: 0 20px;
+    background-image: linear-gradient(to top, #252382, 95%, rgba(255,0,0,0));
+  }
+}
+
 @media only screen and (max-width: 1024px) {
+  .homepage .investors, .homepage .getmoredone {
+    width: 100%;
+    padding: 0 20px;
+  }
+
+  .homepage .tools .wanttotalk .inner h1, .fixedvideo.tools .introducing .title {
+    font-size: 56px;      
+  }
+
+  .homepage .tools .introducing {
+    top: 50px;
+  }
+
+  .homepage .tools .introducing h1 {
+    font-size: 54px;
+  }
+
+  
+  .homepage .einvoice .benefits .button.saves {
+    margin-left: 60px;
+  }
+
+  .homepage .einvoice .benefits .button.flexibility {
+    margin-left: 70px;
+  }
+
+  .homepage .einvoice .benefits div {
+    width: auto;
+  }
+}
+
+@media (orientation: portrait) {
   .homepage .topimage {
     width: 100%;
   }
 
   .homepage .heading {
-    top: -20px;
+    top: 50px;
+  }
+
+  .homepage .heading h1 {
+    margin: 0px 20px;
   }
 
   .homepage .buttons {
     position: absolute;
-    top: 220px;
+    top: 250px;
     display: initial;
     align-items: center;
     width: 100%;
@@ -319,17 +492,32 @@
     height: 44px;
   }
 
-  .homepage .investors, .homepage .einvoice, .homepage .howisworking, .homepage .getmoredone, .homepage .tools {
-    width: 100%;
-    padding: 20px;
-  }
-
-  .homepage .investors, .homepage .howisworking, .homepage .getmoredone {
-    margin: 50px auto 0px;
+  .homepage .getmoredone {
+    margin: 10px auto 60px;
   }
 
   .homepage .investors {
-    display: inline;
+    margin: 60px auto;
+  }
+
+  .homepage .investors img {
+    margin: 0px auto;
+  }
+
+  .homepage .howisworking {
+    margin: 30px auto 40px;
+  }
+
+  .homepage .tools {
+    margin-top: 60px;
+  }
+
+  .homepage .tools .introducing .button, .homepage .tools .introducing .title, .homepage .tools .introducing .subtitle {
+    opacity: 1;
+  }
+
+  .homepage .investors {
+    display: block;
   }
 
   .homepage .investors .opportunity {
@@ -341,12 +529,11 @@
   }
 
   .homepage .einvoice .videoholder {
-    border-radius: 30px;
-    overflow: hidden;
+    height: 500px;
+    padding: 0 20px;
   }
 
   .homepage .einvoice video {
-    width: 960px;
     max-width: none;
     margin-left: -400px;
     position: unset;
@@ -363,7 +550,7 @@
   }
 
   .homepage .einvoice.tools .introducing {
-    top: 50px;
+    top: 0px;
   }
 
   .homepage .einvoice.tools {
@@ -371,26 +558,31 @@
   }
 
   .homepage .tools .wanttotalk {
+    left: 0;
+  }
+
+  .homepage .tools .wanttotalk .inner {
     width: 100%;
     left: 0;
-    bottom: 0;
+    bottom: -50px;
     top: 520px;
+    height: 250px;
     padding: 20px;
-    height: 260px;
     border-radius: 0px;
     flex-direction: column;
     justify-content: space-around;
   }
    
   .homepage .einvoice .benefits {
-    position: initial;
+    position: relative;
     width: auto;
     height: auto;
     left: 0px;
     top: 0px;
     text-align: start;
     opacity: 1;
-    margin-top: 120px;
+    margin-top:-85px;
+    padding: 20px;
   }
 
   .homepage .einvoice .benefits .button {
@@ -406,25 +598,23 @@
     margin-left: 40px;
   }
 
+  .homepage .einvoice .benefits div {
+    width: auto;
+  }
+
   .homepage .einvoice .get_paid {
-    position: initial;
+    position: relative;
     width: auto;
     height: auto;
     left: 0px;
     top: 0px;
     text-align: start;
     opacity: 1;
-  }
-
-  .homepage .einvoice .gradient {
-    top: 0px;
-    margin: 20px;
-    width: calc(100% - 40px);
+    padding: 20px;
   }
 
   .homepage .einvoice .waves {
     position: absolute;
-    top: 473px;
     left: 20px;
     z-index: 0;
     width: calc(100% - 40px);
@@ -434,14 +624,36 @@
     width: 100%;
   }
 
+  .homepage .tools.einvoice {
+    height: 600px;
+  }
+
+  .homepage .tools.einvoice .videoholder {
+    height: inherit;
+  }
+
   .homepage .getmoredone .content {
     flex-wrap: wrap;
     flex-direction: column;
     align-items: center;
   }
 
-  .homepage .getmoredone .content img {
-    margin-bottom: 30px;
+  .homepage .getmoredone .content {
+    flex-wrap: wrap;
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .homepage .getmoredone .MuiGrid-container {
+    flex-direction: column !important;
+  }
+
+  .homepage .getmoredone .content .MuiGrid-container .MuiGrid-item {
+    max-width: 100% !important;
+  }
+
+  .homepage .getmoredone .content .MuiGrid-container .MuiGrid-item img {
+    margin: 0px auto !important;
   }
 
   .homepage .getmoredone h2, .homepage .getmoredone span, .homepage .howisworking .content, .homepage .howisworking .tabs, .homepage .howisworking h2, .homepage .howisworking span, .homepage .howisworking .content {
@@ -457,6 +669,7 @@
 
   .homepage .howisworking .tabs .tab {
     width: 100%;
+    padding: 0;
     background: none !important;
     justify-content: flex-start;
     text-align: start;
@@ -477,5 +690,170 @@
   .homepage .howisworking .content .logotype {
     left: 0px;
     top: 202px;
+  }
+}
+
+
+.App.AR .homepage .howisworking .tabs,
+.App.AR .homepage .howisworking .content,
+.App.AR .homepage .howisworking .tabs .tab,
+.App.AR .homepage .buttons
+ {
+  flex-direction: row-reverse;
+}
+
+.App.AR .homepage .howisworking .tabs .tab h5 {
+  text-align: end;
+}
+
+.App.AR .homepage .howisworking .tabs .tab img {
+  margin-right: 0;
+  margin-left: 10px;
+}
+
+.App.AR .homepage .buttons img {
+  margin-right: 0;
+  margin-left: 20px;
+}
+
+.App.AR .homepage .investors {
+  flex-direction: row;
+}
+
+.App.AR .homepage .getmoredone h2, 
+.App.AR .homepage .getmoredone span,
+.App.AR .homepage .howisworking .content .appfeatures .appfeaturescontent,
+.App.AR .homepage .investors .opportunity
+ {
+  align-self: flex-end;
+  text-align: end;
+}
+
+.App.AR .homepage .investors .opportunity a {
+  display: flex;
+  flex-direction: row-reverse;
+}
+
+.App.AR .homepage .howisworking .content .appfeatures .appfeaturescontent img {
+  display: inline;
+}
+
+.App.AR .homepage .howisworking .content:visited {
+  -moz-transform: scaleX(-1);
+  -o-transform: scaleX(-1);
+  -webkit-transform: scaleX(-1);
+  transform: scaleX(-1);
+  filter: FlipH;
+  -ms-filter: "FlipH";
+}
+
+.App.AR .homepage .howisworking .content .application {
+  right: 139px;
+  left: auto;
+}
+
+.App.AR .homepage .howisworking .content .logotype {
+  right: 35px;
+  left: auto;
+}
+
+.App.AR .homepage .howisworking .content .colors {
+  right: 305px;
+  left: auto;
+}
+
+.App.AR .homepage .einvoice .benefits .button img {
+  float: right;
+  margin: -10px 0px 0px 10px;
+}
+
+.App.AR .homepage .einvoice .benefits .button {
+  margin-right: 0px;
+  margin-left: auto;
+}
+
+.App.AR .homepage .einvoice .get_paid {
+  right: 0px;
+  left: auto;
+  text-align: end;
+}
+
+.App.AR .homepage .einvoice .benefits {
+  left: 20px;
+  right: 0;
+}
+
+.App.AR .homepage .einvoice .waves {
+  left: 0px;
+  right: 0;
+  width: 50%;
+  height: 801px;
+}
+
+.App.AR .homepage .einvoice .benefits .button.quick {
+  margin-right: 7px;
+  margin-left: auto;
+}
+
+.App.AR .homepage .einvoice .benefits .button.saves {
+  margin-right: 22px;
+  margin-left: auto;
+}
+
+.App.AR .homepage .einvoice .benefits .button.flexibility {
+  margin-right: 16px;
+  margin-left: auto;
+}
+
+
+.App.AR .homepage .einvoice .waves img {
+  -moz-transform: scaleX(-1);
+  -o-transform: scaleX(-1);
+  -webkit-transform: scaleX(-1);
+  transform: scaleX(-1);
+  filter: FlipH;
+  -ms-filter: "FlipH";
+  right: 0px;
+  position: absolute;
+}
+
+@media (orientation: portrait) {
+  .App.AR .homepage .einvoice .benefits {
+    right: auto;
+    left: auto;
+  }
+
+  .App.AR .wanttotalk {
+    flex-direction: row-reverse;
+  }
+
+
+  .App.AR .homepage .einvoice .waves {
+    right: auto;
+    left: auto;
+    width: calc(100% - 40px);
+  }
+
+  .App.AR .homepage .einvoice .benefits .button.quick {
+    margin-right: 7px;
+    margin-left: auto;
+  }
+  
+  .App.AR .homepage .einvoice .benefits .button.saves {
+    margin-right: 20px;
+    margin-left: auto;
+  }
+  
+  .App.AR .homepage .einvoice .benefits .button.flexibility {
+    margin-right: 40px;
+    margin-left: auto;
+  }
+
+}
+
+
+@media screen and (max-width: 900px) and (min-width: 600px) and (orientation: portrait)  {
+  .homepage .einvoice .benefits .button, .App.AR .homepage .einvoice .benefits .button {
+    margin: 0px auto 35px !important;
   }
 }

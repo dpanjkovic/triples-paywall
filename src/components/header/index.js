@@ -1,7 +1,7 @@
 import React, { useEffect, useRef, useState } from "react";
-import { FaArrowRight, FaAngleDown } from "react-icons/fa";
+import { FaArrowRight } from "react-icons/fa";
 import FooterMenu from "../footer/menu";
-import { FormControlLabel, Snackbar, TextField, IconButton } from "@mui/material";
+import { FormControlLabel, Snackbar, TextField, IconButton, Grid } from "@mui/material";
 import CloseIcon from '@mui/icons-material/Close';
 import BpCheckbox from "../bpcheckbox";
 import burgerIcon from "../../assets/images/burger-icon.png";
@@ -11,6 +11,30 @@ import topImage from "../../assets/images/contact/top.png";
 import { useSelector, useDispatch } from "react-redux";
 import { setVars } from "../../store/varsSlice";
 import emailjs from '@emailjs/browser';
+import { setLang } from "../../store/langSlice";
+import { createTheme, ThemeProvider } from '@mui/material/styles';
+import { CacheProvider } from '@emotion/react';
+import createCache from '@emotion/cache';
+import rtlPlugin from 'stylis-plugin-rtl';
+import { prefixer } from 'stylis';
+
+const themeRtl = createTheme({
+  direction: 'rtl',
+});
+
+const theme = createTheme({
+  direction: 'ltr',
+});
+
+const cacheRtl = createCache({
+  key: 'muirtl',
+  stylisPlugins: [prefixer, rtlPlugin],
+});
+
+const cache = createCache({
+  key: 'mui',
+  stylisPlugins: [prefixer],
+});
 
 function Header() {
   const dispatch = useDispatch();
@@ -26,6 +50,7 @@ function Header() {
   const [snackMessage, setSnackMessage] = useState("");
 
   const vars = useSelector((state) => state.vars.value);
+  const lang = useSelector((state) => state.lang.value);
 
   useEffect(() => {
     window.scrollTo(0, 0);
@@ -83,6 +108,26 @@ function Header() {
     </React.Fragment>
   );
 
+  const changeLanguage = (l) => {
+    const setlang = l ? l : (lang === "EN") ? "AR" : "EN";
+
+    setCookie("lang", setlang, { path: "/" });
+    dispatch(setLang(setlang));
+    setShowMenu(false);
+  };
+
+  function setCookie(name, value, minutes) {
+    let expires = "";
+    if (minutes) {
+      const date = new Date();
+      date.setTime(date.getTime() + minutes * 60 * 1000);
+      const datestr = date.toUTCString();
+      expires = `; expires=${datestr}`;
+    }
+  
+    document.cookie = `${name}=${value}${expires}; path=/; max-age=31536000`;
+  }
+
   return (
     <header className="App-header">
       <Snackbar
@@ -95,69 +140,69 @@ function Header() {
       />
       <a href="/"><img src={process.env.PUBLIC_URL + '/images/logo.svg'} className="logo" alt="" /></a>
       <img src={vars.showContact ? closeIcon : burgerIcon} className="mobilemenu" onClick={toggleMenu} alt="" />
-      { display.isPortrait && showMenu && <FooterMenu /> }
+      { display.isPortrait && showMenu && <FooterMenu onChangeLanguage={changeLanguage} /> }
       <nav>
-        <div className="item"><a href="/#investors">For Investors</a></div>
-        <div className="item" onMouseEnter={() => setShowSubMenu(true)} onMouseLeave={() => setShowSubMenu(false)}>
-          Products
-          <FaAngleDown className="arrowdown" />
-          { showSubMenu &&
-          <div className="submenu">
-            <a href="/#einvoice">
-              <div className="submenuitem mb-4 pr-3">
-                <img src={require("../../assets/images/einvoice.png")} alt="" />
-                <div className="mt-2">
-                  eInvoice
-                  <span>instant invoices through SMS, mail & Whatsapp</span>
-                </div>
-              </div>
-            </a>
-            <a href="payroll">
-              <div className="submenuitem pr-3">
-                <img src={require("../../assets/images/payroll.png")} alt="" />
-                <div className="mt-2">
-                  Payroll
-                  <span>digitize management and administration of corporate payrolls</span>
-                </div>
-              </div>
-            </a>
-          </div>
-          }
-        </div>
+        <div className="item"><a href="/#einvoice">eInvoice</a></div>
+        <div className="item"><a href="/payroll">Payroll</a></div>
         <div className="item"><a href="aboutus">About us</a></div>
         <div className="item button" onClick={() => showContact(true)}>
           <span>Contact us</span><FaArrowRight />
         </div>
-        <div className="item language"><img src={require("../../assets/images/lang.png")} alt="" /></div>
+        <div className="item language">
+          <div className="main">
+            <img src={require("../../assets/images/lang.png")} alt="" /> { lang === "EN" ? "EN" : "AR" }
+          </div>
+          <div className="other" onClick={() => changeLanguage()}>{ lang === "EN" ? "AR" : "EN" }</div>
+        </div>
       </nav>
       { vars.showContact &&
       <div className="contact submenu">
-        <img src={display.isPortrait ? topImageMobile : topImage} alt="" />
+        <img src={display.isPortrait ? topImageMobile : topImage} className="contactimage" alt="" />
         <div className="container">
           { !display.isPortrait && <img src={closeIcon} className="closer" onClick={() => showContact(false)} alt="" /> }
           <div className="blockcontainer">
             <form ref={form} onSubmit={sendMessage}>
-              <div className="block">
-                <TextField id="outlined-basic" label="Full name" name="user_name" variant="outlined" />
-                <TextField id="outlined-basic" label="Email" name="user_email" variant="outlined" />
-              </div>
-              <div className="block">
-                <TextField id="outlined-basic" label="City" name="user_city" variant="outlined" />
-                <TextField id="outlined-basic" label="Country" name="user_country" variant="outlined" />
-              </div>
-              <div className="block">
-                <TextField id="outlined-basic" label="Company name" name="user_company" variant="outlined" />
-                <TextField id="outlined-basic" label="Subject" name="user_subject" variant="outlined" />
-              </div>
-              <div className="block full">
-                <TextField id="outlined-basic" label="Your message" name="message" multiline maxRows={10} variant="outlined" />
-              </div>
+            <CacheProvider value={ lang === "AR" ? cacheRtl : cache}>
+            <ThemeProvider theme={ lang === "AR" ? themeRtl : theme}>
+              <div dir={ lang === "AR" ? "rtl" : "" }>
+              <Grid container spacing={2} className="block">
+                <Grid item xs={display.isPortrait ? 12 : 6}>
+                  <TextField id="outlined-basic" label="Full name" name="user_name" variant="outlined" />
+                </Grid>
+                <Grid item xs={display.isPortrait ? 12 : 6}>
+                  <TextField id="outlined-basic" label="Email" name="user_email" variant="outlined" />
+                </Grid>
+              </Grid>
+              <Grid container spacing={2} className="block">
+                <Grid item xs={display.isPortrait ? 12 : 6}>
+                  <TextField id="outlined-basic" label="City" name="user_city" variant="outlined" />
+                </Grid>
+                <Grid item xs={display.isPortrait ? 12 : 6}>
+                  <TextField id="outlined-basic" label="Country" name="user_country" variant="outlined" />
+                </Grid>
+              </Grid>
+              <Grid container spacing={2} className="block">
+                <Grid item xs={display.isPortrait ? 12 : 6}>
+                  <TextField id="outlined-basic" label="Company name" name="user_company" variant="outlined" />
+                </Grid>
+                <Grid item xs={display.isPortrait ? 12 : 6}>
+                  <TextField id="outlined-basic" label="Subject" name="user_subject" variant="outlined" />
+                </Grid>
+              </Grid>
+              <Grid container spacing={2} className="block">
+                <Grid item xs={12}>
+                  <TextField id="outlined-basic" label="Your message" name="message" multiline maxRows={10} variant="outlined" />
+                </Grid>
+              </Grid>
               <FormControlLabel
                 control={
                   <BpCheckbox checked={checked} onClick={() => setChecked(!checked)} />
                 }
                 label="I have read and agreed to Privacy Policy and Google Policy."
               />
+              </div>
+              </ThemeProvider>
+              </CacheProvider>
               <div className={`item button mt-5 ${(checked && !sending) ? "" : "disabled"}`}onClick={checked ? sendMessage : null}><span>{sending ? "Sending..." : "Send message"}</span><FaArrowRight /></div>
             </form>
           </div>
