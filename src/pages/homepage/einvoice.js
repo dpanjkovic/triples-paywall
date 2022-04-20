@@ -4,6 +4,10 @@ import { Tween, Timeline } from 'react-gsap';
 import { useSelector } from "react-redux";
 import waves from "../../assets/images/homepage/waves.png";
 import wavesMobile from "../../assets/images/homepage/waves-mobile.png";
+import eInvoiceQuick from "../../assets/images/icons/einvoice-quick.svg";
+import eInvoiceSaves from "../../assets/images/icons/einvoice-saves.svg";
+import eInvoiceFaster from "../../assets/images/icons/einvoice-faster.svg";
+import eInvoiceFlexibility from "../../assets/images/icons/einvoice-flexibility.svg";
 
 function Einvoice() {
   const display = useSelector((state) => state.display.value);
@@ -37,7 +41,7 @@ function Einvoice() {
                     >
                       <Tween
                         from={{ opacity: 0, lineHeight: 20 }}
-                        to={{ opacity: 1, lineHeight: 1.5 }}
+                        to={{ opacity: 1, lineHeight: 3 }}
                       />
                     </Timeline>
                   </div>
@@ -74,7 +78,7 @@ function Einvoice() {
                     <Timeline
                       target={
                         <div className="button quick">
-                          <img src={require("../../assets/images/homepage/einvoice-quick.png")} alt="" />
+                          <img src={eInvoiceQuick} alt="" />
                           Quick and convenient to use
                         </div>
                         }
@@ -87,7 +91,7 @@ function Einvoice() {
                     <Timeline
                       target={
                         <div className="button saves">
-                          <img src={require("../../assets/images/homepage/einvoice-saves.png")} alt="" />
+                          <img src={eInvoiceSaves} alt="" />
                           Saves operational time and costs
                         </div>
                         }
@@ -100,7 +104,7 @@ function Einvoice() {
                     <Timeline
                       target={
                         <div className="button">
-                          <img src={require("../../assets/images/homepage/einvoice-faster.png")} alt="" />
+                          <img src={eInvoiceFaster} alt="" />
                           Get paid faster for better cashflow
                         </div>
                         }
@@ -113,7 +117,7 @@ function Einvoice() {
                     <Timeline
                       target={
                         <div className="button flexibility">
-                          <img src={require("../../assets/images/homepage/einvoice-flexibility.png")} alt="" />
+                          <img src={eInvoiceFlexibility} alt="" />
                           Flexibility for customers
                         </div>
                         }

@@ -419,14 +419,19 @@
 
   .payroll .transfer {
     width: calc(100% - 40px);
-    height: 2208px;
+    height: fit-content;
     position: relative;
     margin: 60px 20px;
+    padding: 20px 0px;
   }
 
   .payroll .transfer .background {
     width: 100%;
-    height: 2208px;
+    height: 100%;
+  }
+
+  .payroll .transfer .tree .screenshot {
+    width: auto;
   }
 
   .payroll .transfer .tree {
@@ -446,12 +451,12 @@
 
   .payroll .transfer .tree .cards {
     height: 188px;
-    width: 188px;
-    transform: rotate(90deg);
+    width: auto;
+    transform: rotate(0deg) !important;
   }
 
   .payroll .transfer .tree .cards img {
-    width: 188px;
+    height: 188px;
   }
 
   .payroll .transfer .tree .workers {
@@ -604,10 +609,6 @@
   align-items: flex-end;  
 }
 
-.App.AR .payroll .transfer .tree .cards {
-  transform: rotate(180deg);
-}
-
 .App.AR .payroll .slider .keen-slider {
   display: flex;
   justify-content: flex-end;
@@ -643,6 +644,11 @@
   width: auto; 
 }
 
+.App.AR .payroll .transfer .tree .workers {
+  margin-left: 0;
+  margin-right: 30px;
+}
+
 @media (orientation: portrait) {
   .App.AR .payroll .solution .block {
     flex-direction: column;
@@ -663,7 +669,7 @@
   }
 
   .App.AR .payroll .transfer .tree .cards {
-    transform: rotate(90deg);
+    transform: rotate(0deg) !important;
   }
 
   .App.AR .payroll .transfer .safety {

@@ -14,7 +14,7 @@ function HowIsWorking() {
 
     return (
       <div className={tabClass} onClick={() => setActiveTab(tab)}>
-        <img src={require(`../../assets/images/homepage/${icon}.png`)} alt="" />
+        <img src={require(`../../assets/images/icons/${icon}.svg`)} alt="" />
         <h5>{title}</h5>
       </div>
     )
@@ -24,25 +24,25 @@ function HowIsWorking() {
     <>
       { !display.isPortrait ? 
         <div className="howisworking">
-          <h2>How eInvoice is working.</h2>
-          <span className="body">The government of Saudi Arabia is committed to launching entrepreneurial ecosystems, as they believe investing in a digital future will.</span>
-          <div className="tabs">
+          <h2 className="noanim animleft">How eInvoice is working.</h2>
+          <span className="body noanim animright">The government of Saudi Arabia is committed to launching entrepreneurial ecosystems, as they believe investing in a digital future will.</span>
+          <div className="tabs noanim animleft">
             {tab("500+ customizeable templates", "templates")}
             {tab("Send via SMS, Whatsapp or custom link", "sendsms")}
             {tab("Get paid", "getpaid")}
           </div>
-          <div className="content" style={{backgroundImage:display.isPortrait ? `url(${backgroundMobile})` : `url(${background})`}}>
+          <div className="content noanim animright" style={{backgroundImage:display.isPortrait ? `url(${backgroundMobile})` : `url(${background})`}}>
             <img src={require("../../assets/images/homepage/application.png")} className="application" alt="" />
             <img src={require("../../assets/images/homepage/logotype.png")} className="logotype" alt="" />
             <img src={require("../../assets/images/homepage/colors.png")} className="colors" alt="" />
             <div className="appfeatures">
               <div className="appfeaturescontent">
-                <img src={require("../../assets/images/homepage/intersect.png")} alt="" />
+                <img src={require("../../assets/images/icons/intersect.svg")} alt="" />
                 <h4>Customize your invoice with your logo</h4>
                 <span className="body">The government of Saudi Arabia is committed to launching entrepreneurial ecosystems, as they believe investing in a digital future will.</span>
               </div>
               <div className="appfeaturescontent">
-                <img src={require("../../assets/images/einvoice.png")} alt="" />
+                <img src={require("../../assets/images/icons/einvoice.svg")} alt="" />
                 <h4>Customize your invoice with your logo</h4>
                 <span className="body">The government of Saudi Arabia is committed to launching entrepreneurial ecosystems, as they believe investing in a digital future will.</span>
               </div>
@@ -62,12 +62,12 @@ function HowIsWorking() {
             <img src={require("../../assets/images/homepage/colors.png")} className="colors" alt="" />
             <div className="appfeatures">
               <div className="appfeaturescontent">
-                <img src={require("../../assets/images/homepage/intersect.png")} alt="" />
+                <img src={require("../../assets/images/icons/intersect.svg")} alt="" />
                 <h4>Customize your invoice with your logo</h4>
                 <span className="body">The government of Saudi Arabia is committed to launching entrepreneurial ecosystems, as they believe investing in a digital future will.</span>
               </div>
               <div className="appfeaturescontent">
-                <img src={require("../../assets/images/einvoice.png")} alt="" />
+                <img src={require("../../assets/images/icons/einvoice.svg")} alt="" />
                 <h4>Customize your invoice with your logo</h4>
                 <span className="body">The government of Saudi Arabia is committed to launching entrepreneurial ecosystems, as they believe investing in a digital future will.</span>
               </div>
@@ -82,12 +82,12 @@ function HowIsWorking() {
             <img src={require("../../assets/images/homepage/colors.png")} className="colors" alt="" />
             <div className="appfeatures">
               <div className="appfeaturescontent">
-                <img src={require("../../assets/images/homepage/intersect.png")} alt="" />
+                <img src={require("../../assets/images/icons/intersect.svg")} alt="" />
                 <h4>Customize your invoice with your logo</h4>
                 <span className="body">The government of Saudi Arabia is committed to launching entrepreneurial ecosystems, as they believe investing in a digital future will.</span>
               </div>
               <div className="appfeaturescontent">
-                <img src={require("../../assets/images/einvoice.png")} alt="" />
+                <img src={require("../../assets/images/icons/einvoice.svg")} alt="" />
                 <h4>Customize your invoice with your logo</h4>
                 <span className="body">The government of Saudi Arabia is committed to launching entrepreneurial ecosystems, as they believe investing in a digital future will.</span>
               </div>
@@ -102,12 +102,12 @@ function HowIsWorking() {
             <img src={require("../../assets/images/homepage/colors.png")} className="colors" alt="" />
             <div className="appfeatures">
               <div className="appfeaturescontent">
-                <img src={require("../../assets/images/homepage/intersect.png")} alt="" />
+                <img src={require("../../assets/images/icons/intersect.svg")} alt="" />
                 <h4>Customize your invoice with your logo</h4>
                 <span className="body">The government of Saudi Arabia is committed to launching entrepreneurial ecosystems, as they believe investing in a digital future will.</span>
               </div>
               <div className="appfeaturescontent">
-                <img src={require("../../assets/images/einvoice.png")} alt="" />
+                <img src={require("../../assets/images/icons/einvoice.svg")} alt="" />
                 <h4>Customize your invoice with your logo</h4>
                 <span className="body">The government of Saudi Arabia is committed to launching entrepreneurial ecosystems, as they believe investing in a digital future will.</span>
               </div>

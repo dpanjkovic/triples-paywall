@@ -1,13 +1,10 @@
 import React, { useEffect, useState } from "react";
-import { Controller, Scene } from 'react-scrollmagic';
-import { Tween, Timeline } from 'react-gsap';
-import { FaArrowRight } from "react-icons/fa";
+import { ReactComponent as Arrow } from "../../assets/images/icons/arrow.svg";
+import { ReactComponent as ArrowActive } from "../../assets/images/icons/arrow-active.svg";
 import { useDispatch, useSelector } from "react-redux";
 import { setVars } from "../../store/varsSlice";
-import { gsap } from "gsap";
-import ScrollTrigger from "gsap/ScrollTrigger";
+import { functions } from "../../components/functions";
 
-let tl = null;
 let toolsContainer = null;
 let theVideo = null;
 let lastScrollTop = 0;
@@ -26,7 +23,7 @@ let clonedNodeVideoBanner = null;
 let bannerFrames = [35, 70];
 let clonedWidth = 0;
 let clonedHeight = 0;
-let ratio = 0;
+let ratio = 1.77777;
 const growth = 30;
 let frame = 0;
 let frames = 50;
@@ -34,16 +31,27 @@ let theVideoTopMargin = 0;
 let theVideoBottomMargin = 0;
 let videoTop = 0;
 let initialVideoTop = 0;
+let px_ratio;
 
 function Tools() {
   const dispatch = useDispatch();
   const display = useSelector((state) => state.display.value);
-  const [changedScreen, setChangedScreen] = useState(true);
+  const vars = useSelector((state) => state.vars.value);
 
-  gsap.registerPlugin(ScrollTrigger);
+  useEffect(() => {
+    if (vars.showContact) {
+      const os = document.onscroll;
+      document.onscroll = null;
+      lastVideoTop = 0;
+      frame = 0;
+
+      setTimeout(() => { 
+        document.onscroll = os 
+      }, 1000);
+    }
+  }, [vars.showContact]);
 
   const showContact = () => {
-    window.scrollTo(0, 0);
     dispatch(setVars({imgsLoaded:true, changePage:true, showContact: true}));
   };
 
@@ -52,18 +60,18 @@ function Tools() {
   }, []);
 
   const init = () => {
-    if (tl) deanimate();
-
     theVideo = document.getElementById("toolsvideo");
     toolsContainer = document.getElementById("tools");
     theVideo.pause();
+
+    px_ratio = window.devicePixelRatio || window.screen.availWidth / document.documentElement.clientWidth;
 
     if (!display.isPortrait) {
       if (!clonedNode) {
         clonedNode = toolsContainer.cloneNode(true);
         clonedNode.classList.add("fixedvideo");
         clonedNode.style.top = 0;
-        document.body.appendChild(clonedNode);
+        document.querySelectorAll(".App")[0].appendChild(clonedNode);
     
         clonedNodeVideo = clonedNode.querySelectorAll("video")[0]
         clonedNodeVideoTitle = clonedNode.querySelectorAll(".title")[0]
@@ -73,80 +81,66 @@ function Tools() {
       }
       clonedWidth = toolsContainer.offsetWidth;
       clonedHeight = toolsContainer.offsetHeight;
-      ratio = clonedWidth / clonedHeight;
+      //ratio = clonedWidth / clonedHeight;
 
       if (playAnimation) {
         isInViewport();
       }
-      console.log("initial top", initialVideoTop, display.isPortrait)
 
-      clonedNode.style.width = clonedWidth + "px";
-      const l = (document.body.clientWidth - clonedWidth) / 2;
-      clonedNode.style.left = l + "px";
+      if (playVideo) {
+        if (window.innerHeight * ratio > document.body.clientWidth) {
+          clonedHeight = window.innerHeight;
+          clonedWidth = Math.ceil(clonedHeight * ratio);
+        } else {
+          clonedWidth = document.body.clientWidth
+          clonedHeight = Math.ceil(clonedWidth / ratio);
+        }
+      }
+      clonedWidth  = clonedWidth / px_ratio;
+      clonedHeight = clonedHeight / px_ratio
 
-      document.onscroll = function() {myFunction()};
+      if (playAnimation) {
+        clonedNode.style.width = clonedWidth + "px";
+        clonedNodeVideo.style.width = clonedWidth + "px";
+        clonedNode.style.height = clonedHeight + "px";
+        clonedNodeVideo.style.height = clonedHeight + "px";
+        const l = (document.body.clientWidth / px_ratio - clonedWidth) / 2;
+        clonedNode.style.left = l + "px";
+      } else {
+        clonedNode.style.width = "0px";
+        clonedNodeVideo.style.width = "0px";
+        clonedNode.style.height = "0px";
+        clonedNodeVideo.style.height = "0px";
+      }
+
+      document.onscroll = function() {scrollCheck()};
     } else {
       toolsContainer.querySelectorAll(".wanttotalk")[0].style.opacity = 1;
       playVideo = false;
       playAnimation = false;
       if (clonedNode) {
-        clonedNode.style.display = "none";
+        clonedNode.style.opacity = 0;
       }
       document.body.removeAttribute("style");
       lastVideoTop = 0;
-      document.onscroll = null;
-      console.log("reset", display.isPortrait)
+
+      setTimeout(() => functions.checkAnims(), 1000);
+      document.onscroll = function() { functions.checkAnims() };
     }
   };
 
   window.addEventListener("resize", init);
 
-  const deanimate = () => {
-    ScrollTrigger.getById("toolstrigger").kill(true);
-    tl = null;
-    document.getElementById("toolssubtitle").removeAttribute("style");
-    document.getElementById("toolsbutton").removeAttribute("style");
-    document.getElementById("toolswanttotalk").removeAttribute("style");
-  };
-
-  const animate = () => {
-    tl = gsap.timeline({
-      scrollTrigger: {
-        id: "toolstrigger",
-        trigger: ".tools",
-        start: "top top",
-        end: "bottom -50%",
-        scrub: true,
-        pin: true,
-        pinType: "fixed",
-      }
-    })
-    .from("#toolssubtitle",  { left: -50, opacity: 0 })
-    .totalDuration(350)
-    .from("#toolsbutton",  { left: 50, opacity: 0 })
-    .from("#toolswanttotalk",  { left: -200, opacity: 0 });
-  }
-
-  function myFunction() {
+  function scrollCheck() {
     const result = isInViewport();
+    var st = window.pageYOffset || document.documentElement.scrollTop;
+    const diff = st - lastScrollTop;
+
     if (theVideo && (result || playAnimation)) {
       playAnimation = true;
 
-      const l = (document.body.clientWidth - clonedWidth) / 2;
-
-      clonedNode.style.display = "block";
-      clonedNode.style.width = clonedWidth + "px";
-      clonedNode.style.height = clonedHeight + "px";
-      clonedNode.style.left = l + "px";
-
-      console.log(clonedWidth, clonedHeight, l, ratio);
-
-      var st = window.pageYOffset || document.documentElement.scrollTop;
-      const diff = st - lastScrollTop;
-
       const frameDiff = Math.ceil(Math.abs(diff) / 75);
       const growthW = growth * frameDiff;
-      const growthH = growth * frameDiff / 2;
 
       if (diff > 0){
         if (playVideo) {
@@ -158,15 +152,14 @@ function Tools() {
           //if (frame > frames)  frame = frames;
 
           clonedNodeVideo.currentTime = vid_currentTime;
+          clonedNodeVideo.pause();
         }
         
         if (frame === 0) {
           clonedWidth += growthW;
-          clonedHeight += growthH;
         }
         if (frame >= frames) {
           clonedWidth -= growthW;
-          clonedHeight -= growthH;
         }
       } else {
         if (playVideo) {
@@ -178,18 +171,16 @@ function Tools() {
           if (frame < 0)  frame = 0;
 
           clonedNodeVideo.currentTime = vid_currentTime;
+          clonedNodeVideo.pause();
         }
 
         if (frame === 0) {
           clonedWidth -= growthW;
-          clonedHeight -= growthH;
         }
         if (frame >= frames) {
           clonedWidth += growthW;
-          clonedHeight += growthH;
         }
       }
-      //console.log(frame, frameDiff, diff)
 
       const titleKoef = (frame - titleFrames[0]) / (titleFrames[1] - titleFrames[0]);
       let titleOpacity = 0.3;
@@ -233,9 +224,12 @@ function Tools() {
       theVideoBottomMargin += diff
       if (theVideoTopMargin < 0) theVideoTopMargin = 0;
       if (theVideoBottomMargin < 0) theVideoBottomMargin = 0;
-      document.body.style.paddingTop = "20000px";
+      document.body.style.paddingTop = 50000 / px_ratio + "px";
+
+      clonedHeight = clonedWidth / ratio;
 
       if (clonedWidth > document.body.clientWidth && clonedHeight > window.innerHeight && !playVideo) {
+        //ratio = toolsContainer.offsetWidth / toolsContainer.offsetHeight;
         if (window.innerHeight * ratio > document.body.clientWidth) {
           clonedHeight = window.innerHeight;
           clonedWidth = Math.ceil(clonedHeight * ratio);
@@ -246,6 +240,15 @@ function Tools() {
 
         playVideo = true;
       }
+      
+      const l = (document.body.clientWidth - clonedWidth / px_ratio) / 2;
+
+      clonedNode.style.opacity = 1;
+      clonedNode.style.width = Math.ceil(clonedWidth / px_ratio) + "px";
+      clonedNodeVideo.style.width = Math.ceil(clonedWidth / px_ratio) + "px";
+      clonedNode.style.height = Math.ceil(clonedHeight / px_ratio) + "px";
+      clonedNodeVideo.style.height = Math.ceil(clonedHeight / px_ratio) + "px";
+      clonedNode.style.left = l + "px";
 
       if (clonedWidth < toolsContainer.offsetWidth) {
         clonedWidth = toolsContainer.offsetWidth;
@@ -253,28 +256,37 @@ function Tools() {
         toolsContainer.querySelectorAll(".wanttotalk")[0].style.opacity = diff > 0 ? 1 : 0.3;
         playVideo = false;
         playAnimation = false;
-        clonedNode.style.display = "none";
+        clonedNode.style.opacity = 0;
+        clonedNode.style.width = 0;
+        clonedNodeVideo.style.width = 0;
+        clonedNode.style.height = 0;
+        clonedNodeVideo.style.height = 0;
         document.body.removeAttribute("style");
         lastVideoTop = 0;
         frame = diff > 0 ? frames : 0;
 
-        const diffscroll = diff > 0 ? 100 : 0;
+        const diffscroll = diff > 0 ? 100 : -100;
 
-        window.scrollTo(0, initialVideoTop + diffscroll)
+        window.scrollTo(0, (initialVideoTop + diffscroll / px_ratio))
       }
-
-      lastScrollTop = st <= 0 ? 0 : st;
     }
+
+    lastScrollTop = st <= 0 ? 0 : st;
   }
 
   function isInViewport() {
     const rect = toolsContainer.getBoundingClientRect();
-    videoTop = rect.top;
+    const st =  window.pageYOffset || document.documentElement.scrollTop;
+    videoTop = rect.top + st;
+
     if (initialVideoTop <= 0) initialVideoTop = videoTop
 
-    const check = (videoTop <= 0 && lastVideoTop > 0) || (videoTop >= 0 && lastVideoTop < 0);
+    const check = (rect.top <= 0 && lastVideoTop > 0) || (rect.top >= 0 && lastVideoTop < 0);
 
-    lastVideoTop = videoTop;
+    lastVideoTop = rect.top;
+
+    functions.checkAnims();
+
     return check;
   }
 
@@ -285,6 +297,7 @@ function Tools() {
           <video loop autoPlay muted id="toolsvideo">
             <source src={require("../../assets/videos/homepage/tools.mp4")} type="video/mp4" />Your browser does not support the video tag.
           </video>
+          <div className="gradient"></div>
         </div>
         <div className="introducing">
           <h1 className="title">More tools for your business</h1>
@@ -292,7 +305,7 @@ function Tools() {
           <a href="/payroll">
             <div className="button inverse discover mt-4" id="toolsbutton">
               <span>Discover Payroll</span>
-              <FaArrowRight />
+              <ArrowActive />
             </div>
           </a>
         </div>
@@ -301,7 +314,7 @@ function Tools() {
             <h1>Want to talk?</h1>
             <div className="button inverse discover" onClick={showContact}>
               <span>Book a call</span>
-              <FaArrowRight />
+              <ArrowActive />
               </div>
             </div>
           </div>

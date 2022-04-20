@@ -1,7 +1,11 @@
 import React from "react";
-import { FaArrowRight } from "react-icons/fa";
+import { ReactComponent as Arrow } from "../../assets/images/icons/arrow.svg";
+import { ReactComponent as ArrowActive } from "../../assets/images/icons/arrow-active.svg";
 import { useSelector, useDispatch } from "react-redux";
 import { setVars } from "../../store/varsSlice";
+import Twitter from "../../assets/images/icons/twitter.svg";
+import Fb from "../../assets/images/icons/fb.svg";
+import Linkedin from "../../assets/images/icons/linkedin.svg";
 
 function Footer() {
   const dispatch = useDispatch();
@@ -9,7 +13,6 @@ function Footer() {
   const display = useSelector((state) => state.display.value);
 
   const showContact = () => {
-    window.scrollTo(0, 0);
     dispatch(setVars({imgsLoaded:true, changePage:true, showContact: true}));
   };
 
@@ -41,7 +44,7 @@ function Footer() {
             <div className="flex items-center justify-between w-full">
             <div className="item button" onClick={showContact}>
               Contact us
-              { display.isPortrait && <FaArrowRight /> }
+              { display.isPortrait && <Arrow /> }
             </div>
             </div>
           </nav>
@@ -57,9 +60,9 @@ function Footer() {
           <a href="privacy#data">Cookies</a>
         </div>
         <div className="social">
-          <img src={require("../../assets/images/twitter.png")} alt="" />
-          <img src={require("../../assets/images/fb.png")} alt="" />
-          <img src={require("../../assets/images/linkedin.png")} alt="" />
+          <img src={Twitter} alt="" />
+          <img src={Fb} alt="" />
+          <img src={Linkedin} alt="" />
         </div>
       </div>
       <div className="copyright">© 2021 Paywall (Limited liability company)<br />All product and company names are trademarks or registered trademarks of their respective holders. Use of them does not imply any affiliation with or endorsement by them.

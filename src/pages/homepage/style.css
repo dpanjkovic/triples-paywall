@@ -1,8 +1,8 @@
 .fixedvideo {
   position: fixed;
   height: auto;
-  z-index: 10000;
-  display: none;
+  z-index: 0;
+  opacity: 0;
   color: #FFFFFF;
 }
 
@@ -53,6 +53,15 @@
   border-radius: 30px;
 }
 
+.fixedvideo .videoholder .gradient {
+  position: absolute;
+  height: 100%;
+  width: 100%;
+  left: 0;
+  top: 0;
+  background-image: linear-gradient(to top, #000000, 80%, rgba(255,0,0,0));
+}
+
 .homepage {
   position: relative;
   display: flex;
@@ -69,6 +78,22 @@
   width: 100%;
   background-position: center;
   background-repeat: no-repeat;
+  position: relative;
+}
+
+.homepage .topimage .background {
+  width: 100%;
+  height: 100%;
+  background-repeat: no-repeat;
+}
+
+.homepage .topimage img {
+  position: absolute;
+  bottom: 0;
+}
+
+.homepage .topimage img.waves {
+  width: 100%;
 }
 
 .homepage .contentcontainer {
@@ -205,6 +230,48 @@
   margin-top: 40px;
 }
 
+.homepage .getmoredone .content .MuiGrid-item {
+  position: relative;
+}
+
+.homepage .getmoredone .content .MuiGrid-item .multipleways {
+  position: absolute;
+  top: 126px;
+  left: 66px;
+  width: 240px;
+}
+
+.homepage .getmoredone .content .MuiGrid-item .automaticreminder {
+  position: absolute;
+  top: 44px;
+  left: 20px;
+  width: 200px;
+}
+
+.homepage .getmoredone .content .MuiGrid-item  .trackandmanage {
+  position: absolute;
+  top: 56px;
+  left: 13px;
+  width: calc(100% - 26px);
+}
+
+.homepage .getmoredone .content .MuiGrid-item div {
+  width: 324px;
+  margin: 0px auto;
+  position: relative;
+}
+
+.homepage .getmoredone .content .MuiGrid-item div .text {
+  position: absolute;
+  left: 36px;
+  bottom: 25px;
+  width: calc(100% - 56px);
+}
+
+.homepage .getmoredone .content .MuiGrid-item div .text h4 {
+  margin: 10px 0px;
+}
+
 .homepage .einvoice {
   margin: 0;
   width: 100%;
@@ -222,7 +289,7 @@
 
 .homepage .buttons {
   position: absolute;
-  top: 235px;
+  top: 220px;
   display: flex;
   align-items: center;
   width: 100%;
@@ -241,7 +308,7 @@
 
 .homepage .heading {
   position: absolute;
-  top: 0;
+  top: 30px;
   width: 100%;
 }
 
@@ -385,6 +452,16 @@
   position: relative;
 }
 
+.homepage .tools.einvoice .videoholder .gradient {
+  position: absolute;
+  height: 100%;
+  width: 100%;
+  left: 0;
+  top: 0;
+  background-image: linear-gradient(to top, #000000, 70%, rgba(255,0,0,0));
+  border-radius: 30px;
+}
+
 .homepage .tools.einvoice video {
   position: relative;
 }
@@ -416,9 +493,12 @@
     padding: 0px;
   }
 
-  .homepage .einvoice, .homepage .howisworking {
+  .homepage .einvoice {
     width: 100%;
-    padding: 0 20px;
+  }
+
+  .homepage .howisworking {
+    width: calc(100% - 40px);
   }
 
   .homepage .einvoice .gradient {
@@ -426,12 +506,24 @@
     margin: 0 20px;
     background-image: linear-gradient(to top, #252382, 95%, rgba(255,0,0,0));
   }
+
+  .homepage .einvoice .videoholder {
+    margin: 0 20px;
+  }
 }
 
 @media only screen and (max-width: 1024px) {
   .homepage .investors, .homepage .getmoredone {
     width: 100%;
     padding: 0 20px;
+  }
+
+  .homepage .getmoredone .MuiGrid-container {
+    flex-direction: column !important;
+  }
+
+  .homepage .getmoredone .content .MuiGrid-container .MuiGrid-item {
+    max-width: 100% !important;
   }
 
   .homepage .tools .wanttotalk .inner h1, .fixedvideo.tools .introducing .title {
@@ -465,8 +557,12 @@
     width: 100%;
   }
 
+  .homepage .topimage .background {
+    background-size: 100% !important;
+  }
+
   .homepage .heading {
-    top: 50px;
+    top: 80px;
   }
 
   .homepage .heading h1 {
@@ -475,7 +571,7 @@
 
   .homepage .buttons {
     position: absolute;
-    top: 250px;
+    top: 280px;
     display: initial;
     align-items: center;
     width: 100%;
@@ -582,7 +678,7 @@
     text-align: start;
     opacity: 1;
     margin-top:-85px;
-    padding: 20px;
+    padding: 20px 40px;
   }
 
   .homepage .einvoice .benefits .button {
@@ -642,14 +738,6 @@
     flex-wrap: wrap;
     flex-direction: column;
     align-items: center;
-  }
-
-  .homepage .getmoredone .MuiGrid-container {
-    flex-direction: column !important;
-  }
-
-  .homepage .getmoredone .content .MuiGrid-container .MuiGrid-item {
-    max-width: 100% !important;
   }
 
   .homepage .getmoredone .content .MuiGrid-container .MuiGrid-item img {
@@ -831,6 +919,7 @@
   .App.AR .homepage .einvoice .waves {
     right: auto;
     left: auto;
+    margin: 0px 20px;
     width: calc(100% - 40px);
   }
 

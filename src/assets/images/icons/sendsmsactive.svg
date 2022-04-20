@@ -1,0 +1,18 @@
+<?xml version="1.0"?>
+<svg width="27" height="28" xmlns="http://www.w3.org/2000/svg" xmlns:svg="http://www.w3.org/2000/svg">
+ <defs>
+  <clipPath id="clip0_92_59186">
+   <rect fill="white" height="26.4" id="svg_1" transform="translate(0.300781 0.799805)" width="26.4"/>
+  </clipPath>
+  <linearGradient id="svg_3" spreadMethod="reflect" x1="0" x2="0" y1="1" y2="0">
+   <stop id="jq_stop_6150" offset="0" stop-color="#8f8de2" stop-opacity="0.99"/>
+   <stop id="jq_stop_7025" offset="1" stop-color="#d19cbe" stop-opacity="0.98"/>
+  </linearGradient>
+ </defs>
+ <g class="layer">
+  <title>Layer 1</title>
+  <g clip-path="url(#clip0_92_59186)" id="svg_2">
+   <path clip-rule="evenodd" d="m9.07,22.99c1.46,0.83 3.13,1.27 4.78,1.27c5.59,0 10.24,-4.51 10.21,-10.11c0,-2.67 -1.14,-5.22 -3.04,-7.12c-1.91,-1.92 -4.45,-3 -7.19,-3c-5.53,0 -10.04,4.58 -10.04,10.11c0,1.78 0.44,3.5 1.33,5.03l-1.39,5.21l5.34,-1.39zm9.09,-6.69l0.03,0.04c0.12,0.16 0.23,0.34 0.23,0.6c0,0.29 -0.15,0.52 -0.24,0.62l-0.86,0.86c-0.9,0.9 -3.29,-0.09 -5.41,-2.21c-2.12,-2.12 -3.07,-4.51 -2.21,-5.41l0.86,-0.86c0.1,-0.09 0.31,-0.24 0.59,-0.24c0.25,0 0.45,0.12 0.63,0.24c0.03,0.02 0.06,0.04 0.09,0.06c0.68,0.48 1.04,0.73 1.17,1.21c0.19,0.59 -0.05,1.13 -0.15,1.34c0.07,0.31 0.27,1.12 1,1.83c0.73,0.72 1.55,0.93 1.86,0.98c0.2,-0.13 0.66,-0.39 1.18,-0.28c0.43,0.09 0.7,0.48 1.23,1.22z" fill="#000000" fill-opacity="0" fill-rule="evenodd" id="svg_4" stroke="url(#svg_3)"/>
+  </g>
+ </g>
+</svg>

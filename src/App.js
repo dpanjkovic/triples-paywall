@@ -16,9 +16,8 @@ import { setLang } from "./store/langSlice";
 
 const IMAGES = {
   "/" : [
-    require("./assets/images/homepage/top.png"), 
-    require("./assets/images/homepage/play.png"),
-    require("./assets/images/homepage/appstore.png"),
+    require("./assets/images/homepage/topbg.jpg"), 
+    require("./assets/images/homepage/topbg1440.jpg"), 
     require("./assets/images/homepage/avatars.png"),
     require("./assets/images/homepage/opportunity.png"),
     require("./assets/images/homepage/automatic-reminder.png"),
@@ -31,10 +30,6 @@ const IMAGES = {
     require("./assets/images/aboutus/ash-kalra.png"),
     require("./assets/images/aboutus/rayan-fouad-mustafa-azab.png"),
     require("./assets/images/aboutus/cards.png"),
-    require("./assets/images/homepage/intersect.png"),
-    require("./assets/images/einvoice.png"),
-    require("./assets/images/homepage/einvoice-saves.png"),
-    require("./assets/images/homepage/einvoice-quick.png"),
     require("./assets/images/aboutus/advisors-left.png"),
     require("./assets/images/aboutus/advisors-right.png"),
   ],
@@ -45,8 +40,6 @@ const IMAGES = {
     require("./assets/images/payroll/background-mobile.png"),
     require("./assets/images/payroll/earlyaccess.png"),
     require("./assets/images/payroll/earlyaccess-mobile.png"),
-    require("./assets/images/homepage/intersect.png"),
-    require("./assets/images/einvoice.png"),
     require("./assets/images/payroll/screenshot.png"),
     require("./assets/images/payroll/tree.png"),
     require("./assets/images/payroll/worker-mobile.png"),

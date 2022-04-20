@@ -1,5 +1,6 @@
 import React, { useEffect, useRef, useState } from "react";
-import { FaArrowRight } from "react-icons/fa";
+import { ReactComponent as Arrow } from "../../assets/images/icons/arrow.svg";
+import { ReactComponent as ArrowActive } from "../../assets/images/icons/arrow-active.svg";
 import FooterMenu from "../footer/menu";
 import { FormControlLabel, Snackbar, TextField, IconButton, Grid } from "@mui/material";
 import CloseIcon from '@mui/icons-material/Close';
@@ -17,6 +18,7 @@ import { CacheProvider } from '@emotion/react';
 import createCache from '@emotion/cache';
 import rtlPlugin from 'stylis-plugin-rtl';
 import { prefixer } from 'stylis';
+import LangIcon from "../../assets/images/icons/lang.svg";
 
 const themeRtl = createTheme({
   direction: 'rtl',
@@ -48,6 +50,7 @@ function Header() {
   const [sending, setSending] = useState(false);
   const [showSnack, setShowSnack] = useState(false);
   const [snackMessage, setSnackMessage] = useState("");
+  const [hover, setHover] = useState("");
 
   const vars = useSelector((state) => state.vars.value);
   const lang = useSelector((state) => state.lang.value);
@@ -145,12 +148,12 @@ function Header() {
         <div className="item"><a href="/#einvoice">eInvoice</a></div>
         <div className="item"><a href="/payroll">Payroll</a></div>
         <div className="item"><a href="aboutus">About us</a></div>
-        <div className="item button" onClick={() => showContact(true)}>
-          <span>Contact us</span><FaArrowRight />
+        <div className="item button" onClick={() => showContact(true)} onMouseEnter={() => setHover("contactus")} onMouseLeave={() => setHover("")}>
+          <span>Contact us</span>{ hover === "contactus" ? <ArrowActive /> : <Arrow /> }
         </div>
         <div className="item language">
           <div className="main">
-            <img src={require("../../assets/images/lang.png")} alt="" /> { lang === "EN" ? "EN" : "AR" }
+            <img src={LangIcon} alt="" /> { lang === "EN" ? "EN" : "AR" }
           </div>
           <div className="other" onClick={() => changeLanguage()}>{ lang === "EN" ? "AR" : "EN" }</div>
         </div>
@@ -203,7 +206,10 @@ function Header() {
               </div>
               </ThemeProvider>
               </CacheProvider>
-              <div className={`item button mt-5 ${(checked && !sending) ? "" : "disabled"}`}onClick={checked ? sendMessage : null}><span>{sending ? "Sending..." : "Send message"}</span><FaArrowRight /></div>
+              <div className={`item button mt-5 ${(checked && !sending) ? "" : "disabled"}`}onClick={checked ? sendMessage : null} onMouseEnter={() => setHover("message")} onMouseLeave={() => setHover("")}>
+                <span>{sending ? "Sending..." : "Send message"}</span>
+                { hover === "message" ? <ArrowActive /> : <Arrow /> }
+              </div>
             </form>
           </div>
         </div>

@@ -3,9 +3,12 @@ import topImage from "../../assets/images/payroll/top.png";
 import topImageMobile from "../../assets/images/payroll/top-mobile.png";
 import background from "../../assets/images/payroll/background.png";
 import backgroundMobile from "../../assets/images/payroll/background-mobile.png";
+import tree from "../../assets/images/payroll/tree.png";
+import treeMobile from "../../assets/images/payroll/tree-mobile.png";
 import earlyaccess from "../../assets/images/payroll/earlyaccess.png";
 import earlyaccessMobile from "../../assets/images/payroll/earlyaccess-mobile.png";
-import { FaArrowRight } from "react-icons/fa";
+import { ReactComponent as Arrow } from "../../assets/images/icons/arrow.svg";
+import { ReactComponent as ArrowActive } from "../../assets/images/icons/arrow-active.svg";
 import { useDispatch, useSelector } from "react-redux";
 
 import 'keen-slider/keen-slider.min.css'
@@ -14,6 +17,7 @@ import { useKeenSlider } from 'keen-slider/react'
 import './style.css';
 import Loader from "../../components/loader";
 import { setVars } from "../../store/varsSlice";
+import { functions } from "../../components/functions";
 
 const tabs = [
   { id: 0, title: "All data in one place" },
@@ -38,9 +42,15 @@ const commodoText = () => {
 function Payroll() {
   const dispatch = useDispatch();
 
+  useEffect(() => {
+    setTimeout(() => functions.checkAnims(), 1000);
+    document.onscroll = function() { functions.checkAnims() };
+  }, []);
+
   const vars = useSelector((state) => state.vars.value);
   const display = useSelector((state) => state.display.value);
   const lang = useSelector((state) => state.lang.value);
+  const [hover, setHover] = useState("");
 
   const showContact = () => {
     window.scrollTo(0, 0);
@@ -100,34 +110,34 @@ function Payroll() {
         <h1>business the smart way</h1>
       </div>
       <div className="solution">
-        <h2>A solution for your business challenges.</h2>
-        <span className="body">The digital payment solution designed to streamline payroll management.</span>
+        <h2 className="noanim animleft">A solution for your business challenges.</h2>
+        <span className="body noanim animright">The digital payment solution designed to streamline payroll management.</span>
         <div className="block">
-          <div className="item">
-            <img src={require("../../assets/images/homepage/intersect.png")} alt="" />
+          <div className="item noanim animleft">
+            <img src={require("../../assets/images/icons/intersect.svg")} alt="" />
             <h4>Payroll Processing Management</h4>
             <span className="body">Malesuada purus ultricies platea elementum aliquet eu. Sit cras arcu in in. Odio lorem adipiscing purus fusce enim. </span>
           </div>
-          <div className="item">
-            <img src={require("../../assets/images/einvoice.png")} alt="" />
+          <div className="item noanim animright">
+            <img src={require("../../assets/images/icons/einvoice.svg")} alt="" />
             <h4>Cross-Border transfers</h4>
             <span className="body">Donec risus risus amet sed egestas sagittis ac. Sollicitudin vel, vitae sed lorem volutpat dolor lectus. Ornare vitae elit blandit quam egestas at vitae.</span>
           </div>
         </div>
         <div className="block">
-          <div className="item">
-            <img src={require("../../assets/images/homepage/intersect.png")} alt="" />
+          <div className="item noanim animleft">
+            <img src={require("../../assets/images/icons/intersect.svg")} alt="" />
             <h4>Linked VISA</h4>
             <span className="body">Faucibus porttitor leo ipsum viverra eu nec auctor. Donec quis vestibulum, porttitor fermentum. Vel turpis ut faucibus velit risus ultrices venenatis.</span>
           </div>
-          <div className="item">
-            <img src={require("../../assets/images/einvoice.png")} alt="" />
+          <div className="item noanim animright">
+            <img src={require("../../assets/images/icons/einvoice.svg")} alt="" />
             <h4>Pay by QR & Bill Online</h4>
             <span className="body">In sapien sagittis sit sed ac pretium. Aliquet egestas vulputate diam vel. Faucibus tempus, odio sagittis ullamcorper habitasse in. Mus ut lobortis aliquet.</span>
           </div>
         </div>
       </div>
-      <div className="slider">
+      <div className="slider noanim animbottom">
         <div className="links">
           {
             tabs.map((tab, index) => {
@@ -168,11 +178,11 @@ function Payroll() {
 
       <div className="transfer">
         <img src={ background } className="background" alt="" />
-        <h2>Transfer salary digitally.</h2>
+        <h2 className="noanim animleft">Transfer salary digitally.</h2>
         <div className="tree">
-          <img src={require("../../assets/images/payroll/screenshot.png")} alt="" className="screenshot" />
-          <div className="cards"><img src={require("../../assets/images/payroll/tree.png")} alt="" /></div>
-          <div className="workers">
+          <img src={require("../../assets/images/payroll/screenshot.png")} alt="" className="screenshot noanim animleft" />
+          <div className="cards noanim animright"><img src={display.isPortrait ? treeMobile : tree} alt="" /></div>
+          <div className="workers noanim animright">
             <div className="worker">
               <img src={display.isPortrait ? require("../../assets/images/payroll/worker-mobile.png") : require("../../assets/images/payroll/worker.png")} alt="" />
             </div>
@@ -202,28 +212,28 @@ function Payroll() {
         }
         </div>
         <div className="safety">
-          <div className="text">
+          <div className="text noanim animleft">
             <h2><span>Safety</span> to the Max.</h2>
             <h3>Say hello to our security and data protection</h3>
             <span className="body">Vulputate duis nunc, sit enim odio proin. Aliquet augue egestas nisi, condimentum nibh. Porta sem sit ipsum cursus lacus sed. A est quis dui in ipsum risus id mauris, eleifend. Nisi tortor id volutpat amet pulvinar id elementum sit. Orci elit morbi erat massa vel eget luctus sollicitudin egestas. Dignissim enim, in aliquam sed molestie massa. Amet, et, cursus gravida libero viverra. Urna urna ac amet a eu montes, at nunc. </span>
           </div>
           <div className="boxes">
           <div className="row">
-              <div className="box">
+              <div className="box noanim animright">
                 <img src={require("../../assets/images/payroll/biometrics.png")} alt="" />
                 <h5>Dynamic Biometrics </h5>
               </div>
-              <div className="box">
+              <div className="box noanim animright">
                 <img src={require("../../assets/images/payroll/bank.png")} alt="" />
                 <h5>No holding of clients funds at anytime</h5>
               </div>
             </div>
             <div className="row">
-              <div className="box">
+              <div className="box noanim animright">
                 <img src={require("../../assets/images/payroll/crypto.png")} alt="" />
                 <h5>Authorization based upon tokenization</h5>
               </div>
-              <div className="box">
+              <div className="box noanim animright">
                 <img src={require("../../assets/images/payroll/encryption.png")} alt="" />
                 <h5>End-to-End encryption of consumer data</h5>
               </div>
@@ -235,19 +245,19 @@ function Payroll() {
       <div className="commodo">
         { !display.isPortrait ?
           <>
-            <div className="commodo-left">
+            <div className="commodo-left noanim animleft">
               <img src={require("../../assets/images/payroll/commodo1.png")} className="commodo1" alt="" />
               <img src={require("../../assets/images/payroll/commodo2.png")} className="commodo2" alt="" />
             </div>
             { commodoText() }
-            <div className="commodo-right">
+            <div className="commodo-right noanim animbottom">
               <img src={require("../../assets/images/payroll/commodo3.png")} className="commodo3" alt="" />
               <img src={require("../../assets/images/payroll/commodo4.png")} className="commodo4" alt="" />
             </div>
           </>
           :
           <>
-            <div className="commodo-left">
+            <div className="commodo-left noanim animright">
               <img src={require("../../assets/images/payroll/commodo1.png")} className="commodo1" alt="" />
               <img src={require("../../assets/images/payroll/commodo2.png")} className="commodo2" alt="" />
               <img src={require("../../assets/images/payroll/commodo3.png")} className="commodo3" alt="" />
@@ -258,11 +268,12 @@ function Payroll() {
         }
       </div>
 
-      <div className="earlyaccess">
+      <div className="earlyaccess noanim animbottom">
         <img src={display.isPortrait ? earlyaccessMobile : earlyaccess} className="background" alt="" />
         <h1>Want an early acces?</h1>
-        <div className="item button" onClick={showContact}>
-          <span>Request now</span><FaArrowRight />
+        <div className="item button" onClick={showContact} onMouseEnter={() => setHover("request")} onMouseLeave={() => setHover("")}>
+          <span>Request now</span>
+          { hover === "request" ? <ArrowActive /> : <Arrow /> }
         </div>
       </div>
       </>
