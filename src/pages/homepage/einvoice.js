@@ -2,7 +2,7 @@ import React, { useEffect, useState } from "react";
 import { Controller, Scene } from 'react-scrollmagic';
 import { Tween, Timeline } from 'react-gsap';
 import { useSelector } from "react-redux";
-import waves from "../../assets/images/homepage/waves.png";
+import { ReactComponent as Waves } from "../../assets/images/homepage/waves.svg";
 import wavesMobile from "../../assets/images/homepage/waves-mobile.png";
 import eInvoiceQuick from "../../assets/images/icons/einvoice-quick.svg";
 import eInvoiceSaves from "../../assets/images/icons/einvoice-saves.svg";
@@ -65,7 +65,7 @@ function Einvoice() {
                   }
                    <Timeline
                       target={
-                        <div className="waves"><img src={display.isPortrait ? wavesMobile : waves} alt="" /></div>
+                        <div className="waves">{display.isPortrait ? <img src={wavesMobile} alt="" /> : <Waves /> }</div>
                       }
                     >
                       <Tween

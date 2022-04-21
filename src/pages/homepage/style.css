@@ -74,7 +74,7 @@
 }
 
 .homepage .topimage {
-  height: 650px;
+  height: 750px;
   width: 100%;
   background-position: center;
   background-repeat: no-repeat;
@@ -87,9 +87,32 @@
   background-repeat: no-repeat;
 }
 
+.homepage .topimage .swirls {
+  width: 100%;
+  height: 657px;
+  position: absolute;
+  top: -110px;
+}
+
 .homepage .topimage img {
   position: absolute;
   bottom: 0;
+}
+
+.homepage .topimage .previews {
+  width: 770px;
+  margin: 0px auto;
+  position: relative;
+}
+
+.homepage .topimage img.iphone {
+  width: 244px;
+  left: 0px;
+}
+
+.homepage .topimage img.screenshot {
+  width: 533px;
+  left: 210px;
 }
 
 .homepage .topimage img.waves {
@@ -176,12 +199,15 @@
   position: relative;
   display: flex;
   justify-content: flex-end;
+  background-size: 1014px 622px;
 }
 
 .homepage .howisworking .content .application {
   position: absolute;
   left: 139px;
   top: 74px;
+  width: 253px;
+
 }
 
 .homepage .howisworking .content .logotype {
@@ -289,7 +315,7 @@
 
 .homepage .buttons {
   position: absolute;
-  top: 220px;
+  top: 240px;
   display: flex;
   align-items: center;
   width: 100%;
@@ -306,9 +332,31 @@
   width: 80px;
 }
 
+.homepage .buttons .avatars {
+  width: 80px;
+  height: 30px;
+  position: relative;
+}
+
+.homepage .buttons .avatars img {
+  position: absolute;
+  top: 0px;
+  width: 30px;
+  border-radius: 50%;
+  border: 2px white solid;
+}
+
+.homepage .buttons .avatars img.avatar2 {
+  left: 20px;
+}
+
+.homepage .buttons .avatars img.avatar3 {
+  left: 40px;
+}
+
 .homepage .heading {
   position: absolute;
-  top: 30px;
+  top: 50px;
   width: 100%;
 }
 
@@ -346,6 +394,17 @@
 
 .homepage .einvoice .waves img {
   max-width: none;
+}
+
+.homepage .einvoice .waves svg {
+  width: 130%;
+  margin-left: -18%;
+}
+
+@media only screen and (max-width: 1300px) {
+  .homepage .einvoice .waves svg {
+    margin-left: -13%;
+  }
 }
 
 .homepage .einvoice .introducing {
@@ -554,15 +613,24 @@
 
 @media (orientation: portrait) {
   .homepage .topimage {
+    height: 607px;
     width: 100%;
   }
 
   .homepage .topimage .background {
-    background-size: 100% !important;
+    background-size: 100% 607px !important;
+  }
+
+  .homepage .topimage .previews {
+    width: 154px;
+  }
+
+  .homepage .topimage img.iphone {
+    width: 154px;
   }
 
   .homepage .heading {
-    top: 80px;
+    top: 58px;
   }
 
   .homepage .heading h1 {
@@ -571,7 +639,7 @@
 
   .homepage .buttons {
     position: absolute;
-    top: 280px;
+    top: 250px;
     display: initial;
     align-items: center;
     width: 100%;
@@ -580,7 +648,10 @@
 
   .homepage .buttons div {
     justify-content: space-evenly;
-    margin-bottom: 20px;
+  }
+
+  .homepage .buttons .avatars, .homepage .buttons span {
+    margin-top: 20px;
   }
 
   .homepage .buttons .apps img {

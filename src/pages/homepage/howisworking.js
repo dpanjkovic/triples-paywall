@@ -24,18 +24,18 @@ function HowIsWorking() {
     <>
       { !display.isPortrait ? 
         <div className="howisworking">
-          <h2 className="noanim animleft">How eInvoice is working.</h2>
-          <span className="body noanim animright">The government of Saudi Arabia is committed to launching entrepreneurial ecosystems, as they believe investing in a digital future will.</span>
-          <div className="tabs noanim animleft">
+          <h2 className="noanim animbottom">How eInvoice is working.</h2>
+          <span className="body noanim animbottom delay150">The government of Saudi Arabia is committed to launching entrepreneurial ecosystems, as they believe investing in a digital future will.</span>
+          <div className="tabs">
             {tab("500+ customizeable templates", "templates")}
             {tab("Send via SMS, Whatsapp or custom link", "sendsms")}
             {tab("Get paid", "getpaid")}
           </div>
-          <div className="content noanim animright" style={{backgroundImage:display.isPortrait ? `url(${backgroundMobile})` : `url(${background})`}}>
+          <div className="content" style={{backgroundImage:display.isPortrait ? `url(${backgroundMobile})` : `url(${background})`}}>
             <img src={require("../../assets/images/homepage/application.png")} className="application" alt="" />
             <img src={require("../../assets/images/homepage/logotype.png")} className="logotype" alt="" />
             <img src={require("../../assets/images/homepage/colors.png")} className="colors" alt="" />
-            <div className="appfeatures">
+            <div className="appfeatures noanim animbottom delay300">
               <div className="appfeaturescontent">
                 <img src={require("../../assets/images/icons/intersect.svg")} alt="" />
                 <h4>Customize your invoice with your logo</h4>

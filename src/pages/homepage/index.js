@@ -1,9 +1,11 @@
 import React, { useEffect, useRef, useState } from "react";
 import topImage from "../../assets/images/homepage/topbg.jpg";
 import topImage1440 from "../../assets/images/homepage/topbg1440.jpg";
-import topMobile from "../../assets/images/homepage/top-mobile.png";
+import topMobile from "../../assets/images/homepage/topbg-mobile.png";
 import topWaves from "../../assets/images/homepage/topwaves.svg";
-import topImageMobile from "../../assets/images/homepage/top-mobile.png";
+import Avatar1 from "../../assets/images/homepage/avatar1.jpg";
+import Avatar2 from "../../assets/images/homepage/avatar2.jpg";
+import Avatar3 from "../../assets/images/homepage/avatar3.jpg";
 import Einvoice from "./einvoice";
 import Tools from "./tools";
 import HowIsWorking from "./howisworking";
@@ -18,6 +20,7 @@ import AppStore from "../../assets/images/homepage/appstore.svg";
 import MultipleWays from "../../assets/images/homepage/multiple-ways-to-pay-content.svg";
 import AutomaticReminder from "../../assets/images/homepage/automatic-reminder-content.svg";
 import TrackAndManage from "../../assets/images/homepage/track-and-manage-content.svg"
+import { functions } from "../../components/functions";
 
 function Homepage() {
   const [topImageBg, setTopImageBg] = useState(topImage);
@@ -36,6 +39,29 @@ function Homepage() {
     setTopImageBg(bg);
   }, [display]);
 
+
+  useEffect(() => {
+    if (vars.showContact) {
+      const os = document.onscroll;
+      document.onscroll = null;
+      functions.resetVideo();
+
+      setTimeout(() => { 
+        document.onscroll = os 
+      }, 1000);
+    }
+  }, [vars.showContact]);
+
+  useEffect(() => {
+    setTimeout(() => functions.init(display.isPortrait), 1000);
+  }, []);
+
+  
+
+  window.addEventListener("resize", () => functions.init(display.isPortrait));
+
+  
+
   return (
     <div className="homepage" id="homepage">
     { !vars.imgsLoaded ?
@@ -44,18 +70,33 @@ function Homepage() {
       <>
       <div className="topimage">
         <div style={{background: `url(${topImageBg}) center bottom no-repeat`}} className="background"></div>
+        <div style={{background: `url(${topWaves}) center bottom no-repeat`}} className="swirls"></div>
+        <div className="previews noanim animbottom delay300">
+          { display.isPortrait ? 
+          <img src={require("../../assets/images/homepage/iphone-mobile.png")} alt="" className="iphone" />
+            :
+          <>
+            <img src={require("../../assets/images/homepage/screenshot.png")} alt="" className="screenshot" />
+            <img src={require("../../assets/images/homepage/iphone.png")} alt="" className="iphone" />
+          </>
+          }
+        </div>
       </div>
       <div className="buttons">
-        <div className="flex items-center justify-center apps">
+        <div className="flex items-center justify-center apps noanim animbottom delay150">
           <img src={Play} alt="" />
           <img src={AppStore} alt="" />
         </div>
-        <div className="inline-flex items-center">
-          <img src={require("../../assets/images/homepage/avatars.png")} alt="" />
+        <div className="inline-flex items-center noanim animbottom delay150">
+          <div className="avatars">
+            <img src={Avatar1} alt="" className="avatar1" />
+            <img src={Avatar2} alt="" className="avatar2" />
+            <img src={Avatar3} alt="" className="avatar3" />
+          </div>
           <span>+ others have already joined</span>
         </div>
       </div>
-      <div className="heading">
+      <div className="heading noanim animbottom">
         {
           display.isPortrait ? 
           <>
@@ -65,16 +106,16 @@ function Homepage() {
           :
           <h1>Your transactions</h1>
         }
-        <h1>- made easy</h1>
+        <h1>- made easy.</h1>
       </div>
       <div className="contentcontainer">
         <div className="investors">
-          <img src={require("../../assets/images/homepage/opportunity.png")} alt="" className="noanim animleft" />
-          <div className="opportunity noanim animright">
-            <h2>Opportunity for Fintech Entrepreneurs.</h2>
-            <span className="body">The government of Saudi Arabia is committed to launching entrepreneurial ecosystems, as they believe investing in a digital future will not only create 200,000 new jobs by 2025 but also drive the development of more sustainable, intelligent cities and a digital economy.</span>
-            <a href="aboutus" onMouseEnter={() => setHover("aboutus")} onMouseLeave={() => setHover("")}>
-              <div className="item button mt-5">
+          <img src={require("../../assets/images/homepage/opportunity.png")} alt="" className="noanim animright" />
+          <div className="opportunity">
+            <h2 className="noanim animbottom delay150">Opportunity for Fintech Entrepreneurs.</h2>
+            <span className="body inlineblock noanim animbottom delay300">The government of Saudi Arabia is committed to launching entrepreneurial ecosystems, as they believe investing in a digital future will not only create 200,000 new jobs by 2025 but also drive the development of more sustainable, intelligent cities and a digital economy.</span>
+            <a href="aboutus">
+              <div className="item button mt-5 noanim animbottom delay450" onMouseEnter={() => setHover("aboutus")} onMouseLeave={() => setHover("")}>
                 <span>About us</span>
                 { hover === "aboutus" ? <ArrowActive /> : <Arrow /> }
               </div>
@@ -84,8 +125,8 @@ function Homepage() {
         <Einvoice />
         <HowIsWorking />
         <div className="getmoredone">
-          <h2 className="noanim animleft">Get more done with our eInvoice app.</h2>
-          <span className="body noanim animright">In massa aliquam pellentesque consequat, purus amet quis sodales aliquam. Mattis interdum consequat sed pellentesque metus nam sagittis neque. </span>
+          <h2 className="noanim animbottom">Get more done with our eInvoice app.</h2>
+          <span className="body noanim animbottom delay150">In massa aliquam pellentesque consequat, purus amet quis sodales aliquam. Mattis interdum consequat sed pellentesque metus nam sagittis neque. </span>
           <div className="content">
             <Grid container spacing={2}>
               <Grid item xs={4} className="noanim animleft">

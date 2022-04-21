@@ -3,58 +3,77 @@
   background-color: #FFFFFF;
 }
 
-.noanim {
+.noanim, .anim {
   opacity: 0;
+}
+
+span.inlineblock {
+  display: inline-block
 }
 
 .anim.animleft {
   animation-name: fadeLeft;
-  animation-duration: 1s;
+  animation-duration: 0.7s;
   animation-iteration-count: 1;
   animation-fill-mode: forwards;
-  animation-timing-function: ease-in-out;
+  animation-timing-function: ease-out;
+  animation-play-state: running;
 }
 
 .anim.animright {
   animation-name: fadeRight;
-  animation-duration: 1s;
+  animation-duration: 0.7s;
   animation-iteration-count: 1;
   animation-fill-mode: forwards;
-  animation-timing-function: ease-in-out;
+  animation-timing-function: ease-out;
+  animation-play-state: running;
 }
 
 @media (orientation: landscape) {
   .App.AR .payroll .transfer .tree .cards.anim.animright {
     animation-name: fadeRightAR;
-    animation-duration: 1s;
+    animation-duration: 0.7s;
     animation-iteration-count: 1;
     animation-fill-mode: forwards;
-    animation-timing-function: ease-in-out;
+    animation-timing-function: ease-out;
+    animation-play-state: running;
   }
 }
 
 .anim.animbottom {
   animation-name: fadeBottom;
-  animation-duration: 1s;
-  animation-iteration-count: 1;
+  animation-duration: 0.7s;
   animation-fill-mode: forwards;
-  animation-timing-function: ease-in-out;
+  animation-timing-function: ease-out;
+  animation-play-state: running;
+}
+
+.delay150 {
+  animation-delay: 150ms;
+}
+
+.delay300 {
+  animation-delay: 300ms;
+}
+
+.delay450 {
+  animation-delay: 450ms;
 }
 
 @keyframes fadeLeft {
-  from { transform: translateX(-150px); opacity: 0; }
+  from { transform: translateX(-50px); opacity: 0; }
   to { transform: translateX(0px); opacity: 1; }
 }
 @keyframes fadeRight {
-  from { transform: translateX(150px); opacity: 0; }
+  from { transform: translateX(50px); opacity: 0; }
   to { transform: translateX(0px); opacity: 1; }
 }
 @keyframes fadeRightAR {
-  from { transform: translateX(150px) rotate(180deg); opacity: 0; }
+  from { transform: translateX(50px) rotate(180deg); opacity: 0; }
   to { transform: translateX(0px) rotate(180deg); opacity: 1; }
 }
 @keyframes fadeBottom {
-  from { transform: translateY(150px); opacity: 0; }
+  from { transform: translateY(50px); opacity: 0; }
   to { transform: translateY(0px); opacity: 1; }
 }
 
@@ -196,7 +215,25 @@ nav .item {
   display: flex;
   align-items: center;
   width: fit-content;
+  color: #000;
+  background-color: #000;
+  background: linear-gradient(90deg, #F1A4DE 0%, #B166EB 12.5%, #7D39F5 25%, #000 75%) no-repeat 100% 100%;
+  background-size: 400% 400%;
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+  transition: 200ms ease-in-out 5ms;
 }
+
+nav .item:hover, nav .item.language .main:hover, nav .item.language .other:hover {
+  background: linear-gradient(90deg, #F1A4DE 0%, #B166EB 12.5%, #7D39F5 25%, #3c3d42 75%) no-repeat 100% 0%;
+  background-position: 0 0;
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-size: 400% 400%
+}
+
 
 nav .item.language {
   flex-direction: column;
@@ -225,19 +262,21 @@ nav .item.language:hover .other {
   display: block;
 }
 
-nav .item:hover, nav .item.language .main:hover, nav .item.language .other:hover {
-  color: #B166EB;
-  background: linear-gradient(90deg, #F1A4DE 0%, #B166EB 50.52%, #7D39F5 100%), #FFFFFF;
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
-  background-clip: text;
-}
-
 nav .item img, .button img, .button svg {
   margin: 0px 10px;
+  transition: margin 200ms;
+}
+
+nav .item:hover img, .button:hover img, .button:hover svg {
+  margin: 0 5px 0 15px;
+}
+
+.App.AR nav .item:hover img, .App.AR .button:hover img, .App.AR .button:hover svg {
+  margin: 0 15px 0 5px;
 }
 
 nav .button, .button {
+  display: inline-flex;
   background: #171414;
   border-radius: 10px;
   color: #FFFFFF;
@@ -252,6 +291,31 @@ nav .button, .button {
   font-weight: 600;
   font-size: 18px;
   font-family: 'Epilogue';
+  transition: 200ms ease-in-out 5ms;
+}
+
+nav .button span, .button span {
+  color: #fff;
+  background-color: #fff;
+  background: linear-gradient(90deg, #F1A4DE 0%, #B166EB 12.5%, #7D39F5 25%, #fff 75%) no-repeat 100% 100%;
+  background-size: 400% 400%;
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+  transition: 200ms ease-in-out 5ms;
+}
+
+nav .button:hover, .button:hover {
+  background: #3d3a3a;
+}
+
+nav .button:hover span, .button:hover span {
+  background: linear-gradient(90deg, #F1A4DE 0%, #B166EB 12.5%, #7D39F5 25%, #fff 75%) no-repeat 100% 0%;
+  background-position: 0 0;
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-size: 400% 400%
 }
 
 nav .button.disabled, .button.disabled {
@@ -273,20 +337,6 @@ nav .button.disabled, .button.disabled {
 
 .button.inverse:hover {
   background: #171414;
-}
-
-
-nav .button:hover, .button:hover {
-  color: #B166EB;
-  background: #171414;
-  -webkit-text-fill-color: initial;
-}
-
-nav .button:hover span, .button:hover span {
-  background: linear-gradient(90deg, #F1A4DE 0%, #B166EB 50.52%, #7D39F5 100%), #FFFFFF;
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
-  background-clip: text;
 }
 
 nav .button:active, .button:active {
