@@ -294,6 +294,17 @@ nav .button, .button {
   transition: 200ms ease-in-out 5ms;
 }
 
+nav .button .arrows, .button .arrows {
+  width: 36px;
+  height: 16px;
+  position: relative;
+}
+
+nav .button .arrows svg, .button .arrows svg {
+  position: absolute;
+  top: 0px;
+}
+
 nav .button span, .button span {
   color: #fff;
   background-color: #fff;

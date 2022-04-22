@@ -273,7 +273,10 @@ function Payroll() {
         <h1>Want an early acces?</h1>
         <div className="item button" onClick={showContact} onMouseEnter={() => setHover("request")} onMouseLeave={() => setHover("")}>
           <span>Request now</span>
-          { hover === "request" ? <ArrowActive /> : <Arrow /> }
+          <div className="arrows">
+            <ArrowActive style={{opacity: hover === "request" ? 1 : 0, top:2 }} />
+            <Arrow style={{opacity: hover === "request" ? 0 : 1 }} />
+          </div>
         </div>
       </div>
       </>

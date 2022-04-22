@@ -97,8 +97,11 @@ function AboutUs() {
           <p className="body noanim animleft">We’re re-establishing finance leaders’ deserved place as a strategic business partner. We give them the time, resources, and spotlight to focus on growing great businesses.</p>
           <p className="body noanim animleft">Our global CFO Connect community includes over 7,000 finance professionals who meet, share, learn, and build meaningful connections to elevate the role of finance.</p>
           <div className="item button mt-5 noanim animleft" onClick={showContact} onMouseEnter={() => setHover("contactus")} onMouseLeave={() => setHover("")}>
-            Contact us
-            { hover === "contactus" ? <ArrowActive /> : <Arrow /> }
+            <span>Contact us</span>
+            <div className="arrows">
+              <ArrowActive style={{opacity: hover === "contactus" ? 1 : 0, top:2 }} />
+              <Arrow style={{opacity: hover === "contactus" ? 0 : 1 }} />
+            </div>
           </div>
         </div>
         <div className="advisors noanim animright">

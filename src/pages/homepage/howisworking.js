@@ -51,8 +51,8 @@ function HowIsWorking() {
         </div>
         :
         <div className="howisworking">
-          <h2>How eInvoice is working.</h2>
-          <span className="body">The government of Saudi Arabia is committed to launching entrepreneurial ecosystems, as they believe investing in a digital future will.</span>
+          <h2 className="noanim animbottom">How eInvoice is working.</h2>
+          <span className="body noanim animbottom delay150">The government of Saudi Arabia is committed to launching entrepreneurial ecosystems, as they believe investing in a digital future will.</span>
           <div className="tabs">
             {tab("500+ customizeable templates", "templates")}
           </div>
@@ -60,7 +60,7 @@ function HowIsWorking() {
             <img src={require("../../assets/images/homepage/application.png")} className="application" alt="" />
             <img src={require("../../assets/images/homepage/logotype.png")} className="logotype" alt="" />
             <img src={require("../../assets/images/homepage/colors.png")} className="colors" alt="" />
-            <div className="appfeatures">
+            <div className="appfeatures noanim animbottom delay300">
               <div className="appfeaturescontent">
                 <img src={require("../../assets/images/icons/intersect.svg")} alt="" />
                 <h4>Customize your invoice with your logo</h4>

@@ -56,11 +56,7 @@ function Homepage() {
     setTimeout(() => functions.init(display.isPortrait), 1000);
   }, []);
 
-  
-
   window.addEventListener("resize", () => functions.init(display.isPortrait));
-
-  
 
   return (
     <div className="homepage" id="homepage">
@@ -117,7 +113,10 @@ function Homepage() {
             <a href="aboutus">
               <div className="item button mt-5 noanim animbottom delay450" onMouseEnter={() => setHover("aboutus")} onMouseLeave={() => setHover("")}>
                 <span>About us</span>
-                { hover === "aboutus" ? <ArrowActive /> : <Arrow /> }
+                <div className="arrows">
+                  <ArrowActive style={{opacity: hover === "aboutus" ? 1 : 0, top:2 }} />
+                  <Arrow style={{opacity: hover === "aboutus" ? 0 : 1 }} />
+                </div>
               </div>
             </a>
           </div>

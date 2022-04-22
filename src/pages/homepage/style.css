@@ -53,13 +53,23 @@
   border-radius: 30px;
 }
 
-.fixedvideo .videoholder .gradient {
+.fixedvideo.tools .videoholder .gradient {
   position: absolute;
   height: 100%;
   width: 100%;
   left: 0;
   top: 0;
   background-image: linear-gradient(to top, #000000, 80%, rgba(255,0,0,0));
+}
+
+.fixedvideo.einvoice .gradient {
+  position: absolute;
+  height: 100%;
+  width: 100%;
+  left: 0;
+  top: 0;
+  background-image: linear-gradient(to top, #252382, 93%, rgba(255,0,0,0));
+  border-radius: 30px;
 }
 
 .homepage {
@@ -384,30 +394,19 @@
   left: 0;
 }
 
-.homepage .einvoice .waves {
+.einvoice .waves {
   position: absolute;
-  top: 359px;
-  right: 20px;
-  width: 50%;
-  overflow: hidden;
+  top: -55px;
+  left: -90px;
+  width: 100% !important;
+  opacity: 0;
 }
 
-.homepage .einvoice .waves img {
+.einvoice .waves img {
   max-width: none;
 }
 
-.homepage .einvoice .waves svg {
-  width: 130%;
-  margin-left: -18%;
-}
-
-@media only screen and (max-width: 1300px) {
-  .homepage .einvoice .waves svg {
-    margin-left: -13%;
-  }
-}
-
-.homepage .einvoice .introducing {
+.einvoice .introducing {
   position: absolute;
   left: 0px;
   top: 180px;
@@ -415,6 +414,10 @@
   display: flex;
   flex-direction: column;
   align-items: center;
+}
+
+.einvoice .introducing h1 {
+  opacity: 0.3;
 }
 
 .homepage .tools .introducing {
@@ -429,18 +432,18 @@
   opacity: 0.3;
 }
 
-.homepage .einvoice .introducing .subtitle {
+.einvoice .introducing .subtitle {
   font-family: 'Epilogue', sans-serif;
   font-size: 21px;
   color:#A5A9BB;
   opacity: 0;
 }
 
-.homepage .einvoice .body {
+.einvoice .body {
   color:#A5A9BB;
 }
 
-.homepage .einvoice .get_paid {
+.einvoice .get_paid {
   position: absolute;
   width: 50%;
   height: 357px;
@@ -449,17 +452,17 @@
   opacity: 0;
 }
 
-.homepage .einvoice .get_paid div {
+.einvoice .get_paid div {
   width: 60%;
   margin: 0 auto;
 }
 
-.homepage .einvoice .get_paid .subtitle {
+.einvoice .get_paid .subtitle {
   color:#A5A9BB;
   display: block;
 }
 
-.homepage .einvoice .benefits {
+.einvoice .benefits {
   position: absolute;
   width: 50%;
   height: 369px;
@@ -467,11 +470,11 @@
   top: 430px;
 }
 
-.homepage .einvoice .benefits div {
+.einvoice .benefits div {
   width: 80%;
 }
 
-.homepage .einvoice .benefits .button {
+.einvoice .benefits .button {
   background: #ffffff;
   border-radius: 10px;
   color: #252382;
@@ -481,6 +484,7 @@
   line-height: 20px;
   font-weight: 600;
   margin-bottom: 35px;
+  margin-left: 200px;
   opacity: 0;
 }
 
@@ -492,11 +496,15 @@
   margin-left: 122px;
 }
 
+.homepage .einvoice .benefits .button.cashflow {
+  margin-left: 0px;
+}
+
 .homepage .einvoice .benefits .button.flexibility {
   margin-left: 216px;
 }
 
-.homepage .einvoice .benefits .button img {
+.einvoice .benefits .button img {
   float: left;
   margin: -10px 10px 0px 0px;
 }
@@ -707,13 +715,18 @@
   }
   
   .homepage .einvoice .introducing {
-    top: 130px;
+    top: 100px;
     margin: 45px;
     width: calc(100% - 90px);
   }
 
+  .homepage .einvoice .introducing h1, .homepage .einvoice .introducing .subtitle, .homepage .einvoice .benefits .waves {
+    opacity: 1;
+  }
+
   .homepage .einvoice .introducing .subtitle {
     font-size: 18px;
+    margin-top: 30px;
   }
 
   .homepage .einvoice.tools .introducing {
@@ -780,11 +793,15 @@
     padding: 20px;
   }
 
+  .einvoice .get_paid div {
+    width: calc(100% - 40px);
+  }
+
   .homepage .einvoice .waves {
     position: absolute;
     left: 20px;
     z-index: 0;
-    width: calc(100% - 40px);
+    width: calc(100% - 40px) !important;
   }
 
   .homepage .einvoice .waves img {

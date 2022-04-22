@@ -19,6 +19,7 @@ import createCache from '@emotion/cache';
 import rtlPlugin from 'stylis-plugin-rtl';
 import { prefixer } from 'stylis';
 import LangIcon from "../../assets/images/icons/lang.svg";
+import { functions } from "../functions";
 
 const themeRtl = createTheme({
   direction: 'rtl',
@@ -114,6 +115,9 @@ function Header() {
   const changeLanguage = (l) => {
     const setlang = l ? l : (lang === "EN") ? "AR" : "EN";
 
+    functions.restartAnimations();
+    functions.checkAnims();
+
     setCookie("lang", setlang, { path: "/" });
     dispatch(setLang(setlang));
     setShowMenu(false);
@@ -149,7 +153,11 @@ function Header() {
         <div className="item"><a href="/payroll">Payroll</a></div>
         <div className="item"><a href="aboutus">About us</a></div>
         <div className="item button" onClick={() => showContact(true)} onMouseEnter={() => setHover("contactus")} onMouseLeave={() => setHover("")}>
-          <span>Contact us</span>{ hover === "contactus" ? <ArrowActive /> : <Arrow /> }
+          <span>Contact us</span>
+          <div className="arrows">
+            <ArrowActive style={{opacity: hover === "contactus" ? 1 : 0, top:2 }} />
+            <Arrow style={{opacity: hover === "contactus" ? 0 : 1 }} />
+          </div>
         </div>
         <div className="item language">
           <div className="main">

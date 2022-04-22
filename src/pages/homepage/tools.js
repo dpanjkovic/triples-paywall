@@ -12,8 +12,6 @@ function Tools() {
     dispatch(setVars({imgsLoaded:true, changePage:true, showContact: true}));
   };
 
-
-
   return (
     <>
       <div className="tools einvoice sticky" id="tools">
