@@ -7,6 +7,8 @@ import tree from "../../assets/images/payroll/tree.png";
 import treeMobile from "../../assets/images/payroll/tree-mobile.png";
 import earlyaccess from "../../assets/images/payroll/earlyaccess.png";
 import earlyaccessMobile from "../../assets/images/payroll/earlyaccess-mobile.png";
+import { ReactComponent as EInvoiceIcon } from "../../assets/images/icons/einvoice.svg";
+import { ReactComponent as Intersect } from "../../assets/images/icons/intersect.svg";
 import { ReactComponent as Arrow } from "../../assets/images/icons/arrow.svg";
 import { useDispatch, useSelector } from "react-redux";
 
@@ -113,24 +115,24 @@ function Payroll() {
         <span className="body noanim animright">The digital payment solution designed to streamline payroll management.</span>
         <div className="block">
           <div className="item noanim animleft">
-            <img src={require("../../assets/images/icons/intersect.svg")} alt="" />
+            <Intersect />
             <h4>Payroll Processing Management</h4>
             <span className="body">Malesuada purus ultricies platea elementum aliquet eu. Sit cras arcu in in. Odio lorem adipiscing purus fusce enim. </span>
           </div>
           <div className="item noanim animright">
-            <img src={require("../../assets/images/icons/einvoice.svg")} alt="" />
+            <EInvoiceIcon />
             <h4>Cross-Border transfers</h4>
             <span className="body">Donec risus risus amet sed egestas sagittis ac. Sollicitudin vel, vitae sed lorem volutpat dolor lectus. Ornare vitae elit blandit quam egestas at vitae.</span>
           </div>
         </div>
         <div className="block">
           <div className="item noanim animleft">
-            <img src={require("../../assets/images/icons/intersect.svg")} alt="" />
+            <Intersect />
             <h4>Linked VISA</h4>
             <span className="body">Faucibus porttitor leo ipsum viverra eu nec auctor. Donec quis vestibulum, porttitor fermentum. Vel turpis ut faucibus velit risus ultrices venenatis.</span>
           </div>
           <div className="item noanim animright">
-            <img src={require("../../assets/images/icons/einvoice.svg")} alt="" />
+            <EInvoiceIcon />
             <h4>Pay by QR & Bill Online</h4>
             <span className="body">In sapien sagittis sit sed ac pretium. Aliquet egestas vulputate diam vel. Faucibus tempus, odio sagittis ullamcorper habitasse in. Mus ut lobortis aliquet.</span>
           </div>

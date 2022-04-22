@@ -3,6 +3,10 @@ import topImage from "../../assets/images/aboutus/top.png";
 import topImageMobile from "../../assets/images/aboutus/top-mobile.png";
 import background from "../../assets/images/aboutus/background.png";
 import backgroundMobile from "../../assets/images/aboutus/background-mobile.png";
+import { ReactComponent as EInvoiceSaves } from "../../assets/images/icons/einvoice-saves.svg";
+import { ReactComponent as EInvoiceIcon } from "../../assets/images/icons/einvoice.svg";
+import { ReactComponent as EInvoiceQuick } from "../../assets/images/icons/einvoice-quick.svg";
+import { ReactComponent as Intersect } from "../../assets/images/icons/intersect.svg";
 import { ReactComponent as Arrow } from "../../assets/images/icons/arrow.svg";
 import './style.css';
 import Loader from "../../components/loader";
@@ -58,12 +62,12 @@ function AboutUs() {
           <img src={require("../../assets/images/aboutus/cards.png")} className="cards" alt="" />
           <div className="mission noanim animright">
             <div className="ourmission">
-              <img src={require("../../assets/images/icons/intersect.svg")} alt="" />
+              <Intersect />
               <h4>Our mission</h4>
               <span className="body">Non, congue sit suscipit ut tincidunt sagittis, in eget vestibulum. Turpis vitae aliquam purus pharetra sodales. Bibendum et gravida leo laoreet sapien dignissim. Commodo mauris diam ut.</span>
             </div>
             <div className="oursolution">
-              <img src={require("../../assets/images/icons/einvoice.svg")} alt="" />
+              <EInvoiceIcon />
               <h4>Our solution</h4>
               <span className="body">Pretium purus a etiam cursus porttitor ultrices pharetra. Velit at justo sed sed amet nullam adipiscing platea. Interdum in elit nec tortor sollicitudin non faucibus suspendisse egestas. Urna urna.</span>
             </div>
@@ -74,17 +78,17 @@ function AboutUs() {
         <h2 className="noanim animleft">Why in Saudi?</h2>
         <div className="benefits">
           <div className="benefit noanim animleft">
-            <img src={require("../../assets/images/icons/einvoice-saves.svg")} alt="" />
+            <EInvoiceSaves />
             <h4>Ready infrastructure</h4>
             <span className="body">Malesuada purus ultricies platea elementum aliquet eu. Sit cras arcu in in. Odio lorem adipiscing purus fusce enim. </span>
           </div>
           <div className="benefit noanim animbottom">
-            <img src={require("../../assets/images/icons/einvoice.svg")} alt="" />
+            <EInvoiceIcon />
             <h4>Non-cash transactions</h4>
             <span className="body">Ullamcorper egestas aenean at vitae sollicitudin senectus. Augue quam et fringilla risus adipiscing. </span>
           </div>
           <div className="benefit noanim animright">
-            <img src={require("../../assets/images/icons/einvoice-quick.svg")} alt="" />
+            <EInvoiceQuick />
             <h4>Entrepreneurial ecosystem</h4>
             <span className="body">Amet non semper egestas bibendum volutpat ultricies accumsan dictum. Nec dignissim eget ac vestibulum. </span>
           </div>

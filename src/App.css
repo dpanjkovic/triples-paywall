@@ -212,7 +212,7 @@ nav {
 nav .item {
   margin-right: 50px;
   cursor: pointer;
-  display: flex;
+  display: inline;
   align-items: center;
   width: fit-content;
   color: #000;
@@ -238,6 +238,7 @@ nav .item:hover, nav .item.language .main:hover, nav .item.language .other:hover
 nav .item.language {
   flex-direction: column;
   position: relative;
+  width: 62px;
 }
 
 nav .item.language:hover {
@@ -247,14 +248,14 @@ nav .item.language:hover {
 }
 
 nav .item.language .main {
-  display: flex;
+  display: inline;
   align-items: center;
 }
 
 nav .item.language .other {
   position: absolute;
   top: 30px;
-  left: 38px;
+  left: 40px;
   display: none;
 }
 
@@ -271,16 +272,30 @@ nav .item:hover img, .button:hover img, .button:hover svg {
   margin: 0 5px 0 15px;
 }
 
+.button.nororate svg, .App.AR .button.nororate svg {
+  transform: none;
+}
+
+.button.oposite:hover svg {
+  margin: 0 15px 0 5px;
+}
+
 .App.AR nav .item:hover img, .App.AR .button:hover img, .App.AR .button:hover svg {
   margin: 0 15px 0 5px;
 }
 
+.App.AR .button.oposite:hover svg {
+  margin: 0 5px 0 15px;
+}
+
 nav .item.language img {
   transition: none;
+  float: left;
+  margin-top: 17px;
 }
 
 nav .item.language:hover img, .App.AR nav .item.language:hover img {
-  margin: 0 10px 0 10px;
+  margin: 17px 10px 0 10px;
 }
 
 nav .button, .button {

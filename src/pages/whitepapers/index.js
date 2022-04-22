@@ -1,12 +1,18 @@
 import React, { useEffect } from "react";
-import topImage from "../../assets/images/privacy/top.png";
+import topImage from "../../assets/images/whitepapers/bg.png";
 import topImageMobile from "../../assets/images/privacy/top-mobile.png";
+import { ReactComponent as Whitepaper1 } from "../../assets/images/icons/whitepaper1.svg";
+import { ReactComponent as Whitepaper2 } from "../../assets/images/icons/whitepaper2.svg";
+import { ReactComponent as Whitepaper3 } from "../../assets/images/icons/whitepaper3.svg";
+import { ReactComponent as Whitepaper4 } from "../../assets/images/icons/whitepaper4.svg";
+import { ReactComponent as Download } from "../../assets/images/icons/download.svg";
 import { useSelector } from "react-redux";
 import Loader from "../../components/loader";
 import { FaArrowRight } from "react-icons/fa";
 import { functions } from "../../components/functions";
 
 import './style.css';
+import { Grid } from "@mui/material";
 
 function WhitePapers() {
   const vars = useSelector((state) => state.vars.value);
@@ -30,52 +36,33 @@ function WhitePapers() {
         </div>
       </div>
       <div className="flex justify-center container">
-        <div className="links noanim animleft">
-          <a href="#first"><h5>White Paper first</h5></a>
-          <a href="#second"><h5>White Paper second</h5></a>
-          <a href="#third"><h5>White Paper third</h5></a>
-          <a href="#fourth"><h5>White Paper fourth</h5></a>
+        <div>
+          <div className="whitepaper left noanim animleft">
+            <Whitepaper1 />
+            <a href="#first"><h5>White Paper first</h5></a>
+            <p>Malesuada purus ultricies platea elementum aliquet eu. Sit cras arcu in in. Odio lorem adipiscing purus fusce enim. </p>
+            <div className="item button oposite nororate"><Download />Download</div>
+          </div>
+          <div className="whitepaper noanim animright">
+            <Whitepaper2 />
+            <a href="#first"><h5>White Paper second</h5></a>
+            <p>Donec risus risus amet sed egestas sagittis ac. Sollicitudin vel, vitae sed lorem volutpat dolor lectus. Ornare vitae elit blandit quam egestas at vitae. </p>
+            <div className="item button oposite nororate"><Download />Download</div>
+          </div>
         </div>
-        <div className="spacer"><img src={require("../../assets/images/privacy/separator.png")} alt="" /></div>
-        <div className="content body">
-          <h3 id="first" className="noanim animbottom">White Paper first</h3>
-          <div className="whitepaper noanim animbottom">
-            <div>
-              <p>General Data: The use of our services will automatically create information that will be collected. For example, when you use our Services, your geographic location, how you use the Services, information about the type of device you use, your Open Device Identification Number, date/time stamps for your visit, your unique device identifier, your browser type, operating system, Internet Protocol (IP) address, and domain name are all collected. This information is generally used to help us deliver the most relevant information to you and administer and improve the Site.</p>
-              <div className="item button">Download White Paper first <FaArrowRight /></div>
-            </div>
-            <img src={require("../../assets/images/whitepapers/whitepaper1.png")} alt="" />
+        <div>
+          <div className="whitepaper left noanim animleft">
+            <Whitepaper3 />
+            <a href="#first"><h5>White Paper third</h5></a>
+            <p>Faucibus porttitor leo ipsum viverra eu nec auctor. Donec quis vestibulum, porttitor fermentum. Vel turpis ut faucibus velit risus ultrices venenatis.</p>
+            <div className="item button oposite nororate"><Download />Download</div>
           </div>
-
-          <h3 id="second" className="noanim animbottom">White Paper second</h3>
-          <div className="whitepaper left noanim animbottom">
-            <div>
-              <p>In general, personal information you submit to us is used either to respond to requests that you make, aid us in serving you better, or market our Services. We use your personal information in the following ways:</p>
-              <p>Paywall is committed to protecting your privacy online. This Privacy Policy endeavours to describe to you our practices regarding the personal information we collect from users on our website, located at lipsum.com (the “Site”), and the services offered through the Site. If you have any questions about our Privacy Policy, our collection practices, the processing of user information, or if you would like to report a security violation to us directly, please contact us at help@banzen.io</p>
-              <div className="item button">Download White Paper second <FaArrowRight /></div>
-            </div>
-            <img src={require("../../assets/images/whitepapers/whitepaper2.png")} alt="" />
+          <div className="whitepaper noanim animright">
+            <Whitepaper4 />
+            <a href="#first"><h5>White Paper fourth</h5></a>
+            <p>In sapien sagittis sit sed ac pretium. Aliquet egestas vulputate diam vel. Faucibus tempus, odio sagittis ullamcorper habitasse in. Mus ut lobortis aliquet.</p>
+            <div className="item button oposite nororate"><Download />Download</div>
           </div>
-
-          <h3 id="third" className="noanim animbottom">White Paper third</h3>
-          <div className="whitepaper noanim animbottom">
-            <div>
-              <p>Third Parties Designated by You: When you use the Services, the personal information you provide will be shared with the third parties that you authorize to receive such information.</p>
-              <p>Log Files: As is true of most websites, we gather certain information automatically and store it in log files. This information includes IP addresses, browser type, Internet service provider (ISP), referring/exit pages, operating system, date/time stamp, and</p>
-              <div className="item button">Download White Paper third <FaArrowRight /></div>
-            </div>
-            <img src={require("../../assets/images/whitepapers/whitepaper1.png")} alt="" />
-          </div>
-
-          <h3 id="fourth" className="noanim animbottom">White Paper fourth</h3>
-          <div className="whitepaper left noanim animbottom">
-            <div>
-              <p>Our Site may contain links to third party websites. When you click on a link to any other website or location, you will leave our Site or Services and go to another site, and another entity may collect personal information or anonymous data from you. We have no control over, do not review, and are not responsible for, these outside websites or their content. Please be aware that the terms of this Privacy Policy do not apply to these outside websites or content, or to any collection of your personal information after you click on links to such outside websites. We encourage you to read the privacy policies of every website you visit. The links to third party websites or locations are for your convenience and do not signify our endorsement of such third parties or their products, content or websites.</p>
-              <div className="item button">Download White Paper fourth <FaArrowRight /></div>
-            </div>
-            <img src={require("../../assets/images/whitepapers/whitepaper1.png")} alt="" />
-          </div>
-
         </div>
       </div>
       </>
