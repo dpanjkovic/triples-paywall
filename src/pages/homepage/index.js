@@ -10,7 +10,6 @@ import Einvoice from "./einvoice";
 import Tools from "./tools";
 import HowIsWorking from "./howisworking";
 import { ReactComponent as Arrow } from "../../assets/images/icons/arrow.svg";
-import { ReactComponent as ArrowActive } from "../../assets/images/icons/arrow-active.svg";
 import './style.css';
 import Loader from "../../components/loader";
 import { useSelector } from "react-redux";
@@ -114,8 +113,7 @@ function Homepage() {
               <div className="item button mt-5 noanim animbottom delay450" onMouseEnter={() => setHover("aboutus")} onMouseLeave={() => setHover("")}>
                 <span>About us</span>
                 <div className="arrows">
-                  <ArrowActive style={{opacity: hover === "aboutus" ? 1 : 0, top:2 }} />
-                  <Arrow style={{opacity: hover === "aboutus" ? 0 : 1 }} />
+                  <Arrow />
                 </div>
               </div>
             </a>

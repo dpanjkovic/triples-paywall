@@ -1,6 +1,5 @@
 import React, { useEffect, useRef, useState } from "react";
 import { ReactComponent as Arrow } from "../../assets/images/icons/arrow.svg";
-import { ReactComponent as ArrowActive } from "../../assets/images/icons/arrow-active.svg";
 import FooterMenu from "../footer/menu";
 import { FormControlLabel, Snackbar, TextField, IconButton, Grid } from "@mui/material";
 import CloseIcon from '@mui/icons-material/Close';
@@ -155,8 +154,7 @@ function Header() {
         <div className="item button" onClick={() => showContact(true)} onMouseEnter={() => setHover("contactus")} onMouseLeave={() => setHover("")}>
           <span>Contact us</span>
           <div className="arrows">
-            <ArrowActive style={{opacity: hover === "contactus" ? 1 : 0, top:2 }} />
-            <Arrow style={{opacity: hover === "contactus" ? 0 : 1 }} />
+            <Arrow />
           </div>
         </div>
         <div className="item language">
@@ -216,7 +214,7 @@ function Header() {
               </CacheProvider>
               <div className={`item button mt-5 ${(checked && !sending) ? "" : "disabled"}`}onClick={checked ? sendMessage : null} onMouseEnter={() => setHover("message")} onMouseLeave={() => setHover("")}>
                 <span>{sending ? "Sending..." : "Send message"}</span>
-                { hover === "message" ? <ArrowActive /> : <Arrow /> }
+                <Arrow />
               </div>
             </form>
           </div>

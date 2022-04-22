@@ -1,6 +1,5 @@
 import React from "react";
 import { ReactComponent as Arrow } from "../../assets/images/icons/arrow.svg";
-import { ReactComponent as ArrowActive } from "../../assets/images/icons/arrow-active.svg";
 import { useSelector, useDispatch } from "react-redux";
 import { setVars } from "../../store/varsSlice";
 import Twitter from "../../assets/images/icons/twitter.svg";

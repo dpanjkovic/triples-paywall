@@ -317,16 +317,7 @@ nav .button span, .button span {
 }
 
 nav .button:hover, .button:hover {
-  background: #3d3a3a;
-}
-
-nav .button:hover span, .button:hover span {
-  background: linear-gradient(90deg, #F1A4DE 0%, #B166EB 12.5%, #7D39F5 25%, #fff 75%) no-repeat 100% 0%;
-  background-position: 0 0;
-  -webkit-background-clip: text;
-  background-clip: text;
-  -webkit-text-fill-color: transparent;
-  background-size: 400% 400%
+  background: #171414;
 }
 
 nav .button.disabled, .button.disabled {

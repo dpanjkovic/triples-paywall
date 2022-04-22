@@ -4,7 +4,6 @@ import topImageMobile from "../../assets/images/aboutus/top-mobile.png";
 import background from "../../assets/images/aboutus/background.png";
 import backgroundMobile from "../../assets/images/aboutus/background-mobile.png";
 import { ReactComponent as Arrow } from "../../assets/images/icons/arrow.svg";
-import { ReactComponent as ArrowActive } from "../../assets/images/icons/arrow-active.svg";
 import './style.css';
 import Loader from "../../components/loader";
 import { useDispatch, useSelector } from "react-redux";
@@ -99,8 +98,7 @@ function AboutUs() {
           <div className="item button mt-5 noanim animleft" onClick={showContact} onMouseEnter={() => setHover("contactus")} onMouseLeave={() => setHover("")}>
             <span>Contact us</span>
             <div className="arrows">
-              <ArrowActive style={{opacity: hover === "contactus" ? 1 : 0, top:2 }} />
-              <Arrow style={{opacity: hover === "contactus" ? 0 : 1 }} />
+              <Arrow />
             </div>
           </div>
         </div>

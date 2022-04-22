@@ -8,7 +8,6 @@ import treeMobile from "../../assets/images/payroll/tree-mobile.png";
 import earlyaccess from "../../assets/images/payroll/earlyaccess.png";
 import earlyaccessMobile from "../../assets/images/payroll/earlyaccess-mobile.png";
 import { ReactComponent as Arrow } from "../../assets/images/icons/arrow.svg";
-import { ReactComponent as ArrowActive } from "../../assets/images/icons/arrow-active.svg";
 import { useDispatch, useSelector } from "react-redux";
 
 import 'keen-slider/keen-slider.min.css'
@@ -274,8 +273,7 @@ function Payroll() {
         <div className="item button" onClick={showContact} onMouseEnter={() => setHover("request")} onMouseLeave={() => setHover("")}>
           <span>Request now</span>
           <div className="arrows">
-            <ArrowActive style={{opacity: hover === "request" ? 1 : 0, top:2 }} />
-            <Arrow style={{opacity: hover === "request" ? 0 : 1 }} />
+            <Arrow />
           </div>
         </div>
       </div>
