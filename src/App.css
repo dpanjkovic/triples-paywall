@@ -275,6 +275,14 @@ nav .item:hover img, .button:hover img, .button:hover svg {
   margin: 0 15px 0 5px;
 }
 
+nav .item.language img {
+  transition: none;
+}
+
+nav .item.language:hover img, .App.AR nav .item.language:hover img {
+  margin: 0 10px 0 10px;
+}
+
 nav .button, .button {
   display: inline-flex;
   background: #171414;

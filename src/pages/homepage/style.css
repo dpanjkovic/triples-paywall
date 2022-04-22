@@ -274,22 +274,22 @@
 .homepage .getmoredone .content .MuiGrid-item .multipleways {
   position: absolute;
   top: 126px;
-  left: 66px;
+  left: 46px;
   width: 240px;
 }
 
 .homepage .getmoredone .content .MuiGrid-item .automaticreminder {
   position: absolute;
   top: 44px;
-  left: 20px;
+  left: 0px;
   width: 200px;
 }
 
 .homepage .getmoredone .content .MuiGrid-item  .trackandmanage {
   position: absolute;
   top: 56px;
-  left: 13px;
-  width: calc(100% - 26px);
+  left: 0px;
+  width: 100%;
 }
 
 .homepage .getmoredone .content .MuiGrid-item div {
@@ -300,9 +300,9 @@
 
 .homepage .getmoredone .content .MuiGrid-item div .text {
   position: absolute;
-  left: 36px;
+  left: 20px;
   bottom: 25px;
-  width: calc(100% - 56px);
+  width: calc(100% - 40px);
 }
 
 .homepage .getmoredone .content .MuiGrid-item div .text h4 {
