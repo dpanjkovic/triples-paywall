@@ -1,8 +1,11 @@
 import React, { useEffect, useState } from "react";
-import topImage from "../../assets/images/payroll/top.png";
-import topImageMobile from "../../assets/images/payroll/top-mobile.png";
+import topImage from "../../assets/images/payroll/bg.jpg";
+import topImage1440 from "../../assets/images/homepage/topbg1440.jpg";
+import topMobile from "../../assets/images/payroll/top-mobile.png";
 import background from "../../assets/images/payroll/background.png";
 import backgroundMobile from "../../assets/images/payroll/background-mobile.png";
+import { ReactComponent as SwirlLeft } from "../../assets/images/payroll/swirl_left.svg";
+import { ReactComponent as SwirlRight } from "../../assets/images/payroll/swirl_right.svg";
 import tree from "../../assets/images/payroll/tree.png";
 import treeMobile from "../../assets/images/payroll/tree-mobile.png";
 import earlyaccess from "../../assets/images/payroll/earlyaccess.png";
@@ -45,13 +48,14 @@ function Payroll() {
 
   useEffect(() => {
     setTimeout(() => functions.checkAnims(), 1000);
-    document.onscroll = function() { functions.checkAnims() };
+    window.onscroll = function() { functions.checkAnims() };
   }, []);
 
   const vars = useSelector((state) => state.vars.value);
   const display = useSelector((state) => state.display.value);
   const lang = useSelector((state) => state.lang.value);
   const [hover, setHover] = useState("");
+  const [topImageBg, setTopImageBg] = useState(topImage);
 
   const showContact = () => {
     window.scrollTo(0, 0);
@@ -92,6 +96,15 @@ function Payroll() {
         horizontal: display.isPortrait ? true : false,
       }
     );
+
+    let bg = topImage;
+    if (display.isMax1440) {
+      bg = topImage1440;
+    }
+    if (display.isPortrait) {
+      bg = topMobile;
+    }
+    setTopImageBg(bg);
   }, [display, lang]);
 
   const changeSlide = (i) => {
@@ -105,7 +118,17 @@ function Payroll() {
       <Loader />
       :
       <>
-      <div className="topimage" style={{backgroundImage:`url(${topImage})`}} />
+      <div className="topimage">
+        <div style={{background: `url(${topImageBg}) center bottom no-repeat`}} className="background"></div>
+        <div className="background gradient"></div>
+        <div className="swirls">
+          <div className="left"><SwirlLeft /></div>
+          <div className="right"><SwirlRight /></div>
+        </div>
+        <div className="previews noanim animbottom delay300">
+          <img src={require("../../assets/images/payroll/card.png")} alt="" className="cards" />
+        </div>
+      </div>
       <div className="heading">
         <h1>Transform your</h1>
         <h1>business the smart way</h1>

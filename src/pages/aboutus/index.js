@@ -19,7 +19,7 @@ function AboutUs() {
   
   useEffect(() => {
     setTimeout(() => functions.checkAnims(), 1000);
-    document.onscroll = function() { functions.checkAnims() };
+    window.onscroll = function() { functions.checkAnims() };
   }, []);
 
   const vars = useSelector((state) => state.vars.value);

@@ -1,72 +1,72 @@
-.privacy {
+.terms {
   margin: 0px auto  122px;
   width: 1220px;
   position: relative;
 }
 
-.privacy .container {
+.terms .container {
   margin-top: 65px;
 }
 
-.privacy .links {
+.terms .links {
   width: 282px;
   text-align: start;
 }
 
-.privacy .links h5 {
+.terms .links h5 {
   margin-bottom: 30px;
 }
 
-.privacy .spacer {
+.terms .spacer {
   margin: 0 40px;
 }
 
-.privacy .content {
+.terms .content {
   width: 899px;
   text-align: start;
 }
 
-.privacy .content p {
+.terms .content p {
   margin-bottom: 10px;
 }
 
-.privacy .content h3 {
+.terms .content h3 {
   margin: 40px 0 30px;
 }
 
-.privacy .heading {
+.terms .heading {
   position: absolute;
   top: 140px;
   width: 100%;
 }
 
 @media only screen and (max-width: 1440px) {
-  .privacy {
+  .terms {
     width: calc(100% - 40px);
     margin-bottom: 0px;
   }
 }
 
 @media (orientation: portrait) {
-  .privacy {
+  .terms {
     padding: 30px 20px 30px;
     position: relative;
   }
 
-  .privacy .topimage {
+  .terms .topimage {
     height: 457px;
   }
 
-  .privacy .links, .privacy .spacer {
+  .terms .links, .terms .spacer {
     display: none;
   }
 }
 
-.App.AR .privacy .links {
+.App.AR .terms .links {
   text-align: end;
 }
 
-.App.AR .privacy .container {
+.App.AR .terms .container {
   flex-direction: row-reverse;
 }
 

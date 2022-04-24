@@ -10,8 +10,10 @@ import eInvoiceFaster from "../../assets/images/icons/einvoice-faster.svg";
 import eInvoiceFlexibility from "../../assets/images/icons/einvoice-flexibility.svg";
 
 const GetPaid = () => {
+  const display = useSelector((state) => state.display.value);
+  
   return (
-    <div className="get_paid">
+    <div className={display.isPortrait ? "noanim animbottom get_paid" : "get_paid"}>
       <div>
         <h2>Get paid easy.</h2>
         <span className="body">In-app automated interactive invoicing that allows merchants to easily send professional, digital estimates and invoices from anywhere.</span>
@@ -33,26 +35,26 @@ function Einvoice() {
       </div>
       <div className="gradient"></div>
       <div className="introducing">
-        <h1>Introducing eInvoice</h1>
-        <span className="subtitle">instant invoices through SMS, mail & Whatsapp</span>
+        <h1 className={display.isPortrait ? "noanim animbottom" : ""}>Introducing eInvoice</h1>
+        <span className={display.isPortrait ? "subtitle noanim animbottom delay150" : "subtitle "}>instant invoices through SMS, mail & Whatsapp</span>
       </div>
       { !display.isPortrait && <GetPaid /> }
       <div className="benefits">
         <div className="waves">{display.isPortrait ? <img src={wavesMobile} alt="" /> : <Waves /> }</div>
         <div>
-          <div className="button quick">
+          <div className={display.isPortrait ? "button quick noanim animbottom" : "button quick "}>
             <img src={eInvoiceQuick} alt="" />
             Quick and convenient to use
           </div>
-          <div className="button saves">
+          <div className={display.isPortrait ? "button saves noanim animbottom delay150" : "button saves "}>
             <img src={eInvoiceSaves} alt="" />
             Saves operational time and costs
           </div>
-          <div className="button cashflow">
+          <div className={display.isPortrait ? "button cashflow noanim animbottom delay300" : "button cashflow "}>
             <img src={eInvoiceFaster} alt="" />
             Get paid faster for better cashflow
           </div>
-          <div className="button flexibility">
+          <div className={display.isPortrait ? "button flexibility noanim animbottom delay450" : "button flexibility "}>
             <img src={eInvoiceFlexibility} alt="" />
             Flexibility for customers
           </div>

@@ -19,7 +19,7 @@
   margin-right: 212px;
 }
 
-.links {
+.whitepapers .links {
   width: 282px;
   text-align: start;
 }
@@ -33,11 +33,11 @@
   display: inline-flex;
 }
 
-.spacer {
+.whitepapers .spacer {
   margin: 0 40px;
 }
 
-.heading {
+.whitepapers .heading {
   position: absolute;
   top: 140px;
   width: 100%;
@@ -74,14 +74,14 @@
   }
 
   .whitepapers .container {
-    margin-top: 35px;
+    margin: 35px 0 0;
   }
 
   .whitepapers .topimage {
     height: 457px;
   }
 
-  .links, .spacer {
+  .whitepapers .links, .whitepapers .spacer {
     display: none;
   }
 
@@ -89,6 +89,7 @@
     flex-direction: column-reverse;
     align-items: center;
     margin-bottom: 60px;
+    width: calc(100% - 40px);
   }
 
   .whitepapers .whitepaper p {
@@ -106,10 +107,6 @@
 
 .App.AR .whitepapers .links {
   text-align: end;
-}
-
-.App.AR .whitepapers .container {
-  flex-direction: row-reverse;
 }
 
 .App.AR .whitepapers .whitepaper {

@@ -77,7 +77,6 @@ function resetVideo() {
 
 function clone() {
   toolsVideo = document.getElementById("toolsvideo");
-
   if (toolsVideo) {
     toolsContainer = document.getElementById("tools");
     toolsVideo.pause();
@@ -126,7 +125,6 @@ function clone() {
       eInvoiceRatio = clonedeInvoiceWidth / clonedeInvoiceHeight;
     }
   }
-
 
   if (playAnimation) {
     isInViewport();
@@ -196,16 +194,17 @@ function clone() {
 function init(isPortrait) {
   functions.checkAnims();
 
-  px_ratio = window.devicePixelRatio || window.screen.availWidth / document.documentElement.clientWidth;
+  px_ratio = window.visualViewport.scale;
 
   if (!isPortrait) {
     if (!clonedTools || !clonedeInvoice) {
       clone();
     }
 
-    document.onscroll = function () { scrollCheck() };
+    window.onscroll = function () { scrollCheck() };
   } else {
-    toolsContainer.querySelectorAll(".wanttotalk")[0].style.opacity = 1;
+
+    document.querySelectorAll(".wanttotalk")[0].style.opacity = 1;
     playVideo = false;
     playAnimation = false;
     if (clonedTools) {
@@ -218,7 +217,7 @@ function init(isPortrait) {
     lastToolsVideoTop = 0;
     lastEinvoiceVideoTop = 0;
 
-    document.onscroll = function () { functions.checkAnims() };
+    window.onscroll = function () { functions.checkAnims() };
   }
 };
 
@@ -437,8 +436,8 @@ function scrollCheck() {
     refClonedVideo.style.height = Math.ceil(clonedWidth / toolsRatio / px_ratio) + "px";
     refClonedContainer.style.left = l + "px";
 
-    if (clonedWidth < refContainer.offsetWidth) {
-      clonedWidth = refContainer.offsetWidth;
+    if (clonedWidth < refContainer.offsetWidth / px_ratio) {
+      clonedWidth = refContainer.offsetWidth / px_ratio;
 
       if (inVieport === "tools") {
         clonedToolsVideoBanner.style.opacity = diff > 0 ? 1 : 0;
@@ -471,42 +470,46 @@ function scrollCheck() {
 function isInViewport() {
   if (playAnimation) return false;
   inVieport = false;
-
-  const toolsrect = toolsContainer.getBoundingClientRect();
-
   const st = window.pageYOffset || document.documentElement.scrollTop;
-  let toolsvideoTop = toolsrect.top + st;
 
-  if (initialToolsVideoTop <= 0) initialToolsVideoTop = toolsvideoTop
+  if (toolsContainer) {
+    const toolsrect = toolsContainer.getBoundingClientRect();
 
-  if (toolsrect.top <= 0 && lastToolsVideoTop > 0) {
-    frame = 0;
-    inVieport = "tools";
+    let toolsvideoTop = toolsrect.top + st;
+
+    if (initialToolsVideoTop <= 0) initialToolsVideoTop = toolsvideoTop
+
+    if (toolsrect.top <= 0 && lastToolsVideoTop > 0) {
+      frame = 0;
+      inVieport = "tools";
+    }
+
+    if (toolsrect.top >= 0 && lastToolsVideoTop < 0) {
+      frame = frames;
+      inVieport = "tools";
+    }
+
+    lastToolsVideoTop = toolsrect.top;
   }
 
-  if (toolsrect.top >= 0 && lastToolsVideoTop < 0) {
-    frame = frames;
-    inVieport = "tools";
+  if (eInvoiceContainer) {
+    const einvoicerect = eInvoiceContainer.getBoundingClientRect();
+
+    let einvioicevideoTop = einvoicerect.top + st;
+    if (initialeInvoiceVideoTop <= 0) initialeInvoiceVideoTop = einvioicevideoTop
+
+    if (einvoicerect.top <= 0 && lastEinvoiceVideoTop > 0) {
+      frame = 0;
+      inVieport = "einvoice";
+    }
+
+    if (einvoicerect.top >= 0 && lastEinvoiceVideoTop < 0) {
+      frame = frames;
+      inVieport = "einvoice";
+    }
+
+    lastEinvoiceVideoTop = einvoicerect.top;
   }
-
-  lastToolsVideoTop = toolsrect.top;
-
-  const einvoicerect = eInvoiceContainer.getBoundingClientRect();
-
-  let einvioicevideoTop = einvoicerect.top + st;
-  if (initialeInvoiceVideoTop <= 0) initialeInvoiceVideoTop = einvioicevideoTop
-
-  if (einvoicerect.top <= 0 && lastEinvoiceVideoTop > 0) {
-    frame = 0;
-    inVieport = "einvoice";
-  }
-
-  if (einvoicerect.top >= 0 && lastEinvoiceVideoTop < 0) {
-    frame = frames;
-    inVieport = "einvoice";
-  }
-
-  lastEinvoiceVideoTop = einvoicerect.top;
 
   functions.checkAnims();
 }

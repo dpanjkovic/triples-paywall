@@ -4,7 +4,10 @@
 
 .payroll .heading {
   text-align: center;
+  position: absolute;
+  width: 100%;
   top: 50px;
+  z-index: 3;
 }
 
 .payroll .topimage {
@@ -12,6 +15,67 @@
   height: 607px;
   background-position: center;
   background-repeat: no-repeat;
+}
+
+.payroll .topimage .background {
+  width: 100%;
+  height: 100%;
+  background-repeat: no-repeat;
+}
+
+.payroll .topimage .background.gradient {
+  width: 100%;
+  height: 607px;
+  z-index: 1;
+  position: absolute;
+  top: 0;
+  background-image: linear-gradient(to top, rgba(255,255,255,0), rgba(255,255,255,1));
+}
+
+.payroll .topimage .swirls {
+  width: 100%;
+  height: 657px;
+  position: absolute;
+  display: flex;
+  top: -110px;
+  overflow: hidden;
+  z-index: 2;
+}
+
+.payroll .topimage .swirls .left, .payroll .topimage .swirls .right {
+  width: 50%;
+  height: 100%;
+  position: relative;
+}
+
+.payroll .topimage .swirls svg {
+  position: absolute;
+}
+
+.payroll .topimage .swirls .left svg {
+  top: 100px;
+  right: 340px;
+}
+
+.payroll .topimage .swirls .right svg {
+  top: -20px;
+  left: 330px;
+}
+
+.payroll .topimage img {
+  position: absolute;
+  bottom: 0;
+}
+
+.payroll .topimage img.cards {
+  width: 596px;
+  left: 0px;
+}
+
+.payroll .topimage .previews {
+  width: 770px;
+  margin: 0px auto;
+  position: relative;
 }
 
 .payroll .solution {

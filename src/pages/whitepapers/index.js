@@ -20,7 +20,7 @@ function WhitePapers() {
 
   useEffect(() => {
     setTimeout(() => functions.checkAnims(), 1000);
-    document.onscroll = function() { functions.checkAnims() };
+    window.onscroll = function() { functions.checkAnims() };
   }, []);
 
   return (

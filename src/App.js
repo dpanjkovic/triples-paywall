@@ -13,6 +13,7 @@ import { setVars } from "./store/varsSlice";
 import { setDisplay } from './store/displaySlice';
 import WhitePapers from "./pages/whitepapers";
 import { setLang } from "./store/langSlice";
+import Terms from "./pages/terms";
 
 const IMAGES = {
   "/" : [
@@ -134,6 +135,7 @@ function App() {
       <Header />
       <Routes>
         <Route path="/privacy" element={<PrivacyPolicy />} />
+        <Route path="/terms" element={<Terms />} />
         <Route path="/aboutus" element={<AboutUs />} />
         <Route path="/payroll" element={<Payroll />} />
         <Route path="/whitepapers" element={<WhitePapers />} />

@@ -102,7 +102,29 @@
   width: 100%;
   height: 657px;
   position: absolute;
+  display: flex;
   top: -110px;
+  overflow: hidden;
+}
+
+.homepage .topimage .swirls .left, .homepage .topimage .swirls .right {
+  width: 50%;
+  height: 100%;
+  position: relative;
+}
+
+.homepage .topimage .swirls svg {
+  position: absolute;
+}
+
+.homepage .topimage .swirls .left svg {
+  top: -54px;
+  right: 340px;
+}
+
+.homepage .topimage .swirls .right svg {
+  top: 20px;
+  left: 330px;
 }
 
 .homepage .topimage img {
@@ -559,6 +581,7 @@
   .homepage .contentcontainer {
     width: 100%;
     padding: 0px;
+    -webkit-text-fill-color: initial;
   }
 
   .homepage .einvoice {
@@ -624,6 +647,7 @@
   .homepage .topimage {
     height: 607px;
     width: 100%;
+    overflow: hidden;
   }
 
   .homepage .topimage .background {
@@ -689,7 +713,7 @@
   }
 
   .homepage .tools .introducing .button, .homepage .tools .introducing .title, .homepage .tools .introducing .subtitle {
-    opacity: 1;
+    opacity: 0;
   }
 
   .homepage .investors {
@@ -722,7 +746,7 @@
   }
 
   .homepage .einvoice .introducing h1, .homepage .einvoice .introducing .subtitle, .homepage .einvoice .benefits .waves {
-    opacity: 1;
+    opacity: 0;
   }
 
   .homepage .einvoice .introducing .subtitle {
@@ -767,7 +791,6 @@
   }
 
   .homepage .einvoice .benefits .button {
-    opacity: 1;
     line-height: 20px;
   }
 

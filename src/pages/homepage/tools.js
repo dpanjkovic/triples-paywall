@@ -7,6 +7,7 @@ import { setVars } from "../../store/varsSlice";
 
 function Tools() {
   const dispatch = useDispatch();
+  const display = useSelector((state) => state.display.value);
 
   const showContact = () => {
     dispatch(setVars({imgsLoaded:true, changePage:true, showContact: true}));
@@ -22,16 +23,16 @@ function Tools() {
           <div className="gradient"></div>
         </div>
         <div className="introducing">
-          <h1 className="title">More tools for your business</h1>
-          <span className="subtitle pb-10 pt-5" id="toolssubtitle">digitize management and administration of corporate payrolls</span>
+          <h1 className={display.isPortrait ? "noanim animbottom title" : "title"}>More tools for your<br />business</h1>
+          <span className={display.isPortrait ? "noanim animbottom delay150 subtitle pb-10 pt-5" : "subtitle pb-10 pt-5"} id="toolssubtitle">digitize management and administration of corporate payrolls</span>
           <a href="/payroll">
-            <div className="button inverse discover mt-4" id="toolsbutton">
+            <div className={display.isPortrait ? "noanim animbottom delay300 button inverse discover mt-4" : "button inverse discover mt-4"} id="toolsbutton">
               <span>Discover Payroll</span>
               <ArrowActive />
             </div>
           </a>
         </div>
-        <div className="wanttotalk" id="toolswanttotalk">
+        <div className={display.isPortrait ? "noanim animbottom wanttotalk delay450" : "wanttotalk"} id="toolswanttotalk">
           <div className="inner">
             <h1>Want to talk?</h1>
             <div className="button inverse discover" onClick={showContact}>

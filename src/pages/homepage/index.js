@@ -3,6 +3,8 @@ import topImage from "../../assets/images/homepage/topbg.jpg";
 import topImage1440 from "../../assets/images/homepage/topbg1440.jpg";
 import topMobile from "../../assets/images/homepage/topbg-mobile.png";
 import topWaves from "../../assets/images/homepage/topwaves.svg";
+import { ReactComponent as SwirlLeft } from "../../assets/images/homepage/swirl_left.svg";
+import { ReactComponent as SwirlRight } from "../../assets/images/homepage/swirl_right.svg";
 import Avatar1 from "../../assets/images/homepage/avatar1.jpg";
 import Avatar2 from "../../assets/images/homepage/avatar2.jpg";
 import Avatar3 from "../../assets/images/homepage/avatar3.jpg";
@@ -41,21 +43,23 @@ function Homepage() {
 
   useEffect(() => {
     if (vars.showContact) {
-      const os = document.onscroll;
-      document.onscroll = null;
+      const os = window.onscroll;
+      window.onscroll = null;
       functions.resetVideo();
 
       setTimeout(() => { 
-        document.onscroll = os 
+        window.onscroll = os 
       }, 1000);
     }
   }, [vars.showContact]);
 
   useEffect(() => {
-    setTimeout(() => functions.init(display.isPortrait), 1000);
+    setTimeout(() => functions.init(window.innerHeight > window.innerWidth), 1000);
   }, []);
 
-  window.addEventListener("resize", () => functions.init(display.isPortrait));
+  window.addEventListener("resize", () => {
+    functions.init(window.innerHeight > window.innerWidth)
+  });
 
   return (
     <div className="homepage" id="homepage">
@@ -65,7 +69,10 @@ function Homepage() {
       <>
       <div className="topimage">
         <div style={{background: `url(${topImageBg}) center bottom no-repeat`}} className="background"></div>
-        <div style={{background: `url(${topWaves}) center bottom no-repeat`}} className="swirls"></div>
+        <div className="swirls">
+          <div className="left"><SwirlLeft /></div>
+          <div className="right"><SwirlRight /></div>
+        </div>
         <div className="previews noanim animbottom delay300">
           { display.isPortrait ? 
           <img src={require("../../assets/images/homepage/iphone-mobile.png")} alt="" className="iphone" />
