@@ -25,7 +25,7 @@ function Terms() {
       <>
       <div className="relative">
         <img src={display.isPortrait ? topImageMobile : topImage} className="topimage w-full" alt="" />
-        <div className="heading">
+        <div className="heading noanim animbottom">
           <h1>Terms & Conditions</h1>
         </div>
       </div>

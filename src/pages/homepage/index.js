@@ -69,7 +69,7 @@ function Homepage() {
       <>
       <div className="topimage">
         <div style={{background: `url(${topImageBg}) center bottom no-repeat`}} className="background"></div>
-        <div className="swirls">
+        <div className="swirls noanim animfade duration5">
           <div className="left"><SwirlLeft /></div>
           <div className="right"><SwirlRight /></div>
         </div>

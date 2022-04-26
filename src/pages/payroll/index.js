@@ -121,7 +121,7 @@ function Payroll() {
       <div className="topimage">
         <div style={{background: `url(${topImageBg}) center bottom no-repeat`}} className="background"></div>
         <div className="background gradient"></div>
-        <div className="swirls">
+        <div className="swirls noanim animfade duration5">
           <div className="left"><SwirlLeft /></div>
           <div className="right"><SwirlRight /></div>
         </div>
@@ -130,8 +130,15 @@ function Payroll() {
         </div>
       </div>
       <div className="heading">
-        <h1>Transform your</h1>
-        <h1>business the smart way</h1>
+        <h1 className="noanim animbottom">Transform your</h1>
+        <h1 className="noanim animbottom">business the smart way</h1>
+        <h4 className="light noanim animbottom delay150">Send, receive with Smart, Secure & Instant Digital Salary Account</h4>
+        <div className="item button noanim animbottom delay300" onClick={showContact} onMouseEnter={() => setHover("request")} onMouseLeave={() => setHover("")}>
+          <span>Request an early access</span>
+          <div className="arrows">
+            <Arrow />
+          </div>
+        </div>
       </div>
       <div className="solution">
         <h2 className="noanim animleft">A solution for your business challenges.</h2>

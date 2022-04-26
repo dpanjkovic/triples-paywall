@@ -10,6 +10,7 @@
 }
 
 .aboutus .heading {
+  position: absolute;
   text-align: center;
   top: 58px;
   width: 100%;

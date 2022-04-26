@@ -38,7 +38,7 @@ function AboutUs() {
       :
       <>
       <div className="topimage" style={{backgroundImage : display.isPortrait ? `url(${topImage})` : `url(${topImage})`}} />
-      <div className="heading">
+      <div className="heading noanim animbottom">
         <h1>Processing your</h1>
         <h1>business needs</h1>
         <h1>smarter</h1>
