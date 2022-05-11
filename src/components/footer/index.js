@@ -5,9 +5,11 @@ import { setVars } from "../../store/varsSlice";
 import Twitter from "../../assets/images/icons/twitter.svg";
 import Fb from "../../assets/images/icons/fb.svg";
 import Linkedin from "../../assets/images/icons/linkedin.svg";
+import { useTranslation } from 'react-i18next';
 
 function Footer() {
   const dispatch = useDispatch();
+  const { t } = useTranslation();
 
   const display = useSelector((state) => state.display.value);
 
@@ -24,25 +26,25 @@ function Footer() {
         </div>
         { !display.isPortrait ?
           <nav>
-            <div className="item"><a href="/#einvoice">eInvoice</a></div>
-            <div className="item"><a href="payroll">Payroll</a></div>
-            <div className="item"><a href="aboutus">About us</a></div>
-            <div className="item" onClick={showContact}>Contact us</div>
+            <div className="item"><a href="/#einvoice">{ t("einvoice") }</a></div>
+            <div className="item"><a href="payroll">{ t("payroll") }</a></div>
+            <div className="item"><a href="aboutus">{ t("about_us") }</a></div>
+            <div className="item" onClick={showContact}>{ t("contact_us") }</div>
           </nav>
           :
           <nav className="mt-5 mb-5">
             <div className="flex items-center justify-between w-full">
-              <div className="item"><a href="/#einvoice">eInvoice</a></div>
+              <div className="item"><a href="/#einvoice">{ t("einvoice") }</a></div>
             </div>
             <div className="flex items-center justify-between w-full">
-              <div className="item"><a href="payroll">Payroll</a></div>
+              <div className="item"><a href="payroll">{ t("payroll") }</a></div>
             </div>
             <div className="flex items-center justify-between w-full">
-              <div className="item"><a href="aboutus">About us</a></div>
+              <div className="item"><a href="aboutus">{ t("about_us") }</a></div>
             </div>
             <div className="flex items-center justify-between w-full">
             <div className="item button" onClick={showContact}>
-              Contact us
+              { t("contact_us") }
               { display.isPortrait && <Arrow /> }
             </div>
             </div>
@@ -53,10 +55,10 @@ function Footer() {
       { !display.isPortrait && <img src={require("../../assets/images/footer-divider.png")} className="footer-divider" alt="" /> }
       <div className="footer-privacy">
         <div>
-          <a href="terms">Terms & Conditions</a>
-          <a href="privacy">Privacy Policy</a>
+          <a href="terms">{ t("termsandconditions") }</a>
+          <a href="privacy">{ t("privacypolicy") }</a>
           <a href="whitepapers">White Papers</a>
-          <a href="privacy#data">Cookies</a>
+          <a href="privacy#data">{ t("cookies") }</a>
         </div>
         <div className="social">
           <img src={Twitter} alt="" />

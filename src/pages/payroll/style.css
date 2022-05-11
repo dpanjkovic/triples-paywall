@@ -10,6 +10,15 @@
   z-index: 3;
 }
 
+.payroll .heading h1 {
+  max-width: 800px;
+  margin: 0 auto;
+}
+
+.payroll .heading h4 {
+  max-width: 700px;
+}
+
 .payroll .heading h4, .payroll .heading .button {
   margin: 30px auto;
 }
@@ -72,12 +81,12 @@
 }
 
 .payroll .topimage img.cards {
-  width: 596px;
+  max-width: 596px;
   left: 0px;
 }
 
 .payroll .topimage .previews {
-  width: 770px;
+  max-width: 770px;
   margin: 0px auto;
   position: relative;
 }
@@ -178,6 +187,7 @@
   position: relative;
   padding-top: 60px;
   margin: 0px auto;
+  width: 650px;
 }
 
 .payroll .transfer .tree, .payroll .transfer .safety {
@@ -393,7 +403,11 @@
 
   .payroll .topimage {
     width: 100%;
-    height: 607px;
+    height: 707px;
+  }
+
+  .payroll .topimage img.cards {
+    width: 100%;
   }
 
   .payroll .heading {
@@ -649,7 +663,6 @@
 }
 
 .App.AR .payroll .solution {
-  text-align: end;
   display: flex;
   flex-direction: column;
 }
@@ -662,7 +675,6 @@
 .App.AR .payroll .earlyaccess
  {
   flex-direction: row-reverse;
-  text-align: end;
 }
 
 .App.AR .payroll .transfer .safety .boxes {
@@ -682,12 +694,6 @@
   justify-content: flex-end;
 }
 
-.App.AR .payroll .slider .links,
-.App.AR .payroll .slider .keen-slider .keen-slider__slide
- {
-  text-align: end;
-}
-
 .App.AR .payroll .solution .block .item {
   display: flex;
   align-items: end;
@@ -696,7 +702,6 @@
 
 .App.AR .payroll .solution h2 {
   align-self: flex-end;
-  text-align: end;
 }
 
 .App.AR .payroll .transfer .background {
@@ -710,6 +715,16 @@
 
 .App.AR .payroll .transfer .safety {
   width: auto; 
+}
+
+.App.AR .payroll .transfer .safety h2 {
+  flex-direction: row-reverse;
+  display: flex;
+  justify-content: start;
+}
+
+.App.AR .payroll .transfer .safety h2 span {
+  margin-right: 14px;
 }
 
 .App.AR .payroll .transfer .tree .workers {

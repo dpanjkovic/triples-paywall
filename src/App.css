@@ -115,7 +115,7 @@ ul li {
 }
 
 h1 {
-  font-family: 'Playfair Display', serif;
+  font-family: 'DubaiW23Bold', serif;
   font-style: normal;
   font-weight: 600;
   font-size: 76px;
@@ -123,7 +123,7 @@ h1 {
 }
 
 h2 {
-  font-family: 'Playfair Display', serif;
+  font-family: 'DubaiW23Bold', serif;
   font-style: normal;
   font-weight: 600;
   font-size: 56px;
@@ -132,7 +132,7 @@ h2 {
 }
 
 h3 {
-  font-family: 'Playfair Display';
+  font-family: 'DubaiW23Bold';
   font-style: normal;
   font-weight: 500;
   font-size: 36px;
@@ -140,7 +140,7 @@ h3 {
 }
 
 h4 {
-  font-family: 'Epilogue', sans-serif;
+  font-family: 'DubaiW23Bold', sans-serif;
   font-weight: 700;
   font-size: 21px;
   line-height: 25px;
@@ -148,7 +148,7 @@ h4 {
 }
 
 h4.light {
-  font-family: 'Epilogue', sans-serif;
+  font-family: 'DubaiW23', sans-serif;
   font-weight: 300;
   font-size: 21px;
   line-height: 25px;
@@ -156,7 +156,7 @@ h4.light {
 }
 
 h5 {
-  font-family: 'Epilogue', sans-serif;
+  font-family: 'DubaiW23Bold', sans-serif;
   font-style: normal;
   font-weight: 600;
   font-size: 18px;
@@ -164,7 +164,7 @@ h5 {
 }
 
 .body {
-  font-family: 'Epilogue', sans-serif;
+  font-family: 'DubaiW23', sans-serif;
   font-size: 16px;
   line-height: 26px;
 }
@@ -764,6 +764,9 @@ footer .logo {
   }
 }
 
+.App.AR h1, .App.AR h2, .App.AR h3, .App.AR h4, .App.AR h5, .App.AR .body, .App.AR .subtitle {
+  direction: rtl;
+}
 
 
 .App.AR .App-header, 

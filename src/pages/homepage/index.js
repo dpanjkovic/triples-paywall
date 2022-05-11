@@ -22,12 +22,15 @@ import MultipleWays from "../../assets/images/homepage/multiple-ways-to-pay-cont
 import AutomaticReminder from "../../assets/images/homepage/automatic-reminder-content.svg";
 import TrackAndManage from "../../assets/images/homepage/track-and-manage-content.svg"
 import { functions } from "../../components/functions";
+import { useTranslation } from 'react-i18next';
 
 function Homepage() {
   const [topImageBg, setTopImageBg] = useState(topImage);
   const vars = useSelector((state) => state.vars.value);
   const display = useSelector((state) => state.display.value);
   const [hover, setHover] = useState("");
+
+  const { t } = useTranslation();
 
   useEffect(() => {
     let bg = topImage;
@@ -89,7 +92,7 @@ function Homepage() {
           <img src={Play} alt="" />
           <img src={AppStore} alt="" />
         </div>
-        <div className="inline-flex items-center noanim animbottom delay150">
+        <div className="inline-flex items-center noanim animbottom delay150 avatarswrapper">
           <div className="avatars">
             <img src={Avatar1} alt="" className="avatar1" />
             <img src={Avatar2} alt="" className="avatar2" />
@@ -99,26 +102,19 @@ function Homepage() {
         </div>
       </div>
       <div className="heading noanim animbottom">
-        {
-          display.isPortrait ? 
-          <>
-            <h1>Your</h1>
-            <h1>transactions</h1>
-          </>
-          :
-          <h1>Your transactions</h1>
-        }
-        <h1>- made easy.</h1>
+        <h1>{t("homepage_title")}</h1>
+        <h4 className="light noanim animbottom delay150">{t("homepage_subtitle")}</h4>
       </div>
       <div className="contentcontainer">
         <div className="investors">
           <img src={require("../../assets/images/homepage/opportunity.png")} alt="" className="noanim animright" />
           <div className="opportunity">
-            <h2 className="noanim animbottom delay150">Opportunity for Fintech Entrepreneurs.</h2>
-            <span className="body inlineblock noanim animbottom delay300">The government of Saudi Arabia is committed to launching entrepreneurial ecosystems, as they believe investing in a digital future will not only create 200,000 new jobs by 2025 but also drive the development of more sustainable, intelligent cities and a digital economy.</span>
+            <h2 className="noanim animbottom delay150">{t("homepage_opportunity_title")}</h2>
+            <span className="body inlineblock noanim animbottom delay300">{t("homepage_opportunity_subtitle_1")}</span>
+            <span className="body inlineblock noanim animbottom delay300">{t("homepage_opportunity_subtitle_2")}</span>
             <a href="aboutus">
               <div className="item button mt-5 noanim animbottom delay450" onMouseEnter={() => setHover("aboutus")} onMouseLeave={() => setHover("")}>
-                <span>About us</span>
+                <span>{ t("about_us") }</span>
                 <div className="arrows">
                   <Arrow />
                 </div>
@@ -129,8 +125,8 @@ function Homepage() {
         <Einvoice />
         <HowIsWorking />
         <div className="getmoredone">
-          <h2 className="noanim animbottom">Get more done with our eInvoice app.</h2>
-          <span className="body noanim animbottom delay150">In massa aliquam pellentesque consequat, purus amet quis sodales aliquam. Mattis interdum consequat sed pellentesque metus nam sagittis neque. </span>
+          <h2 className="noanim animbottom">{t("getmoredone_title")}</h2>
+          <span className="body noanim animbottom delay150">{t("getmoredone_subtitle")}</span>
           <div className="content">
             <Grid container spacing={2}>
               <Grid item xs={4} className="noanim animleft">
@@ -138,8 +134,8 @@ function Homepage() {
                   <img src={require("../../assets/images/homepage/multiple-ways-to-pay.png")} alt="" />
                   <img src={MultipleWays} alt="" className="multipleways" />
                   <div className="text">
-                    <h4>Multiple ways to pay</h4>
-                    <span className="body">Odio lorem adipiscing purus fusce enim. Morbi iaculis fermentum diam dictum.</span>
+                    <h4>{t("getmoredone_screen1_title")}</h4>
+                    <p className="body">{t("getmoredone_screen1_text")}</p>
                   </div>
                 </div>
               </Grid>
@@ -148,8 +144,8 @@ function Homepage() {
                   <img src={require("../../assets/images/homepage/automatic-reminder.png")} alt="" />
                   <img src={AutomaticReminder} alt="" className="automaticreminder" />
                   <div className="text">
-                    <h4>Automatic reminders</h4>
-                    <span className="body">Odio lorem adipiscing purus fusce enim. Morbi iaculis fermentum diam dictum.</span>
+                    <h4>{t("getmoredone_screen2_title")}</h4>
+                    <p className="body">{t("getmoredone_screen2_text")}</p>
                   </div>
                 </div>
               </Grid>
@@ -158,8 +154,8 @@ function Homepage() {
                   <img src={require("../../assets/images/homepage/track-and-manage.png")} alt="" />
                   <img src={TrackAndManage} alt="" className="trackandmanage" />
                   <div className="text">
-                    <h4>Track & Manage Invoices</h4>
-                    <span className="body">Odio lorem adipiscing purus fusce enim. Morbi iaculis fermentum diam dictum.</span>
+                    <h4>{t("getmoredone_screen3_title")}</h4>
+                    <p className="body">{t("getmoredone_screen3_text")}</p>
                   </div>
                 </div>
               </Grid>

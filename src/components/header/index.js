@@ -19,6 +19,7 @@ import rtlPlugin from 'stylis-plugin-rtl';
 import { prefixer } from 'stylis';
 import LangIcon from "../../assets/images/icons/lang.svg";
 import { functions } from "../functions";
+import { useTranslation } from 'react-i18next';
 
 const themeRtl = createTheme({
   direction: 'rtl',
@@ -41,6 +42,8 @@ const cache = createCache({
 function Header() {
   const dispatch = useDispatch();
   const display = useSelector((state) => state.display.value);
+
+  const { t, i18n } = useTranslation();
 
   const form = useRef();
 
@@ -114,12 +117,15 @@ function Header() {
   const changeLanguage = (l) => {
     const setlang = l ? l : (lang === "EN") ? "AR" : "EN";
 
-    functions.restartAnimations();
-    functions.checkAnims();
+    //i18n.changeLanguage(setlang);
+
+    //functions.restartAnimations();
+    //functions.checkAnims();
 
     setCookie("lang", setlang, { path: "/" });
-    dispatch(setLang(setlang));
+    //dispatch(setLang(setlang));
     setShowMenu(false);
+    window.location.href = window.location.href;
   };
 
   function setCookie(name, value, minutes) {
@@ -148,11 +154,11 @@ function Header() {
       <img src={vars.showContact ? closeIcon : burgerIcon} className="mobilemenu" onClick={toggleMenu} alt="" />
       { display.isPortrait && showMenu && <FooterMenu onChangeLanguage={changeLanguage} /> }
       <nav>
-        <div className="item"><a href="/#einvoice">eInvoice</a></div>
-        <div className="item"><a href="/payroll">Payroll</a></div>
-        <div className="item"><a href="aboutus">About us</a></div>
+        <div className="item"><a href="/#einvoice">{ t("einvoice") }</a></div>
+        <div className="item"><a href="/payroll">{ t("payroll") }</a></div>
+        <div className="item"><a href="aboutus">{ t("about_us") }</a></div>
         <div className="item button" onClick={() => showContact(true)} onMouseEnter={() => setHover("contactus")} onMouseLeave={() => setHover("")}>
-          <span>Contact us</span>
+          <span>{ t("contact_us") }</span>
           <div className="arrows">
             <Arrow />
           </div>

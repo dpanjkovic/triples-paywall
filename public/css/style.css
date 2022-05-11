@@ -2,3 +2,38 @@ body {
   margin: 0 auto;
 }
 
+@font-face {
+  font-family: "DubaiW23Bold";
+  src: url('/fonts/DubaiW23-Bold.eot');
+  src: url('/fonts/DubaiW23-Bold.eot') format('embedded-opentype'),
+       url('/fonts/DubaiW23-Bold.woff2') format('woff2'),
+       url('/fonts/DubaiW23-Bold.woff') format('woff'),
+       url('/fonts/DubaiW23-Bold.ttf') format('truetype');
+}
+
+@font-face {
+  font-family: "DubaiW23Light";
+  src: url('/fonts/DubaiW23-Light.eot');
+  src: url('/fonts/DubaiW23-Light.eot') format('embedded-opentype'),
+       url('/fonts/DubaiW23-Light.woff2') format('woff2'),
+       url('/fonts/DubaiW23-Light.woff') format('woff'),
+       url('/fonts/DubaiW23-Light.ttf') format('truetype');
+}
+
+@font-face {
+  font-family: "DubaiW23Medium";
+  src: url('/fonts/DubaiW23-Medium.eot');
+  src: url('/fonts/DubaiW23-Medium.eot') format('embedded-opentype'),
+       url('/fonts/DubaiW23-Medium.woff2') format('woff2'),
+       url('/fonts/DubaiW23-Medium.woff') format('woff'),
+       url('/fonts/DubaiW23-Medium.ttf') format('truetype');
+}
+
+@font-face {
+  font-family: "DubaiW23";
+  src: url('/fonts/DubaiW23-Regular.eot');
+  src: url('/fonts/DubaiW23-Regular.eot') format('embedded-opentype'),
+       url('/fonts/DubaiW23-Regular.woff2') format('woff2'),
+       url('/fonts/DubaiW23-Regular.woff') format('woff'),
+       url('/fonts/DubaiW23-Regular.ttf') format('truetype');
+}

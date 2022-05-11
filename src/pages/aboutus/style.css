@@ -4,7 +4,7 @@
 
 .aboutus .topimage {
   width: 100%;
-  height: 450px;
+  height: 550px;
   background-position: center;
   background-repeat: no-repeat;
 }
@@ -73,6 +73,8 @@
 .aboutus .approach h2 {
   padding-top: 60px;
   position: relative;
+  max-width: 666px;
+  margin: 0 auto;
 }
 
 .aboutus .approach .content {
@@ -168,11 +170,6 @@
 .App.AR .aboutus .teams
  {
   flex-direction: row-reverse;
-  text-align: end;
-}
-
-.App.AR .aboutus .whoweare .text {
-  text-align: end;
 }
 
 .App.AR .aboutus .approach .content .mission {
@@ -183,7 +180,6 @@
 .App.AR .aboutus .teams .text {
   margin-left: 120px;
   margin-right: 0;
-  text-align: end;
   display: flex;
   flex-direction: column;
 }
@@ -201,6 +197,11 @@
 .App.AR .aboutus .approach .content {
   margin-left: 0px;
   margin-right: 125px;
+}
+
+.App.AR .aboutus .whoweare .text {
+  margin-left: 50px;
+  margin-right: 0px;
 }
 
 @media only screen and (max-width: 1024px) {
@@ -370,6 +371,11 @@
     display: none;
   }
 
-
+  .aboutus .whysaudi .benefits .benefit {
+    justify-content: center;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
 }
 

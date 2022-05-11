@@ -1,4 +1,4 @@
-import React from 'react';
+import React,  { Suspense } from 'react';
 import ReactDOM from 'react-dom';
 import './index.css';
 import App from './App';
@@ -8,13 +8,15 @@ import store from "./store";
 import { BrowserRouter } from 'react-router-dom';
 
 ReactDOM.render(
+  <Suspense fallback={null}>
   <React.StrictMode>
     <Provider store={store}>
       <BrowserRouter>
         <App />
       </BrowserRouter>
     </Provider>
-  </React.StrictMode>,
+  </React.StrictMode>
+  </Suspense>,
   document.getElementById('root')
 );
 

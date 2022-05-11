@@ -14,6 +14,7 @@ import { ReactComponent as EInvoiceIcon } from "../../assets/images/icons/einvoi
 import { ReactComponent as Intersect } from "../../assets/images/icons/intersect.svg";
 import { ReactComponent as Arrow } from "../../assets/images/icons/arrow.svg";
 import { useDispatch, useSelector } from "react-redux";
+import { useTranslation } from 'react-i18next';
 
 import 'keen-slider/keen-slider.min.css'
 import { useKeenSlider } from 'keen-slider/react'
@@ -31,20 +32,10 @@ const tabs = [
   { id: 4, title: "Get reports" },
 ]
 
-const commodoText = () => {
-  return (
-    <div className="text">
-      <h2>Commodo enim.</h2>
-      <span className="body">
-        Vulputate fermentum ac sollicitudin at orci. Odio bibendum vel, risus ac. Ipsum donec tincidunt habitant amet, ipsum. Ut tortor sit lacus nec. Quisque aliquet pretium proin turpis posuere mattis consectetur eget nisl. Euismod vulputate tellus vitae, amet, dignissim ipsum neque.
-        Vitae posuere feugiat nunc dolor, sem. Purus bibendum id fermentum ac ultrices. Sit amet et viverra orci facilisis nunc viverra. Amet et sed at placerat eleifend euismod vel. Ut mollis risus magna eget eu. Lacus, amet vitae consequat, sed sapien et arcu, lacus. Sollicitudin quis lectus montes, risus. Fames maecenas diam sagittis eu sapien elit.
-      </span>
-    </div>
-  );
-}
-
 function Payroll() {
   const dispatch = useDispatch();
+
+  const { t } = useTranslation();
 
   useEffect(() => {
     setTimeout(() => functions.checkAnims(), 1000);
@@ -102,7 +93,7 @@ function Payroll() {
       bg = topImage1440;
     }
     if (display.isPortrait) {
-      bg = topMobile;
+      //bg = topMobile;
     }
     setTopImageBg(bg);
   }, [display, lang]);
@@ -112,6 +103,16 @@ function Payroll() {
     slider.current?.moveToIdx(i);
   }
 
+  const commodoText = () => {
+    return (
+      <div className="text">
+        <h2 className="mb-0">{t("payroll_commodo_title_1")}</h2>
+        <h2 className="mt-0">{t("payroll_commodo_title_2")}</h2>
+        <span className="body">{t("payroll_commodo_text")}</span>
+      </div>
+    );
+  }
+  
   return (
     <div className="payroll">
     { (!vars.imgsLoaded || !vars.changePage) ?
@@ -130,41 +131,40 @@ function Payroll() {
         </div>
       </div>
       <div className="heading">
-        <h1 className="noanim animbottom">Transform your</h1>
-        <h1 className="noanim animbottom">business the smart way</h1>
-        <h4 className="light noanim animbottom delay150">Send, receive with Smart, Secure & Instant Digital Salary Account</h4>
+        <h1 className="noanim animbottom">{t("payroll_title")}</h1>
+        <h4 className="light noanim animbottom delay150">{t("payroll_subtitle")}</h4>
         <div className="item button noanim animbottom delay300" onClick={showContact} onMouseEnter={() => setHover("request")} onMouseLeave={() => setHover("")}>
-          <span>Request an early access</span>
+          <span>{t("payroll_title_button")}</span>
           <div className="arrows">
             <Arrow />
           </div>
         </div>
       </div>
       <div className="solution">
-        <h2 className="noanim animleft">A solution for your business challenges.</h2>
-        <span className="body noanim animright">The digital payment solution designed to streamline payroll management.</span>
+        <h2 className="noanim animleft">{t("payroll_solution_title")}</h2>
+        <span className="body noanim animright">{t("payroll_solution_subtitle")}</span>
         <div className="block">
           <div className="item noanim animleft">
             <Intersect />
-            <h4>Payroll Processing Management</h4>
-            <span className="body">Malesuada purus ultricies platea elementum aliquet eu. Sit cras arcu in in. Odio lorem adipiscing purus fusce enim. </span>
+            <h4>{t("payroll_solution_box_1_title")}</h4>
+            <span className="body">{t("payroll_solution_box_1_text")}</span>
           </div>
           <div className="item noanim animright">
             <EInvoiceIcon />
-            <h4>Cross-Border transfers</h4>
-            <span className="body">Donec risus risus amet sed egestas sagittis ac. Sollicitudin vel, vitae sed lorem volutpat dolor lectus. Ornare vitae elit blandit quam egestas at vitae.</span>
+            <h4>{t("payroll_solution_box_2_title")}</h4>
+            <span className="body">{t("payroll_solution_box_2_text")}</span>
           </div>
         </div>
         <div className="block">
           <div className="item noanim animleft">
             <Intersect />
-            <h4>Linked VISA</h4>
-            <span className="body">Faucibus porttitor leo ipsum viverra eu nec auctor. Donec quis vestibulum, porttitor fermentum. Vel turpis ut faucibus velit risus ultrices venenatis.</span>
+            <h4>{t("payroll_solution_box_3_title")}</h4>
+            <span className="body">{t("payroll_solution_box_3_text")}</span>
           </div>
           <div className="item noanim animright">
             <EInvoiceIcon />
-            <h4>Pay by QR & Bill Online</h4>
-            <span className="body">In sapien sagittis sit sed ac pretium. Aliquet egestas vulputate diam vel. Faucibus tempus, odio sagittis ullamcorper habitasse in. Mus ut lobortis aliquet.</span>
+            <h4>{t("payroll_solution_box_4_title")}</h4>
+            <span className="body">{t("payroll_solution_box_4_text")}</span>
           </div>
         </div>
       </div>
@@ -175,7 +175,7 @@ function Payroll() {
               return (
               <div key={`tab${index}`} onClick={() => changeSlide(tab.id) } className={slide === tab.id ? "active" : ""}>
                 <div className="dot"></div>
-                <h4>{tab.title}</h4>
+                <h4>{t(`payroll_tab_link_${tab.id}`)}</h4>
               </div>
               )
             })
@@ -183,33 +183,23 @@ function Payroll() {
         </div>
         <div className="sliderwrapper">
           <div ref={refCallback} className="keen-slider">
-            <div className="keen-slider__slide number-slide1">
-              <h2>Keep your data in one place. 1.</h2>
-              <span className="body">Dignissim amet sed adipiscing egestas bibendum purus neque et eget. Leo risus, ut consequat in ipsum. Nam nunc, eget sit a aliquam urna adipiscing proin. Dui quam augue convallis justo nullam semper maecenas egestas. Iaculis leo.</span>
-            </div>
-            <div className="keen-slider__slide number-slide2">
-              <h2>Keep your data in one place. 2.</h2>
-              <span className="body">Dignissim amet sed adipiscing egestas bibendum purus neque et eget. Leo risus, ut consequat in ipsum. Nam nunc, eget sit a aliquam urna adipiscing proin. Dui quam augue convallis justo nullam semper maecenas egestas. Iaculis leo.</span>            
-            </div>
-            <div className="keen-slider__slide number-slide3">
-              <h2>Keep your data in one place. 3.</h2>
-              <span className="body">Dignissim amet sed adipiscing egestas bibendum purus neque et eget. Leo risus, ut consequat in ipsum. Nam nunc, eget sit a aliquam urna adipiscing proin. Dui quam augue convallis justo nullam semper maecenas egestas. Iaculis leo.</span>
-            </div>
-            <div className="keen-slider__slide number-slide4">
-              <h2>Keep your data in one place. 4.</h2>
-              <span className="body">Dignissim amet sed adipiscing egestas bibendum purus neque et eget. Leo risus, ut consequat in ipsum. Nam nunc, eget sit a aliquam urna adipiscing proin. Dui quam augue convallis justo nullam semper maecenas egestas. Iaculis leo.</span>
-            </div>
-            <div className="keen-slider__slide number-slide5">
-              <h2>Keep your data in one place. 5.</h2>
-              <span className="body">Dignissim amet sed adipiscing egestas bibendum purus neque et eget. Leo risus, ut consequat in ipsum. Nam nunc, eget sit a aliquam urna adipiscing proin. Dui quam augue convallis justo nullam semper maecenas egestas. Iaculis leo.</span>
-            </div>
+          {
+            tabs.map((tab, index) => {
+              return (
+              <div key={`tab_contents_${index}`} className="keen-slider__slide number-slide1">
+                <h2>{t(`payroll_tab_title_${tab.id}`)}</h2>
+                <span className="body">{t(`payroll_tab_text_${tab.id}`)}</span>
+              </div>
+              )
+            })
+          }
           </div>
         </div>
       </div>
 
       <div className="transfer">
         <img src={ background } className="background" alt="" />
-        <h2 className="noanim animleft">Transfer salary digitally.</h2>
+        <h2 className="noanim animleft">{t("payroll_transfer_title")}</h2>
         <div className="tree">
           <img src={require("../../assets/images/payroll/screenshot.png")} alt="" className="screenshot noanim animleft" />
           <div className="cards noanim animright"><img src={display.isPortrait ? treeMobile : tree} alt="" /></div>
@@ -244,29 +234,29 @@ function Payroll() {
         </div>
         <div className="safety">
           <div className="text noanim animleft">
-            <h2><span>Safety</span> to the Max.</h2>
-            <h3>Say hello to our security and data protection</h3>
-            <span className="body">Vulputate duis nunc, sit enim odio proin. Aliquet augue egestas nisi, condimentum nibh. Porta sem sit ipsum cursus lacus sed. A est quis dui in ipsum risus id mauris, eleifend. Nisi tortor id volutpat amet pulvinar id elementum sit. Orci elit morbi erat massa vel eget luctus sollicitudin egestas. Dignissim enim, in aliquam sed molestie massa. Amet, et, cursus gravida libero viverra. Urna urna ac amet a eu montes, at nunc. </span>
+            <h2><span>{t("payroll_transfer_safety")}</span> {t("payroll_transfer_safety_max")}</h2>
+            <h3>{t("payroll_transfer_safety_subtitle")}</h3>
+            <span className="body">{t("payroll_transfer_safety_text")}</span>
           </div>
           <div className="boxes">
           <div className="row">
               <div className="box noanim animright">
                 <img src={require("../../assets/images/payroll/biometrics.png")} alt="" />
-                <h5>Dynamic Biometrics </h5>
+                <h5>{t("payroll_transfer_safety_box_1")}</h5>
               </div>
               <div className="box noanim animright">
-                <img src={require("../../assets/images/payroll/bank.png")} alt="" />
-                <h5>No holding of clients funds at anytime</h5>
+                <img src={require("../../assets/images/payroll/crypto.png")} alt="" />
+                <h5>{t("payroll_transfer_safety_box_3")}</h5>
               </div>
             </div>
             <div className="row">
               <div className="box noanim animright">
-                <img src={require("../../assets/images/payroll/crypto.png")} alt="" />
-                <h5>Authorization based upon tokenization</h5>
+                <img src={require("../../assets/images/payroll/bank.png")} alt="" />
+                <h5>{t("payroll_transfer_safety_box_2")}</h5>
               </div>
               <div className="box noanim animright">
                 <img src={require("../../assets/images/payroll/encryption.png")} alt="" />
-                <h5>End-to-End encryption of consumer data</h5>
+                <h5>{t("payroll_transfer_safety_box_4")}</h5>
               </div>
             </div>
           </div>
@@ -301,9 +291,9 @@ function Payroll() {
 
       <div className="earlyaccess noanim animbottom">
         <img src={display.isPortrait ? earlyaccessMobile : earlyaccess} className="background" alt="" />
-        <h1>Want an early acces?</h1>
+        <h1>{t("payroll_ready_to_try")}</h1>
         <div className="item button" onClick={showContact} onMouseEnter={() => setHover("request")} onMouseLeave={() => setHover("")}>
-          <span>Request now</span>
+          <span>{t("request_early_access")}</span>
           <div className="arrows">
             <Arrow />
           </div>

@@ -534,6 +534,9 @@ function restartAnimations() {
     anims[i].classList.add("noanim");
     anims[i].classList.remove("anim");
   }
+
+  clonedTools = null;
+  clonedeInvoice = null;
 }
 
 export const functions = { checkAnims, restartAnimations, init, resetVideo }

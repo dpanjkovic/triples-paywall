@@ -348,7 +348,7 @@
 
 .homepage .buttons {
   position: absolute;
-  top: 240px;
+  top: 300px;
   display: flex;
   align-items: center;
   width: 100%;
@@ -391,6 +391,17 @@
   position: absolute;
   top: 50px;
   width: 100%;
+}
+
+.homepage .heading h1 {
+  max-width: 800px;
+  margin: 0px auto;
+}
+
+.homepage .heading h4 {
+  max-width: 700px;
+  margin: 20px auto;
+  font-size: 16px;
 }
 
 .homepage .einvoice .videoholder {
@@ -645,7 +656,7 @@
 
 @media (orientation: portrait) {
   .homepage .topimage {
-    height: 607px;
+    height: 707px;
     width: 100%;
     overflow: hidden;
   }
@@ -666,13 +677,17 @@
     top: 58px;
   }
 
-  .homepage .heading h1 {
+  .homepage .heading h1, .homepage .heading h4 {
     margin: 0px 20px;
+  }
+
+  .homepage .heading h4 {
+    margin-top: 20px;
   }
 
   .homepage .buttons {
     position: absolute;
-    top: 250px;
+    top: 350px;
     display: initial;
     align-items: center;
     width: 100%;
@@ -897,7 +912,9 @@
 .App.AR .homepage .howisworking .tabs,
 .App.AR .homepage .howisworking .content,
 .App.AR .homepage .howisworking .tabs .tab,
-.App.AR .homepage .buttons
+.App.AR .homepage .buttons,
+.App.AR .homepage .buttons .apps,
+.App.AR .homepage .buttons .avatarswrapper
  {
   flex-direction: row-reverse;
 }
@@ -918,15 +935,6 @@
 
 .App.AR .homepage .investors {
   flex-direction: row;
-}
-
-.App.AR .homepage .getmoredone h2, 
-.App.AR .homepage .getmoredone span,
-.App.AR .homepage .howisworking .content .appfeatures .appfeaturescontent,
-.App.AR .homepage .investors .opportunity
- {
-  align-self: flex-end;
-  text-align: end;
 }
 
 .App.AR .homepage .investors .opportunity a {
@@ -975,7 +983,6 @@
 .App.AR .homepage .einvoice .get_paid {
   right: 0px;
   left: auto;
-  text-align: end;
 }
 
 .App.AR .homepage .einvoice .benefits {

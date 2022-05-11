@@ -8,16 +8,18 @@ import eInvoiceQuick from "../../assets/images/icons/einvoice-quick.svg";
 import eInvoiceSaves from "../../assets/images/icons/einvoice-saves.svg";
 import eInvoiceFaster from "../../assets/images/icons/einvoice-faster.svg";
 import eInvoiceFlexibility from "../../assets/images/icons/einvoice-flexibility.svg";
+import { useTranslation } from 'react-i18next';
 
 const GetPaid = () => {
   const display = useSelector((state) => state.display.value);
-  
+  const { t } = useTranslation();
+
   return (
     <div className={display.isPortrait ? "noanim animbottom get_paid" : "get_paid"}>
       <div>
-        <h2>Get paid easy.</h2>
-        <span className="body">In-app automated interactive invoicing that allows merchants to easily send professional, digital estimates and invoices from anywhere.</span>
-        <span className="body">Whether you are a freelancer, Independent Contractor, online seller, or own a shop, Flexxa’s interactive invoicing is your all-in-one invoicing tool that enables you to create unique professional invoices, send estimates to your clients, and get paid instantly.</span>
+        <h2>{ t("getpaid_title") }</h2>
+        <p className="body">{ t("getpaid_text_1") }</p>
+        <p className="body">{ t("getpaid_text_2") }</p>
       </div>
     </div>
   )
@@ -25,6 +27,8 @@ const GetPaid = () => {
 
 function Einvoice() {
   const display = useSelector((state) => state.display.value);
+
+  const { t } = useTranslation();
 
   return (
     <div className="einvoice sticky" id="einvoice">
@@ -35,8 +39,8 @@ function Einvoice() {
       </div>
       <div className="gradient"></div>
       <div className="introducing">
-        <h1 className={display.isPortrait ? "noanim animbottom" : ""}>Introducing eInvoice</h1>
-        <span className={display.isPortrait ? "subtitle noanim animbottom delay150" : "subtitle "}>instant invoices through SMS, mail & Whatsapp</span>
+        <h1 className={display.isPortrait ? "noanim animbottom" : ""}>{ t("einvoice_title") }</h1>
+        <span className={display.isPortrait ? "subtitle noanim animbottom delay150" : "subtitle "}>{ t("einvoice_subtitle") }</span>
       </div>
       { !display.isPortrait && <GetPaid /> }
       <div className="benefits">
@@ -44,19 +48,19 @@ function Einvoice() {
         <div>
           <div className={display.isPortrait ? "button quick noanim animbottom" : "button quick "}>
             <img src={eInvoiceQuick} alt="" />
-            Quick and convenient to use
+            { t("benefit_1") }
           </div>
           <div className={display.isPortrait ? "button saves noanim animbottom delay150" : "button saves "}>
             <img src={eInvoiceSaves} alt="" />
-            Saves operational time and costs
+            { t("benefit_2") }
           </div>
           <div className={display.isPortrait ? "button cashflow noanim animbottom delay300" : "button cashflow "}>
             <img src={eInvoiceFaster} alt="" />
-            Get paid faster for better cashflow
+            { t("benefit_3") }
           </div>
           <div className={display.isPortrait ? "button flexibility noanim animbottom delay450" : "button flexibility "}>
             <img src={eInvoiceFlexibility} alt="" />
-            Flexibility for customers
+            { t("benefit_4") }
           </div>
         </div>
       </div>

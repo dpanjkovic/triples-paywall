@@ -14,6 +14,8 @@ import { setDisplay } from './store/displaySlice';
 import WhitePapers from "./pages/whitepapers";
 import { setLang } from "./store/langSlice";
 import Terms from "./pages/terms";
+import './i18n';
+import { useTranslation } from 'react-i18next';
 
 const IMAGES = {
   "/" : [
@@ -86,9 +88,11 @@ const loadImage = image => {
 function App() {
   const dispatch = useDispatch();
   const lang = useSelector((state) => state.lang.value);
+  const { i18n } = useTranslation();
 
   useEffect(() => {
     const cookielang = getCookie("lang") || "EN";
+    i18n.changeLanguage(cookielang);
     dispatch(setLang(cookielang));
   }, []);
 
