@@ -7,11 +7,14 @@ import Twitter from "../../assets/images/icons/twitter.svg";
 import Fb from "../../assets/images/icons/fb.svg";
 import Linkedin from "../../assets/images/icons/linkedin.svg";
 import LangIcon from "../../assets/images/icons/lang.svg";
+import { useTranslation } from 'react-i18next';
 
 function FooterMenu(props) {
   const dispatch = useDispatch();
   const lang = useSelector((state) => state.lang.value);
   const [hover, setHover] = useState("");
+
+  const { t } = useTranslation();
 
   const showContact = () => {
     window.scrollTo(0, 0);
@@ -21,11 +24,11 @@ function FooterMenu(props) {
   return (
     <div className="footermenu">
       <nav className="mt-5 mb-5">
-        <div className="item"><a href="/#einvoice">eInvoice</a></div>
-        <div className="item"><a href="payroll">Payroll</a></div>
-        <div className="item"><a href="aboutus">About us</a></div>
+        <div className="item"><a href="/#einvoice">{ t("einvoice") }</a></div>
+        <div className="item"><a href="payroll">{ t("payroll") }</a></div>
+        <div className="item"><a href="aboutus">{ t("about_us") }</a></div>
         <div className="item button" onClick={showContact} onMouseEnter={() => setHover("contactus")} onMouseLeave={() => setHover("")}>
-          Contact us
+        { t("contact_us") }
           { hover === "contactus" ? <ArrowActive /> : <Arrow /> }
         </div>
         <div className="item language">

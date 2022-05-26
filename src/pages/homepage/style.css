@@ -679,6 +679,10 @@
     top: 58px;
   }
 
+  .homepage .heading h1 {
+    font-size: 48px;
+  }
+
   .homepage .heading h1, .homepage .heading h4 {
     margin: 0px 20px;
   }

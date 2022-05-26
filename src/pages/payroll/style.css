@@ -410,6 +410,10 @@
     width: 100%;
   }
 
+  .payroll .topimage .swirls {
+    top: 0px;
+  }
+
   .payroll .heading {
     top: 60px;
   }
