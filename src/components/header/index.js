@@ -43,7 +43,7 @@ function Header() {
   const dispatch = useDispatch();
   const display = useSelector((state) => state.display.value);
 
-  const { t, i18n } = useTranslation();
+  const { t } = useTranslation();
 
   const form = useRef();
 
